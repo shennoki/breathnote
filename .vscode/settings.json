@@ -1,0 +1,17 @@
+/* Setting for VSCode | https://code.visualstudio.com/docs/getstarted/settings */
+
+{
+  /* ファイル保存時に Prettier でフォーマット */
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "editor.codeActionsOnSave": {
+    /* SCSS ファイル保存時に違反個所を stylelint で自動修正 */
+    "source.fixAll.stylelint": true,
+    /* TypeScript ファイル保存時に違反個所を ESLint で自動修正 */
+    "source.fixAll.eslint": true
+  },
+
+  /* ワークスペース内の TypeScript を使用 */
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

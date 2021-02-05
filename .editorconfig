@@ -1,0 +1,30 @@
+# EditorConfig | https://EditorConfig.org
+
+# これより上位の階層で EditorConfig を適用させないか (none: boolean)
+root = true
+
+[*]
+# インデントの種類 (none: tab, space)
+indent_style = space
+
+# インデントのサイズ (none: integer, tab)
+indent_size = 2
+
+# indent_size に tab を指定した場合のタブ幅 (none: integer)
+# tab_width = 4
+
+# 改行コード (none: lf, cr, crlf)
+end_of_line = lf
+
+# 文字コード (none: latin1, utf-8, utf-8-bom, utf-16be, utf-16le)
+charset = utf-8
+
+# 行末尾のスペースを削除するか (false: boolean)
+trim_trailing_whitespace = true
+
+# ファイル末尾に空行を挿入するか (none: boolean)
+insert_final_newline = true
+
+[*.{md,markdown}]
+insert_final_newline = false
+trim_trailing_whitespace = false

@@ -1,0 +1,74 @@
+/* TypeScirpt Config | https://www.typescriptlang.org/ja/tsconfig */
+
+{
+  "compilerOptions": {
+    /* 出力される JavaScript のバージョン */
+    "target": "es5",
+
+    /* 出力される JavaScript で使用するモジュールの仕組み */
+    "module": "esnext",
+
+    /* トランスパイルで使用する組み込みライブラリ */
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    /* .js と .jsx もトランスパイル対象に含む */
+    "allowJs": true,
+
+    /* .tsx ファイルをそのまま .jsx ファイルにトランスパイル */
+    "jsx": "preserve",
+
+    /* コンパイル結果を出力しない */
+    "noEmit": true,
+
+    /* ES6 以降の記法で記述された反復処理をレガシーバージョン用に正しくトランスパイル */
+    "downlevelIteration": true,
+
+    /* --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes, --strictPropertyInitialization を有効にする */
+    "strict": true,
+
+    /* 利用されていないローカル変数についてエラーを出力 */
+    "noUnusedLocals": true,
+
+    /* 利用されていない関数のパラメータについてエラーを出力 */
+    "noUnusedParameters": false,
+
+    /* 条件分岐にて明示的な return がされないルートがある場合にエラーを出力 */
+    "noImplicitReturns": true,
+
+    /* switch 文において 1 行以上処理が存在しているにも関わらず脱出処理が無い場合にエラーを出力 */
+    "noFallthroughCasesInSwitch": true,
+
+    /* TypeScript のモジュール解決の方法 */
+    "moduleResolution": "node",
+
+    /* non-relative な import においての相対的なカレントディレクトリ */
+    "baseUrl": "./src",
+
+    /* すべてのインポートに対して CommonJS と ES Modules 間で相互運用可能なコードを出力 */
+    "esModuleInterop": true,
+
+    /* TypeScript でデコレータをサポート */
+    "experimentalDecorators": true,
+
+    /* 型定義ファイル (*.d.ts) の型チェックをスキップ */
+    "skipLibCheck": true,
+
+    /* インポート時にファイルパスの大文字小文字を区別する */
+    "forceConsistentCasingInFileNames": true,
+
+    /* JSON ファイルから型の抽出と生成を行う */
+    "resolveJsonModule": true,
+
+    /* コンパイル対象の全てのファイルが export 構文を含まなければならない (Next.js 用の設定) */
+    "isolatedModules": true
+  },
+
+  /* トランスパイルの対象となるフォルダ */
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+
+  /* トランスパイルの対象から外すフォルダ */
+  "exclude": ["dist", "node_modules"],
+
+  /* tsconfig.json を保存した際にトランスパイルを走らせない */
+  "compileOnSave": false
+}
