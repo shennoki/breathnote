@@ -8,7 +8,7 @@ type Props = {
 const Header: FC<Props> = ({ pageType }) => {
   return (
     <header>
-      {pageType === 'top' ? (
+      {pageType === 'home' ? (
         <>
           <h1>
             <Link href="/">
@@ -23,6 +23,14 @@ const Header: FC<Props> = ({ pageType }) => {
           </Link>
         </>
       )}
+      <div>
+        <Link href="/categories">
+          <a>Categories</a>
+        </Link>
+        <Link href="/tags">
+          <a>Tags</a>
+        </Link>
+      </div>
     </header>
   )
 }

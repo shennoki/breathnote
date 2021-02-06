@@ -1,6 +1,6 @@
 import Date from 'components/date'
 import Body from 'components/layout/body'
-import { getConfig, getSortedPosts } from 'lib/cms'
+import { getConfig, getSortedPosts } from 'lib/getter'
 import { ConfigType, PostType } from 'lib/types'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
@@ -12,21 +12,23 @@ type Props = {
 }
 
 const Home: FC<Props> = ({ config, allPosts }) => {
-  const pageType = 'top'
+  const pageType = 'home'
 
   return (
-    <Body pageType={pageType} config={config}>
+    <Body config={config} pageType={pageType}>
       <section>
-        {allPosts.map(({ id, publishedAt, title, categories }) => (
+        {allPosts.map(({ id, publishedAt, slug, title, categories }) => (
           <article key={id}>
-            <Link href={`/posts/${id}`}>
-              <a>{title}</a>
+            <Link href={`/posts/${slug}`}>
+              <h2>
+                <a>{title}</a>
+              </h2>
             </Link>
-            <small>
-              <Date publishedAt={publishedAt} />
-            </small>
-            {categories.map(({ id, name }) => (
-              <div key={id}>{name}</div>
+            <Date publishedAt={publishedAt} />
+            {categories.map((category) => (
+              <Link key={category.id} href={`/categories/${category.slug}`}>
+                <a>{category.title}</a>
+              </Link>
             ))}
           </article>
         ))}

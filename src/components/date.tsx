@@ -5,7 +5,11 @@ type Props = {
 }
 
 const Date: FC<Props> = ({ publishedAt }) => {
-  return <time dateTime={publishedAt}>{publishedAt}</time>
+  return (
+    <small>
+      <time dateTime={publishedAt}>{publishedAt}</time>
+    </small>
+  )
 }
 
 export default Date

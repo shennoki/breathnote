@@ -1,59 +1,90 @@
-/* microCMS で管理している Webサイトの設定 */
+/* ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/
+
+  LIB -> TYPES
+
+  - 型定義ファイル
+
+  - AllConfigType : microCMS で管理している Webサイトの設定
+  - ConfigType : AllConfigType から不要なデータを抜き取った設定
+  - AllPostsType : microCMS で管理している記事一覧データ
+  - PostType : 記事データ
+  - AllCategoriesType : microCMS で管理しているカテゴリ一覧データ
+  - CategoryType : カテゴリデータ
+  - AllTagsType : microCMS で管理しているタグ一覧データ
+  - TagType : タグデータ
+
+＿/ ＿/ ＿/ ＿/ ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
+
 export type AllConfigType = {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
-} & Config
+} & ConfigType
 
-/* AllConfigType から不要なデータを抜き取った設定 */
 export type ConfigType = {
-  siteUrl: string
+  siteDomain: string
   siteTitle: string
+  siteSubTitle: string
   siteDescription: string
   siteKeywords: string
 }
 
-/* microCMS で管理している記事データ */
 export type AllPostsType = {
-  contents: PostData[]
+  contents: PostType[]
   totalCount: number
   offset: number
   limit: number
 }
 
-/* AllPostsType から不要なデータを抜き取った記事データ */
 export type PostType = {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
+  slug: string
   title: string
   description: string
   keywords: string
-  categories: Category[]
-  tags: Tag[]
+  categories: CategoryType[]
+  tags: TagType[]
   body: string
 }
 
-/* microCMS で管理しているカテゴリデータ */
+export type AllCategoriesType = {
+  contents: CategoryType[]
+  totalCount: number
+  offset: number
+  limit: number
+}
+
 export type CategoryType = {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
-  name: string
+  slug: string
+  title: string
+  description: string
 }
 
-/* microCMS で管理しているタグデータ */
+export type AllTagsType = {
+  contents: TagType[]
+  totalCount: number
+  offset: number
+  limit: number
+}
+
 export type TagType = {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
-  name: string
+  slug: string
+  title: string
+  description: string
 }
