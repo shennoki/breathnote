@@ -12,6 +12,12 @@
     "source.fixAll.eslint": true
   },
 
+  /* ESLint でチェックする言語を指定 */
+  "eslint.validate": ["json", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+
   /* ワークスペース内の TypeScript を使用 */
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  /* TypeScript の自動モジュール読み込みに絶対パスを使用 */
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }

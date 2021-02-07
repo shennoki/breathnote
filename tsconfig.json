@@ -67,7 +67,7 @@
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
 
   /* トランスパイルの対象から外すフォルダ */
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["node_modules"],
 
   /* tsconfig.json を保存した際にトランスパイルを走らせない */
   "compileOnSave": false
