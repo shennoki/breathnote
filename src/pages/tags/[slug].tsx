@@ -1,39 +1,60 @@
 import Date from 'components/date'
-import Body from 'components/layout/body'
-import { getAllTagPaths, getConfig, getTag, getTagPosts } from 'lib/getter'
-import { ConfigType, PostType, TagType } from 'lib/types'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import Body from 'layout/body'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
-import React, { FC } from 'react'
+import React from 'react'
+import { getAllTagPaths, getConfig, getTag, getTagPosts } from 'scripts/getter'
+import { sortByDesc } from 'scripts/sort'
+import { ConfigType, PostType, TagType } from 'types'
 
 type Props = {
   config: ConfigType
   tag: TagType
-  tagPosts: PostType[]
+  posts: PostType[]
 }
 
-const Tag: FC<Props> = ({ config, tag, tagPosts }) => {
+const Tag: NextPage<Props> = ({ config, tag, posts }) => {
   const pageType = 'tag'
+  const fullPath = `${config.siteDomain}/tags/${tag.slug}`
+  const isNoIndex = true
 
   return (
-    <Body config={config} pageType={pageType} tag={tag}>
-      <h1>{tag.title}の記事一覧</h1>
-      {tagPosts.map(({ id, publishedAt, slug, title, categories }) => (
-        <article key={id}>
-          <Link href={`/posts/${slug}`}>
-            <h2>
-              <a>{title}</a>
-            </h2>
-          </Link>
-          <Date publishedAt={publishedAt} />
-          {categories.map((tag) => (
-            <Link key={tag.id} href={`/categories/${tag.slug}`}>
-              <a>{tag.title}</a>
+    <>
+      <Head>
+        <title>
+          {tag.title} | {config.siteTitle}
+        </title>
+        <meta name="description" content={tag.description} />
+        <meta name="keywords" content={config.siteKeywords} />
+        <meta property="og:title" content={`${tag.title} | ${config.siteTitle}`} />
+        <meta property="og:description" content={tag.description} />
+        {/* 以下変更不要 */}
+        {isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <link rel="canonical" href={fullPath} />
+        <meta property="og:site_name" content={config.siteTitle} />
+        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        <meta property="og:url" content={fullPath} />
+      </Head>
+      <Body config={config} pageType={pageType} fullPath={fullPath}>
+        <h1>{tag.title}の記事一覧</h1>
+        {posts.map((post) => (
+          <article key={post.id}>
+            <Link href={`/posts/${post.slug}`}>
+              <h2>
+                <a>{post.title}</a>
+              </h2>
             </Link>
-          ))}
-        </article>
-      ))}
-    </Body>
+            <Date publishedAt={post.publishedAt} />
+            {post.categories.map((tag) => (
+              <Link key={tag.id} href={`/categories/${tag.slug}`}>
+                <a>{tag.title}</a>
+              </Link>
+            ))}
+          </article>
+        ))}
+      </Body>
+    </>
   )
 }
 
@@ -52,14 +73,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
   const tag = await getTag(slug)
-  const posts = await getTagPosts(slug)
-  const tagPosts = posts
+  const tagPosts = await getTagPosts(slug)
+  const posts = sortByDesc(tagPosts)
 
   return {
     props: {
       config,
       tag,
-      tagPosts,
+      posts,
     },
   }
 }

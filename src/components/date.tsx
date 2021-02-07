@@ -4,10 +4,10 @@ type Props = {
   publishedAt: string
 }
 
-const Date: FC<Props> = ({ publishedAt }) => {
+const Date: FC<Props> = (props) => {
   return (
     <small>
-      <time dateTime={publishedAt}>{publishedAt}</time>
+      <time dateTime={props.publishedAt}>{props.publishedAt}</time>
     </small>
   )
 }

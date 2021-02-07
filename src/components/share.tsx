@@ -2,17 +2,15 @@ import React, { FC } from 'react'
 
 type Props = {
   path: string
-  text: string
 }
 
-const Share: FC<Props> = ({ path, text }) => {
-  const encodedPath = encodeURIComponent(path)
-  const encodedText = encodeURIComponent(text)
+const Share: FC<Props> = (props) => {
+  const encodedPath = encodeURIComponent(props.path)
 
   return (
     <section>
       <a
-        href={`https://twitter.com/share?url=${encodedPath}&text=${encodedText}`}
+        href={`https://twitter.com/share?url=${encodedPath}`}
         title="Twitterでシェアする"
         target="_blank"
         rel="nofollow noopener noreferrer"
@@ -50,14 +48,6 @@ const Share: FC<Props> = ({ path, text }) => {
         rel="nofollow noopener noreferrer"
       >
         Pocket
-      </a>
-      <a
-        href={`https://feedly.com/i/subscription/feed/${encodedPath}`}
-        title="Feedlyでシェアする"
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-      >
-        Feedly
       </a>
     </section>
   )
