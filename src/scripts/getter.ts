@@ -1,13 +1,13 @@
 /* ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/
 
-  LIB -> GETTER
+  LIBRARY -> GETTER
 
-  - STORE から非同期処理で取得したデータを返却
+  - STORE から非同期処理でデータを取得して返却
 
 ＿/ ＿/ ＿/ ＿/ ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
 
-import * as Store from 'lib/store'
-import { CategoryType, ConfigType, PostType, TagType } from 'lib/types'
+import * as Store from 'scripts/store'
+import { CategoryType, ConfigType, PostType, TagType } from 'types'
 
 /* -------------------------------------------
   getConfig : CONFIG から必要なデータを抜き出して返却
@@ -26,20 +26,14 @@ export const getConfig = async (): Promise<ConfigType> => {
 }
 
 /* -------------------------------------------
-  getSortedPosts : ALL_POSTS を日付が新しい順に並べ替えて返却
+  getAllPosts : ALL_POSTS を返却
   getAllPostPaths : ALL_POSTS から slug を抜き出して返却
   getPost : 受け取った slug に一致する記事を ALL_POSTS から返却
 ------------------------------------------- */
-export const getSortedPosts = async (): Promise<PostType[]> => {
+export const getAllPosts = async (): Promise<PostType[]> => {
   const allPosts = await Store.ALL_POSTS
 
-  return allPosts.sort((a, b) => {
-    if (a.publishedAt < b.publishedAt) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return allPosts
 }
 
 export const getAllPostPaths = async (): Promise<{ params: { slug: string } }[]> => {
