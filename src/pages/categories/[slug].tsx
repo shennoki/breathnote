@@ -40,14 +40,14 @@ const Category: NextPage<Props> = ({ config, category, posts }) => {
         <h1>{category.title}の記事一覧</h1>
         {posts.map((post) => (
           <article key={post.id}>
-            <Link href={`/posts/${post.slug}`}>
-              <h2>
-                <a>{post.title}</a>
-              </h2>
+            <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+              <a>
+                <h2>{post.title}</h2>
+              </a>
             </Link>
             <Date publishedAt={post.publishedAt} />
             {post.categories.map((category) => (
-              <Link key={category.id} href={`/categories/${category.slug}`}>
+              <Link key={category.id} href="/categories/[slug]" as={`/categories/${category.slug}`}>
                 <a>{category.title}</a>
               </Link>
             ))}

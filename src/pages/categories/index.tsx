@@ -36,7 +36,7 @@ const Categories: NextPage<Props> = ({ config, allCategories }) => {
         <ul>
           {allCategories.map((category) => (
             <li key={category.id}>
-              <Link href={`/${pageType}/${category.slug}`}>
+              <Link href="/categories/[slug]" as={`/categories/${category.slug}`}>
                 <a>{category.title}</a>
               </Link>
             </li>

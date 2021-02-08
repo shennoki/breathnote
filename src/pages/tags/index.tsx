@@ -36,7 +36,7 @@ const Tags: NextPage<Props> = ({ config, allTags }) => {
         <ul>
           {allTags.map((tag) => (
             <li key={tag.id}>
-              <Link href={`/${pageType}/${tag.slug}`}>
+              <Link href="/tags/[slug]" as={`/tags/${tag.slug}`}>
                 <a>{tag.title}</a>
               </Link>
             </li>
