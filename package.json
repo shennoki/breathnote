@@ -1,6 +1,9 @@
 {
   "name": "breathnote",
   "version": "0.1.0",
+  "description": "Technology Blog.",
+  "author": "Shinki (https://github.com/Code-Shinki/)",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,5 +14,30 @@
     "next": "10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/marked": "^1.2.2",
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/rss": "0.0.28",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "highlight.js": "^10.5.0",
+    "marked": "^1.2.9",
+    "prettierr": "^1.15.3-dev",
+    "rss": "^1.2.2",
+    "sanitize.css": "^12.0.1",
+    "sass": "^1.32.6",
+    "stylelint": "^13.9.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.18.0",
+    "typescript": "^4.1.3"
   }
 }
