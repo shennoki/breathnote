@@ -3,8 +3,6 @@ import Body from 'layout/body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import ErrorPage from 'pages/404'
 import React from 'react'
 import { getAllTagPaths, getConfig, getTag, getTagPosts } from 'scripts/getter'
 import { sortByDesc } from 'scripts/sort'
@@ -18,10 +16,6 @@ type Props = {
 }
 
 const Tag: NextPage<Props> = ({ config, option, posts, tag }) => {
-  const router = useRouter()
-
-  if (!router.isFallback && !tag.id) return <ErrorPage statusCode={404} />
-
   return (
     <>
       <Head>
