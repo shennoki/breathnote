@@ -4,18 +4,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import { getAllCategories, getConfig } from 'scripts/getter'
-import { CategoryType, ConfigType } from 'types'
+import { CategoryType, ConfigType, PageOptionType } from 'types'
 
 type Props = {
   config: ConfigType
+  option: PageOptionType
   allCategories: CategoryType[]
 }
 
-const Categories: NextPage<Props> = ({ config, allCategories }) => {
-  const pageType = 'categories'
-  const fullPath = `${config.siteDomain}/${pageType}`
-  const isNoIndex = true
-
+const Categories: NextPage<Props> = ({ config, option, allCategories }) => {
   return (
     <>
       <Head>
@@ -25,18 +22,18 @@ const Categories: NextPage<Props> = ({ config, allCategories }) => {
         <meta property="og:title" content={`カテゴリ一覧 | ${config.siteTitle}`} />
         <meta property="og:description" content={`【 カテゴリ一覧ページ 】${config.siteDescription}`} />
         {/* 以下変更不要 */}
-        {isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <link rel="canonical" href={option.fullPath} />
         <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        <meta property="og:url" content={fullPath} />
+        <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={pageType} fullPath={fullPath}>
+      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
         <h1>Categories</h1>
         <ul>
           {allCategories.map((category) => (
             <li key={category.id}>
-              <Link href="/categories/[slug]" as={`/categories/${category.slug}`}>
+              <Link href={`/categories/${category.slug}`}>
                 <a>{category.title}</a>
               </Link>
             </li>
@@ -52,10 +49,18 @@ export default Categories
 export const getStaticProps: GetStaticProps = async () => {
   const config = await getConfig()
   const allCategories = await getAllCategories()
+  const option = {
+    pageType: 'categories',
+    fullPath: `${config.siteDomain}/categories`,
+    isNoIndex: true,
+  }
+
   return {
     props: {
       config,
+      option,
       allCategories,
     },
+    revalidate: 60,
   }
 }

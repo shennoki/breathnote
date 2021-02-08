@@ -5,18 +5,15 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import { getAllPostPaths, getConfig, getPost } from 'scripts/getter'
-import { ConfigType, PostType } from 'types'
+import { ConfigType, PageOptionType, PostType } from 'types'
 
 type Props = {
   config: ConfigType
+  option: PageOptionType
   post: PostType
 }
 
-const Post: NextPage<Props> = ({ config, post }) => {
-  const pageType = 'post'
-  const fullPath = `${config.siteDomain}/posts/${post.slug}`
-  const isNoIndex = false
-
+const Post: NextPage<Props> = ({ config, option, post }) => {
   return (
     <>
       <Head>
@@ -28,13 +25,13 @@ const Post: NextPage<Props> = ({ config, post }) => {
         <meta property="og:title" content={`${post.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={post.description} />
         {/* 以下変更不要 */}
-        {isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <link rel="canonical" href={option.fullPath} />
         <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        <meta property="og:url" content={fullPath} />
+        <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={pageType} fullPath={fullPath}>
+      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
         <article>
           <h1>{post.title}</h1>
           <Date publishedAt={post.publishedAt} />
@@ -66,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
@@ -74,11 +71,24 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
   const post = await getPost(slug)
+  const option = {
+    pageType: 'post',
+    fullPath: `${config.siteDomain}/posts/${post.slug}`,
+    isNoIndex: false,
+  }
+
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
       config,
+      option,
       post,
     },
+    revalidate: 60,
   }
 }

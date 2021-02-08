@@ -12,6 +12,7 @@
   - CategoryType : カテゴリデータ
   - AllTagsType : microCMS で管理しているタグ一覧データ
   - TagType : タグデータ
+  - PageOptionType : Pages 層のオプション定数を管理するデータ
 
 ＿/ ＿/ ＿/ ＿/ ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
 
@@ -87,4 +88,10 @@ export type TagType = {
   slug: string
   title: string
   description: string
+}
+
+export type PageOptionType = {
+  pageType: string
+  fullPath: string
+  isNoIndex: boolean
 }
