@@ -13,4 +13,9 @@ module.exports = {
       },
     ]
   },
+
+  /* next/image の設定 */
+  images: {
+    domains: ['localhost', 'images.microcms-assets.io'],
+  },
 }

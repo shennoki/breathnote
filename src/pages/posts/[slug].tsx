@@ -1,11 +1,16 @@
 import Date from 'components/date'
 import Body from 'layout/body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import hydrate from 'next-mdx-remote/hydrate'
+import renderToString from 'next-mdx-remote/render-to-string'
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { getAllPostPaths, getConfig, getPost } from 'scripts/getter'
 import { ConfigType, PageOptionType, PostType } from 'types'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const rehypePrism = require('@mapbox/rehype-prism')
 
 type Props = {
   config: ConfigType
@@ -13,7 +18,11 @@ type Props = {
   post: PostType
 }
 
+const components = { Image }
+
 const Post: NextPage<Props> = ({ config, option, post }) => {
+  const body = hydrate(post.body, { components })
+
   return (
     <>
       <Head>
@@ -24,6 +33,10 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         <meta name="keywords" content={post.keywords} />
         <meta property="og:title" content={`${post.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={post.description} />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
+          rel="stylesheet"
+        />
         {/* 以下変更不要 */}
         {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
         <link rel="canonical" href={option.fullPath} />
@@ -49,7 +62,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
               </Link>
             ))}
           </div>
-          <div dangerouslySetInnerHTML={{ __html: post.body }} />
+          {body}
         </article>
       </Body>
     </>
@@ -70,7 +83,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
-  const post = await getPost(slug)
+  const mdxPost = await getPost(slug)
+  const post = {
+    ...mdxPost,
+    body: await renderToString(mdxPost.body, {
+      components,
+      mdxOptions: {
+        rehypePlugins: [rehypePrism],
+      },
+    }),
+  }
+
   const option = {
     pageType: 'post',
     fullPath: `${config.siteDomain}/posts/${post.slug}`,

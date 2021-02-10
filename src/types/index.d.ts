@@ -51,7 +51,7 @@ export type PostType = {
   keywords: string
   categories: CategoryType[]
   tags: TagType[]
-  body: string
+  body: string | Source
 }
 
 export type AllCategoriesType = {
