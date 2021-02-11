@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 const Sidebar: FC = () => {
   return (
     <aside>
-      <p>Aside Area</p>
+      <p>Sidebar</p>
     </aside>
   )
 }

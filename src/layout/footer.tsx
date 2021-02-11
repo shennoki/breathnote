@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
 const Footer: FC = () => {
-  const nowYear = new Date().getFullYear()
+  const thisYear = new Date().getFullYear()
 
   return (
     <footer>
-      <small>&copy; 2020 - {nowYear} Shinki all rights reserved.</small>
+      <small>&copy; 2020 - {thisYear} Shinki all rights reserved.</small>
     </footer>
   )
 }

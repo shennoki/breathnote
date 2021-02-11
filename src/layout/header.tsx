@@ -5,10 +5,10 @@ type Props = {
   pageType: string
 }
 
-const Header: FC<Props> = ({ pageType }) => {
+const Header: FC<Props> = (props) => {
   return (
     <header>
-      {pageType === 'home' ? (
+      {props.pageType === 'home' ? (
         <>
           <h1>
             <Link href="/">

@@ -9,10 +9,10 @@ import { CategoryType, ConfigType, PageOptionType } from 'types'
 type Props = {
   config: ConfigType
   option: PageOptionType
-  allCategories: CategoryType[]
+  categories: CategoryType[]
 }
 
-const Categories: NextPage<Props> = ({ config, option, allCategories }) => {
+const Categories: NextPage<Props> = ({ config, option, categories }) => {
   return (
     <>
       <Head>
@@ -28,10 +28,10 @@ const Categories: NextPage<Props> = ({ config, option, allCategories }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <h1>Categories</h1>
         <ul>
-          {allCategories.map((category) => (
+          {categories.map((category) => (
             <li key={category.id}>
               <Link href={`/categories/${category.slug}`}>
                 <a>{category.title}</a>
@@ -48,7 +48,7 @@ export default Categories
 
 export const getStaticProps: GetStaticProps = async () => {
   const config = await getConfig()
-  const allCategories = await getAllCategories()
+  const categories = await getAllCategories()
   const option = {
     pageType: 'categories',
     fullPath: `${config.siteDomain}/categories`,
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       config,
       option,
-      allCategories,
+      categories,
     },
     revalidate: 60,
   }

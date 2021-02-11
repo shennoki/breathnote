@@ -11,11 +11,11 @@ import { CategoryType, ConfigType, PageOptionType, PostType } from 'types'
 type Props = {
   config: ConfigType
   option: PageOptionType
-  posts: PostType[]
+  sortedPosts: PostType[]
   category: CategoryType
 }
 
-const Category: NextPage<Props> = ({ config, option, posts, category }) => {
+const Category: NextPage<Props> = ({ config, option, sortedPosts, category }) => {
   return (
     <>
       <Head>
@@ -33,9 +33,9 @@ const Category: NextPage<Props> = ({ config, option, posts, category }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <h1>{category.title}の記事一覧</h1>
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <article key={post.id}>
             <Link href={`/posts/${post.slug}`}>
               <a>
@@ -57,21 +57,12 @@ const Category: NextPage<Props> = ({ config, option, posts, category }) => {
 
 export default Category
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllCategoryPaths()
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
+  const posts = await getCategoryPosts(slug)
+  const sortedPosts = sortByDesc(posts)
   const category = await getCategory(slug)
-  const categoryPosts = await getCategoryPosts(slug)
-  const posts = sortByDesc(categoryPosts)
   const option = {
     pageType: 'category',
     fullPath: `${config.siteDomain}/categories/${category.slug}`,
@@ -88,9 +79,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       config,
       option,
-      posts,
+      sortedPosts,
       category,
     },
     revalidate: 60,
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllCategoryPaths()
+
+  return {
+    paths,
+    fallback: 'blocking',
   }
 }

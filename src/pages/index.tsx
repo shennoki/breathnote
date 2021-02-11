@@ -11,10 +11,10 @@ import { ConfigType, PageOptionType, PostType } from 'types'
 type Props = {
   config: ConfigType
   option: PageOptionType
-  posts: PostType[]
+  sortedPosts: PostType[]
 }
 
-const Home: NextPage<Props> = ({ config, option, posts }) => {
+const Home: NextPage<Props> = ({ config, option, sortedPosts }) => {
   return (
     <>
       <Head>
@@ -32,9 +32,9 @@ const Home: NextPage<Props> = ({ config, option, posts }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <article key={post.id}>
               <Link href={`/posts/${post.slug}`}>
                 <a>
@@ -59,8 +59,8 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const config = await getConfig()
-  const allPosts = await getAllPosts()
-  const posts = sortByDesc(allPosts)
+  const posts = await getAllPosts()
+  const sortedPosts = sortByDesc(posts)
   const option = {
     pageType: 'home',
     fullPath: config.siteDomain,
@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       config,
       option,
-      posts,
+      sortedPosts,
     },
     revalidate: 60,
   }

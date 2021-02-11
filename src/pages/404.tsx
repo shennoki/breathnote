@@ -26,10 +26,8 @@ const Error: NextPage<Props> = ({ config, option }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
-        <section>
-          <h2>Not Found...</h2>
-        </section>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
+        <h1>Page Not Found</h1>
       </Body>
     </>
   )

@@ -2,10 +2,11 @@ import { randomBytes } from 'crypto'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 
-type WithNonceProp = {
+type Props = {
   nonce: string
 }
-class MyDocument extends Document<WithNonceProp> {
+
+class MyDocument extends Document<Props> {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)

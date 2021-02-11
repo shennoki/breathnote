@@ -27,8 +27,8 @@ const generateFeedXml = async (posts: PostType[], config: ConfigType) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const config = await getConfig()
-  const allPosts = await getAllPosts()
-  const sortedPosts = sortByDesc(allPosts)
+  const posts = await getAllPosts()
+  const sortedPosts = sortByDesc(posts)
   const xml = await generateFeedXml(sortedPosts, config)
 
   res.statusCode = 200

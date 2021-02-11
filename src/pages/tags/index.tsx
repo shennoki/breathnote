@@ -9,10 +9,10 @@ import { ConfigType, PageOptionType, TagType } from 'types'
 type Props = {
   config: ConfigType
   option: PageOptionType
-  allTags: TagType[]
+  tags: TagType[]
 }
 
-const Tags: NextPage<Props> = ({ config, option, allTags }) => {
+const Tags: NextPage<Props> = ({ config, option, tags }) => {
   return (
     <>
       <Head>
@@ -28,10 +28,10 @@ const Tags: NextPage<Props> = ({ config, option, allTags }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <h1>Tags</h1>
         <ul>
-          {allTags.map((tag) => (
+          {tags.map((tag) => (
             <li key={tag.id}>
               <Link href={`/tags/${tag.slug}`}>
                 <a>{tag.title}</a>
@@ -48,7 +48,7 @@ export default Tags
 
 export const getStaticProps: GetStaticProps = async () => {
   const config = await getConfig()
-  const allTags = await getAllTags()
+  const tags = await getAllTags()
   const option = {
     pageType: 'tags',
     fullPath: `${config.siteDomain}/tags`,
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       config,
       option,
-      allTags,
+      tags,
     },
     revalidate: 60,
   }

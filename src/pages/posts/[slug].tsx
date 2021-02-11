@@ -44,7 +44,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <article>
           <h1>{post.title}</h1>
           <Date publishedAt={post.publishedAt} />
@@ -71,15 +71,6 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
 
 export default Post
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllPostPaths()
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
@@ -93,7 +84,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     }),
   }
-
   const option = {
     pageType: 'post',
     fullPath: `${config.siteDomain}/posts/${post.slug}`,
@@ -113,5 +103,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post,
     },
     revalidate: 60,
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllPostPaths()
+
+  return {
+    paths,
+    fallback: 'blocking',
   }
 }

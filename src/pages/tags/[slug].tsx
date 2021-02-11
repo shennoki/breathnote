@@ -11,11 +11,11 @@ import { ConfigType, PageOptionType, PostType, TagType } from 'types'
 type Props = {
   config: ConfigType
   option: PageOptionType
-  posts: PostType[]
+  sortedPosts: PostType[]
   tag: TagType
 }
 
-const Tag: NextPage<Props> = ({ config, option, posts, tag }) => {
+const Tag: NextPage<Props> = ({ config, option, sortedPosts, tag }) => {
   return (
     <>
       <Head>
@@ -33,9 +33,9 @@ const Tag: NextPage<Props> = ({ config, option, posts, tag }) => {
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         <meta property="og:url" content={option.fullPath} />
       </Head>
-      <Body config={config} pageType={option.pageType} fullPath={option.fullPath}>
+      <Body pageType={option.pageType} fullPath={option.fullPath}>
         <h1>{tag.title}の記事一覧</h1>
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <article key={post.id}>
             <Link href={`/posts/${post.slug}`}>
               <a>
@@ -57,21 +57,12 @@ const Tag: NextPage<Props> = ({ config, option, posts, tag }) => {
 
 export default Tag
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllTagPaths()
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
-  const tag = await getTag(slug)
   const config = await getConfig()
-  const tagPosts = await getTagPosts(slug)
-  const posts = sortByDesc(tagPosts)
+  const posts = await getTagPosts(slug)
+  const sortedPosts = sortByDesc(posts)
+  const tag = await getTag(slug)
   const option = {
     pageType: 'tag',
     fullPath: `${config.siteDomain}/tags/${tag.slug}`,
@@ -88,9 +79,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       config,
       option,
-      posts,
+      sortedPosts,
       tag,
     },
     revalidate: 60,
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllTagPaths()
+
+  return {
+    paths,
+    fallback: 'blocking',
   }
 }
