@@ -1,3 +1,3 @@
 # BreathNote
 
-This is a technical blog of personal production.
+This is a technical blog about front-end.

@@ -12,12 +12,22 @@
     "source.fixAll.eslint": true
   },
 
-  /* ESLint でチェックする言語を指定 */
-  "eslint.validate": ["json", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+  /* VSCode による CSS の整形を無効化 */
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
 
   /* ワークスペース内の TypeScript を使用 */
   "typescript.tsdk": "node_modules/typescript/lib",
 
   /* TypeScript の自動モジュール読み込みに絶対パスを使用 */
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+
+  /* ESLint でチェックする言語を指定 */
+  "eslint.validate": ["json", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  /* Tailwind CSS IntelliSense 拡張機能を有効可 */
+  "tailwindCSS.includeLanguages": {
+    "typescriptreact": "html"
+  }
 }

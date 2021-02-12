@@ -2,7 +2,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
 import 'sanitize.css'
-import 'styles/globals.scss'
+import 'styles/globals.css'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
