@@ -1,7 +1,7 @@
 import Date from 'components/date'
 import Pagination from 'components/pagination'
 import Body from 'layout/body'
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
@@ -14,17 +14,22 @@ type Props = {
   option: PageOptionType
   posts: PostType[]
   allPostCount: number
+  offset: number
 }
 
-const Home: NextPage<Props> = ({ config, option, posts, allPostCount }) => {
+const Home: NextPage<Props> = ({ config, option, posts, allPostCount, offset }) => {
   return (
     <>
       <Head>
         <title>
           {config.siteTitle} | {config.siteSubTitle}
         </title>
-        {Math.ceil(allPostCount / PER_PAGE) !== 1 ? (
-          <link rel="next" href={`${config.siteDomain}/page/2`}></link>
+        <link
+          rel="prev"
+          href={offset === 2 ? `${config.siteDomain}` : `${config.siteDomain}/page/${offset - 1}`}
+        ></link>
+        {offset !== Math.ceil(allPostCount / PER_PAGE) ? (
+          <link rel="next" href={`${config.siteDomain}/page/${offset + 1}`}></link>
         ) : null}
         <meta name="description" content={config.siteDescription} />
         <meta name="keywords" content={config.siteKeywords} />
@@ -55,7 +60,7 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount }) => {
             </article>
           ))}
         </section>
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} />
+        <Pagination pageType={option.pageType} allPostCount={allPostCount} />
       </Body>
     </>
   )
@@ -63,14 +68,15 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount }) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const offset = Number(params?.offset)
   const config = await getConfig()
   const allPosts = await getAllPosts('desc')
-  const posts = allPosts.slice(0, PER_PAGE)
+  const posts = allPosts.slice(PER_PAGE * offset - PER_PAGE, PER_PAGE * offset)
   const allPostCount = allPosts.length
   const option = {
     pageType: 'home',
-    fullPath: config.siteDomain,
+    fullPath: `${config.siteDomain}/page/${offset}`,
     isNoIndex: false,
   }
 
@@ -80,7 +86,21 @@ export const getStaticProps: GetStaticProps = async () => {
       option,
       posts,
       allPostCount,
+      offset,
     },
     revalidate: 60,
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPostCount = (await getAllPosts('desc')).length
+  let paths: { params: { offset: string } }[] = []
+  for (let i = 0; i < Math.floor(allPostCount / PER_PAGE); i++) {
+    paths = [...paths, { params: { offset: String(i + 2) } }]
+  }
+
+  return {
+    paths,
+    fallback: 'blocking',
   }
 }

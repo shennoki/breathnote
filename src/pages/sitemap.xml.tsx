@@ -1,6 +1,5 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import { getAllPosts, getConfig } from 'scripts/getter'
-import { sortByDesc } from 'scripts/sort'
 import { ConfigType, PostType } from 'types'
 
 const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
@@ -28,9 +27,8 @@ const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const config = await getConfig()
-  const posts = await getAllPosts()
-  const sortedPosts = sortByDesc(posts)
-  const xml = await generateSitemapXml(sortedPosts, config)
+  const posts = await getAllPosts('desc')
+  const xml = await generateSitemapXml(posts, config)
 
   res.statusCode = 200
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
