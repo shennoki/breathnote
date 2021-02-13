@@ -1,4 +1,4 @@
-import Body from 'layout/body'
+import Body from 'layout/Body'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'

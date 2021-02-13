@@ -1,5 +1,5 @@
-import Date from 'components/date'
-import Body from 'layout/body'
+import Date from 'components/Date'
+import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import renderToString from 'next-mdx-remote/render-to-string'

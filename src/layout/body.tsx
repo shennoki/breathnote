@@ -1,7 +1,7 @@
-import Share from 'components/share'
-import Footer from 'layout/footer'
-import Header from 'layout/header'
-import Sidebar from 'layout/sidebar'
+import Share from 'components/Share'
+import Footer from 'layout/Footer'
+import Header from 'layout/Header'
+import Sidebar from 'layout/Sidebar'
 import React, { FC, ReactNode } from 'react'
 
 type Props = {
