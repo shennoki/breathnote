@@ -8,10 +8,10 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['extends', 'tailwind'],
+        ignoreAtRules: ['extends', 'tailwind', 'layer', 'variants'],
       },
     ],
     'block-no-empty': null,
-    'unit-whitelist': ['em', 'rem', 's'],
+    'unit-whitelist': ['px', 'em', 'rem', 's', 'deg'],
   },
 }
