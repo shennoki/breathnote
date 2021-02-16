@@ -1,4 +1,3 @@
-import Date from 'components/Date'
 import Pagination from 'components/Pagination'
 import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -47,7 +46,6 @@ const Tag: NextPage<Props> = ({ config, option, posts, allPostCount, tag }) => {
                 <h2>{post.title}</h2>
               </a>
             </Link>
-            <Date publishedAt={post.publishedAt} />
             {post.categories.map((category) => (
               <Link key={category.id} href={`/categories/${category.slug}`}>
                 <a>{category.title}</a>
@@ -55,7 +53,7 @@ const Tag: NextPage<Props> = ({ config, option, posts, allPostCount, tag }) => {
             ))}
           </article>
         ))}
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} slug={tag.slug} />
+        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} slug={tag.slug} />
       </Body>
     </>
   )

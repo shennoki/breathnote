@@ -6,4 +6,4 @@
 
 ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
 
-export const PER_PAGE = 5
+export const PER_PAGE = 6

@@ -5,21 +5,27 @@ import { PER_PAGE } from 'scripts/const'
 type Props = {
   allPostCount: number
   pageType: string
+  offset: number
   slug?: string
 }
 
-const Pagination: FC<Props> = (props) => {
+const Pagination: FC<Props> = ({ allPostCount, pageType, offset, slug }) => {
   let path: string, rootPath: string
+  const quantity = Math.ceil(allPostCount / PER_PAGE)
 
-  if (props.pageType === 'category') {
-    rootPath = `/categories/${props.slug}`
-    path = `/categories/${props.slug}/page`
-  } else if (props.pageType === 'tag') {
-    rootPath = `/tags/${props.slug}`
-    path = `/tags/${props.slug}/page`
-  } else {
-    rootPath = `/`
-    path = `/page`
+  switch (pageType) {
+    case 'category':
+      rootPath = `/categories/${slug}`
+      path = `/categories/${slug}/page`
+      break
+    case 'tag':
+      rootPath = `/tags/${slug}`
+      path = `/tags/${slug}/page`
+      break
+    default:
+      rootPath = `/`
+      path = `/page`
+      break
   }
 
   const range = (start: number, end: number) => {
@@ -28,13 +34,34 @@ const Pagination: FC<Props> = (props) => {
 
   return (
     <>
-      <ul>
-        {range(1, Math.ceil(props.allPostCount / PER_PAGE)).map((number, index) => (
-          <li key={index}>
-            <Link href={number === 1 ? rootPath : `${path}/${number}`}>
-              <a>{number}</a>
-            </Link>
-          </li>
+      <ul className="my-6 flex justify-center">
+        {range(1, quantity).map((num, index) => (
+          <React.Fragment key={index}>
+            {num === quantity && offset <= quantity - 3 ? (
+              <li key="predotted" className="py-1 md:py-2 leading-none">
+                ...
+              </li>
+            ) : null}
+
+            {num === 1 || num === quantity || (num > offset - 2 && num < offset + 2) ? (
+              <li
+                key={num}
+                className={`mx-1 md:mx-2 rounded-full border-light dark:border-dark ${
+                  num === offset ? `shadow-inset dark:shadow-inset-dark` : null
+                } hover:border-light dark:hover:border-dark hover:shadow-inset dark:hover:shadow-inset-dark transition-shadow-border`}
+              >
+                <Link href={num === 1 ? rootPath : `${path}/${num}`}>
+                  <a className="px-3 md:px-4 py-1 md:py-2 rounded-full block">{num}</a>
+                </Link>
+              </li>
+            ) : null}
+
+            {num === 1 && offset >= 4 ? (
+              <li key="postdotted" className="py-1 md:py-2 leading-none">
+                ...
+              </li>
+            ) : null}
+          </React.Fragment>
         ))}
       </ul>
     </>

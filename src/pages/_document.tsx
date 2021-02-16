@@ -26,7 +26,7 @@ class MyDocument extends Document<Props> {
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
-        <body>
+        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800 transition-my-colors">
           <Main />
           <NextScript nonce={nonce} />
         </body>

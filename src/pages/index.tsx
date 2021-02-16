@@ -1,9 +1,8 @@
-import Date from 'components/Date'
+import BlogCard from 'components/BlogCard'
 import Pagination from 'components/Pagination'
 import Body from 'layout/Body'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import React from 'react'
 import { PER_PAGE } from 'scripts/const'
 import { getAllPosts, getConfig } from 'scripts/getter'
@@ -40,22 +39,10 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount }) => {
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
           {posts.map((post) => (
-            <article key={post.id}>
-              <Link href={`/posts/${post.slug}`}>
-                <a>
-                  <h2>{post.title}</h2>
-                </a>
-              </Link>
-              <Date publishedAt={post.publishedAt} />
-              {post.categories.map((category) => (
-                <Link key={category.id} href={`/categories/${category.slug}`}>
-                  <a>{category.title}</a>
-                </Link>
-              ))}
-            </article>
+            <BlogCard key={post.id} post={post} />
           ))}
         </section>
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} />
+        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} />
       </Body>
     </>
   )

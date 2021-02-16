@@ -1,7 +1,8 @@
+import ContentsList from 'components/ContentsList'
+import ExLinks from 'components/ExLinks'
 import Share from 'components/Share'
 import Footer from 'layout/Footer'
 import Header from 'layout/Header'
-import Sidebar from 'layout/Sidebar'
 import React, { FC, ReactNode } from 'react'
 
 type Props = {
@@ -14,10 +15,13 @@ const Body: FC<Props> = (props) => {
   return (
     <>
       <Header pageType={props.pageType} />
-      <main>
-        <Share path={props.fullPath} />
+      <main className="container max-w-6xl px-3 sm:px-5 mx-auto">
         {props.children}
-        <Sidebar />
+        <Share path={props.fullPath} />
+        <div className="mt-10 md:mt-16 lg:mt-20 md:flex justify-around items-center">
+          <ContentsList />
+          <ExLinks />
+        </div>
       </main>
       <Footer />
     </>

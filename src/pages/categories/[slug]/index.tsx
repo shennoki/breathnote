@@ -1,9 +1,8 @@
-import Date from 'components/Date'
+import BlogCard from 'components/BlogCard'
 import Pagination from 'components/Pagination'
 import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import React from 'react'
 import { PER_PAGE } from 'scripts/const'
 import { getAllCategoryPaths, getCategory, getCategoryPosts, getConfig } from 'scripts/getter'
@@ -39,23 +38,13 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, catego
         <meta property="og:url" content={option.fullPath} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <h1>{category.title}の記事一覧</h1>
-        {posts.map((post) => (
-          <article key={post.id}>
-            <Link href={`/posts/${post.slug}`}>
-              <a>
-                <h2>{post.title}</h2>
-              </a>
-            </Link>
-            <Date publishedAt={post.publishedAt} />
-            {post.categories.map((category) => (
-              <Link key={category.id} href={`/categories/${category.slug}`}>
-                <a>{category.title}</a>
-              </Link>
-            ))}
-          </article>
-        ))}
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} slug={category.slug} />
+        <section>
+          <h1>{category.title}の記事一覧</h1>
+          {posts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </section>
+        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} slug={category.slug} />
       </Body>
     </>
   )

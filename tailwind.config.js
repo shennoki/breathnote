@@ -45,6 +45,11 @@ module.exports = {
     extend: {
       colors: {
         neumo: '#ebecf0',
+        twitter: '#1DA1F2',
+        facebook: '#1877F2',
+        line: '#00C300',
+        hatena: '#00A4DE',
+        pocket: '#EF3F56',
       },
       boxShadow: {
         toggle: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',

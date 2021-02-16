@@ -1,4 +1,3 @@
-import Date from 'components/Date'
 import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
@@ -45,9 +44,8 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         <meta property="og:url" content={option.fullPath} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <article>
+        <article className="prose prose-sm sm:prose max-w-none sm:max-w-none dark:prose-dark">
           <h1>{post.title}</h1>
-          <Date publishedAt={post.publishedAt} />
           <div>
             {post.categories.map((category) => (
               <Link key={category.id} href={`/categories/${category.slug}`}>
