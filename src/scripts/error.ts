@@ -11,5 +11,5 @@ export const fetchFailed = (err: string): void => {
 }
 
 export const notFound = (err: string): void => {
-  throw new Error(`${err} NOT FOUND`)
+  console.log(`${err} NOT FOUND`)
 }

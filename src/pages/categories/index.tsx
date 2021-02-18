@@ -18,15 +18,15 @@ const Categories: NextPage<Props> = ({ config, option, categories }) => {
     <>
       <Head>
         <title>カテゴリ一覧 | {config.siteTitle}</title>
-        <meta name="description" content={`【 カテゴリ一覧ページ 】${config.siteDescription}`} />
+        <meta name="description" content="カテゴリ一覧ページです。" />
         <meta property="og:title" content={`カテゴリ一覧 | ${config.siteTitle}`} />
-        <meta property="og:description" content={`【 カテゴリ一覧ページ 】${config.siteDescription}`} />
-        {/* 以下変更不要 */}
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={option.fullPath} />
-        <meta property="og:site_name" content={config.siteTitle} />
+        <meta property="og:description" content="カテゴリ一覧ページです。" />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        {/* 以下変更不要 */}
+        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:url" content={option.fullPath} />
+        <link rel="canonical" href={option.fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section className="mb-10 md:mb-20 lg:mb-32">

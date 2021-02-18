@@ -1,12 +1,12 @@
 {
-  "name": "",
-  "short_name": "",
-  "description": "",
+  "name": "Breath Note",
+  "short_name": "Breath Note",
+  "description": "Breath Noteへようこそ！このサイトはフロントエンド関連の備忘録を残すために始めた技術ブログです。シンプルで見やすいサイトを心掛けて更新していますので、ドキュメントの確認やバグフィックスのお供にどうぞ。",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#ebecf0",
+  "lang": "ja",
   "icons": [
     {
       "src": "/img/favicons/android-chrome-36x36.png",

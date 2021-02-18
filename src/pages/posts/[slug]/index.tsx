@@ -27,22 +27,24 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
   return (
     <>
       <Head>
-        <title>
-          {post.title} | {config.siteTitle}
-        </title>
+        <title>{`${post.title} | ${config.siteTitle}`}</title>
         <meta name="description" content={post.description} />
         <meta property="og:title" content={`${post.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={post.description} />
+        {post.thumbnail ? (
+          <meta property="og:image" content={post.thumbnail.url} />
+        ) : (
+          <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        )}
+        {/* 以下変更不要 */}
+        <meta property="og:site_name" content={config.siteTitle} />
+        <meta property="og:url" content={option.fullPath} />
+        <link rel="canonical" href={option.fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
           rel="stylesheet"
         />
-        {/* 以下変更不要 */}
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={option.fullPath} />
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        <meta property="og:url" content={option.fullPath} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <article className="px-3 sm:px-5 md:px-7 lg:px-16 pt-5 sm:pt-6 md:pt-7 lg:pt-14 pb-8 sm:pb-9 md:pb-12 lg:pb-20 mb-5 md:mb-7 lg:mb-8 xl:mb-9 tracking-wider rounded-lg border-light dark:border-dark shadow-article dark:shadow-article-dark transition-shadow-border">
@@ -116,6 +118,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
   const mdxPost = await getPost(slug)
+
+  if (!mdxPost) {
+    return {
+      notFound: true,
+    }
+  }
+
   const post = {
     ...mdxPost,
     body: await renderToString(mdxPost.body, {
@@ -129,12 +138,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pageType: 'post',
     fullPath: `${config.siteDomain}/posts/${post.slug}`,
     isNoIndex: false,
-  }
-
-  if (!post) {
-    return {
-      notFound: true,
-    }
   }
 
   return {

@@ -14,20 +14,26 @@ const Error: NextPage<Props> = ({ config, option }) => {
   return (
     <>
       <Head>
-        <title>404 | {config.siteTitle}</title>
+        <title>{`404 | ${config.siteTitle}`}</title>
         <meta name="description" content="該当するページが見つかりませんでした。" />
-        <meta name="keywords" content={config.siteKeywords} />
-        <meta property="og:title" content={`404 | {config.siteTitle}`} />
+        <meta property="og:title" content={`404 | ${config.siteTitle}`} />
         <meta property="og:description" content="該当するページが見つかりませんでした。" />
-        {/* 以下変更不要 */}
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={option.fullPath} />
-        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        {/* 以下変更不要 */}
+        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:url" content={option.fullPath} />
+        <link rel="canonical" href={option.fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <h1>Page Not Found</h1>
+        <article className="mb-10 md:mb-20">
+          <h1 className="text-8xl text-center font-bold">404</h1>
+          <h2 className="mt-4 text-2xl text-center font-bold">ページが見つかりません…</h2>
+          <p className="mt-5 mx-auto text-sm table">
+            申し訳ございませんが、ご指定いただいたページが見つかりませんでした。
+          </p>
+          <p className="mt-5 mx-auto text-sm table">ホームへ戻るか、各種SNSから管理者へご連絡ください。</p>
+        </article>
       </Body>
     </>
   )
@@ -48,6 +54,5 @@ export const getStaticProps: GetStaticProps = async () => {
       config,
       option,
     },
-    revalidate: 60,
   }
 }

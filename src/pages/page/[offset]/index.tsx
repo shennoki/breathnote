@@ -21,22 +21,19 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount, offset }) 
     <>
       <Head>
         <title>{`${config.siteTitle} | ${config.siteSubTitle}`}</title>
-        <link
-          rel="prev"
-          href={offset === 2 ? `${config.siteDomain}/` : `${config.siteDomain}/page/${offset - 1}`}
-        ></link>
+        <link rel="prev" href={offset === 2 ? `${config.siteDomain}/` : `${config.siteDomain}/page/${offset - 1}`} />
         {offset !== Math.ceil(allPostCount / PER_PAGE) ? (
-          <link rel="next" href={`${config.siteDomain}/page/${offset + 1}`}></link>
+          <link rel="next" href={`${config.siteDomain}/page/${offset + 1}`} />
         ) : null}
         <meta name="description" content={config.siteDescription} />
         <meta property="og:title" content={`${config.siteTitle} | ${config.siteSubTitle}`} />
         <meta property="og:description" content={config.siteDescription} />
-        {/* 以下変更不要 */}
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={option.fullPath} />
-        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        {/* 以下変更不要 */}
+        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:url" content={option.fullPath} />
+        <link rel="canonical" href={option.fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>

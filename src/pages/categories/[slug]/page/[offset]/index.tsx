@@ -21,9 +21,7 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, offset
   return (
     <>
       <Head>
-        <title>
-          {category.title} | {config.siteTitle}
-        </title>
+        <title>{`${category.title} | ${config.siteTitle}`}</title>
         <link
           rel="prev"
           href={
@@ -31,19 +29,19 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, offset
               ? `${config.siteDomain}/categories/${category.slug}`
               : `${config.siteDomain}/categories/${category.slug}/page/${offset - 1}`
           }
-        ></link>
+        />
         {offset !== Math.ceil(allPostCount / PER_PAGE) ? (
-          <link rel="next" href={`${config.siteDomain}/categories/${category.slug}/page/${offset + 1}`}></link>
+          <link rel="next" href={`${config.siteDomain}/categories/${category.slug}/page/${offset + 1}`} />
         ) : null}
         <meta name="description" content={category.description} />
         <meta property="og:title" content={`${category.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={category.description} />
-        {/* 以下変更不要 */}
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
-        <link rel="canonical" href={option.fullPath} />
-        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+        {/* 以下変更不要 */}
+        <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:url" content={option.fullPath} />
+        <link rel="canonical" href={option.fullPath} />
+        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
@@ -79,7 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     isNoIndex: true,
   }
 
-  if (!category) {
+  if (posts.length === 0) {
     return {
       notFound: true,
     }
