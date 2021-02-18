@@ -1,7 +1,6 @@
 import Svg from 'components/Svg'
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { getRandomColor } from 'scripts/color'
 import { getCorrectDate } from 'scripts/date'
 import { PostType } from 'types'
 
@@ -18,7 +17,7 @@ const BlogCard: FC<Props> = ({ post }) => {
           {post.categories.map((category) => (
             <li
               key={category.id}
-              className={`px-2 py-0.5 mr-2 sm:mr-3 ${`text-${getRandomColor()}-400`} rounded-sm md:rounded border-light dark:border-dark shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+              className={`px-2 py-0.5 mr-2 sm:mr-3 text-blue-400 dark:text-yellow-400 rounded-sm md:rounded border-light dark:border-dark shadow-inset dark:shadow-inset-dark transition-shadow-border`}
             >
               {category.title}
             </li>
@@ -28,7 +27,7 @@ const BlogCard: FC<Props> = ({ post }) => {
         <p className="mb-3 text-sm leading-normal hidden md:block">{`${post.description.substr(0, 140)} ...`}</p>
         <div className="flex justify-end items-center">
           <Svg type="publish" strokeWidth={1.5} class="w-4 md:w-5 h-4 md:h-5 mr-2" />
-          <time dateTime={post.publishedAt} className="text-xs md:text-sm text-right block">
+          <time dateTime={post.publishedAt} itemProp="datepublished" className="text-xs md:text-sm text-right block">
             {getCorrectDate(post.publishedAt, 'yyyy年MM月dd日')}
           </time>
         </div>

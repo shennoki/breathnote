@@ -26,7 +26,6 @@ export type ConfigType = {
   siteTitle: string
   siteSubTitle: string
   siteDescription: string
-  siteKeywords: string
 }
 
 /* ヘッドレス CMS で管理している記事一覧データ */
@@ -44,9 +43,13 @@ export type PostType = {
   slug: string
   title: string
   description: string
-  keywords: string
   categories: CategoryType[]
   tags: TagType[]
+  thumbnail?: {
+    url: string
+    height: number
+    width: number
+  }
   body: string | Source
 }
 

@@ -4,6 +4,32 @@
 @tailwind components;
 /* Stop purging. */
 
+.image-wrapper {
+  @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
+}
+
+.image-wrapper > div {
+  vertical-align: top;
+}
+
+.prose > blockquote {
+  border-left-color: #d3d7dd;
+}
+
+.prose > pre {
+  @apply font-mono shadow dark:bg-pre-bg;
+}
+
+.prose p > code {
+  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm;
+  font-size: inherit;
+}
+
+.prose p > code::before,
+.prose p > code::after {
+  content: none;
+}
+
 .border-light {
   border: 0.0625rem solid #ebecf0;
 }

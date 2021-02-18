@@ -1,3 +1,4 @@
+import Svg from 'components/Svg'
 import Body from 'layout/Body'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -18,7 +19,6 @@ const Tags: NextPage<Props> = ({ config, option, tags }) => {
       <Head>
         <title>タグ一覧 | {config.siteTitle}</title>
         <meta name="description" content={`【 タグ一覧ページ 】${config.siteDescription}`} />
-        <meta name="keywords" content={config.siteKeywords} />
         <meta property="og:title" content={`タグ一覧 | ${config.siteTitle}`} />
         <meta property="og:description" content={`【 タグ一覧ページ 】${config.siteDescription}`} />
         {/* 以下変更不要 */}
@@ -29,16 +29,24 @@ const Tags: NextPage<Props> = ({ config, option, tags }) => {
         <meta property="og:url" content={option.fullPath} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <h1>Tags</h1>
-        <ul>
-          {tags.map((tag) => (
-            <li key={tag.id}>
-              <Link href={`/tags/${tag.slug}`}>
-                <a>{tag.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <section className="mb-10 md:mb-20 lg:mb-32">
+          <h1 className="text-xl md:text-3xl text-center">
+            <span className="text-2xl md:text-4xl text-blue-400 dark:text-yellow-400 transition-my-colors">タ</span>
+            グ一覧
+          </h1>
+          <ul className="flex flex-wrap justify-around items-center">
+            {tags.map((tag) => (
+              <li key={tag.id} className="mt-6 mx-6">
+                <Link href={`/tags/${tag.slug}`}>
+                  <a className="md:text-lg hover:text-blue-500 dark:hover:text-yellow-400 flex items-center transition-my-colors">
+                    <Svg type="clip" strokeWidth={1.5} class="w-5 h-5 mr-1.5" />
+                    {tag.title}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </Body>
     </>
   )

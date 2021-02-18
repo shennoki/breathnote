@@ -1,8 +1,8 @@
+import BlogCard from 'components/BlogCard'
 import Pagination from 'components/Pagination'
 import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import React from 'react'
 import { PER_PAGE } from 'scripts/const'
 import { getAllCategories, getCategory, getCategoryPosts, getConfig } from 'scripts/getter'
@@ -36,7 +36,6 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, offset
           <link rel="next" href={`${config.siteDomain}/categories/${category.slug}/page/${offset + 1}`}></link>
         ) : null}
         <meta name="description" content={category.description} />
-        <meta name="keywords" content={config.siteKeywords} />
         <meta property="og:title" content={`${category.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={category.description} />
         {/* 以下変更不要 */}
@@ -47,21 +46,17 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, offset
         <meta property="og:url" content={option.fullPath} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <h1>{category.title}の記事一覧</h1>
-        {posts.map((post) => (
-          <article key={post.id}>
-            <Link href={`/posts/${post.slug}`}>
-              <a>
-                <h2>{post.title}</h2>
-              </a>
-            </Link>
-            {post.categories.map((category) => (
-              <Link key={category.id} href={`/categories/${category.slug}`}>
-                <a>{category.title}</a>
-              </Link>
-            ))}
-          </article>
-        ))}
+        <section>
+          <h1 className="mb-4 md:mb-8 lg:mb-10 text-xl md:text-3xl text-center">
+            <span className="text-2xl md:text-4xl text-blue-400 dark:text-yellow-400 tracking-wider transition-my-colors">
+              {category.title}
+            </span>
+            の記事
+          </h1>
+          {posts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </section>
         <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={offset} slug={category.slug} />
       </Body>
     </>

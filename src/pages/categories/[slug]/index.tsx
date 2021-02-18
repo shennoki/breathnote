@@ -27,7 +27,6 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, catego
           <link rel="next" href={`${config.siteDomain}/categories/${category.slug}/page/2`}></link>
         ) : null}
         <meta name="description" content={category.description} />
-        <meta name="keywords" content={config.siteKeywords} />
         <meta property="og:title" content={`${category.title} | ${config.siteTitle}`} />
         <meta property="og:description" content={category.description} />
         {/* 以下変更不要 */}
@@ -39,7 +38,12 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, catego
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
-          <h1>{category.title}の記事一覧</h1>
+          <h1 className="mb-4 md:mb-8 lg:mb-10 text-xl md:text-3xl text-center">
+            <span className="text-2xl md:text-4xl text-blue-400 dark:text-yellow-400 tracking-wider transition-my-colors">
+              {category.title}
+            </span>
+            の記事
+          </h1>
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}

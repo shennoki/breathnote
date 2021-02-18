@@ -21,7 +21,6 @@ export const getConfig = async (): Promise<ConfigType> => {
     siteTitle: config.siteTitle,
     siteSubTitle: config.siteSubTitle,
     siteDescription: config.siteDescription,
-    siteKeywords: config.siteKeywords,
   }
 }
 

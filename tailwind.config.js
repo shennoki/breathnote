@@ -45,6 +45,7 @@ module.exports = {
     extend: {
       colors: {
         neumo: '#ebecf0',
+        'pre-bg': '#141a23',
         twitter: '#1DA1F2',
         facebook: '#1877F2',
         line: '#00C300',
@@ -52,6 +53,7 @@ module.exports = {
         pocket: '#EF3F56',
       },
       boxShadow: {
+        // https://zenn.dev/torano_tomo/articles/css-box-shadow-transition
         toggle: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
         'toggle-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
         article: '5px 5px 10px #c8c9cc, -5px -5px 10px #fff',
@@ -60,14 +62,23 @@ module.exports = {
         'inset-dark': 'inset 5px 5px 17px #11171e, inset -5px -5px 17px #2d3b50',
       },
       typography: (theme) => ({
-        DEFAULT: {},
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.400'),
+              },
+            },
+          },
+        },
         dark: {
           css: {
             color: theme('colors.neumo'),
             a: {
-              color: theme('colors.neumo'),
+              color: theme('colors.yellow.400'),
               '&:hover': {
-                color: theme('colors.neumo'),
+                color: theme('colors.yellow.300'),
               },
             },
             'h2 a': {
@@ -113,8 +124,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      typography: ['dark'],
+      backgroundColor: ['dark'],
       boxShadow: ['dark'],
+      typography: ['dark'],
     },
   },
   plugins: [require('@tailwindcss/typography')],

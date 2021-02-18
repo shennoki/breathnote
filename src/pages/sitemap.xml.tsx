@@ -3,25 +3,24 @@ import { getAllPosts, getConfig } from 'scripts/getter'
 import { ConfigType, PostType } from 'types'
 
 const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
-  return `
-    <?xml version="1.0" encoding="UTF-8"?>
-      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-        ${posts
-          .map((post) => {
-            return `
-              <url>
-                <loc>${`${config.siteDomain}/posts/${post.slug}`}</loc>
-                <lastmod>${post.publishedAt}</lastmod>
-                <changefreq>weekly</changefreq>
-              </url>
-            `
-          })
-          .join('')}
-      </urlset>
+  return `<?xml version="1.0" encoding="UTF-8"?>
+            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+              xmlns:xhtml="http://www.w3.org/1999/xhtml"
+              xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+              xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+              xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+              ${posts
+                .map((post) => {
+                  return `
+                    <url>
+                      <loc>${`${config.siteDomain}/posts/${post.slug}`}</loc>
+                      <lastmod>${post.publishedAt}</lastmod>
+                      <changefreq>weekly</changefreq>
+                    </url>
+                  `
+                })
+                .join('')}
+            </urlset>
   `
 }
 
