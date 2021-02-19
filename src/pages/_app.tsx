@@ -1,17 +1,29 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import React, { useEffect } from 'react'
+import * as gtag from 'scripts/gtag'
 import 'styles/globals.css'
 
 nprogress.configure({ showSpinner: false, speed: 200, minimum: 0.25 })
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   if (process.browser) {
     nprogress.start()
   }
-
   useEffect(() => {
     nprogress.done()
   })
