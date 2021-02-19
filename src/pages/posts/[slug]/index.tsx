@@ -43,7 +43,8 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
-          rel="stylesheet"
+          rel="preload"
+          as="style"
         />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
@@ -78,32 +79,36 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
             </time>
           </div>
           <div className="mx-auto my-4 md:my-6 table md:flex flex-wrap justify-center items-center">
-            <ul className="text-xs sm:text-sm flex items-center">
+            <div className="flex justify-center items-center">
               <Svg type="category" strokeWidth={1.5} class="w-5 h-5 sm:w-6 sm:h-6" />
-              {post.categories.map((category) => (
-                <li
-                  key={category.id}
-                  className={`ml-3 sm:ml-6 text-blue-400 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-400 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
-                >
-                  <Link href={`/categories/${category.slug}`}>
-                    <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{category.title}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="mt-4 md:mt-0 md:ml-10 lg:ml-20 text-xs sm:text-sm flex items-center">
+              <ul className="text-xs sm:text-sm flex items-center">
+                {post.categories.map((category) => (
+                  <li
+                    key={category.id}
+                    className={`ml-3 sm:ml-6 text-blue-700 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-700 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                  >
+                    <Link href={`/categories/${category.slug}`}>
+                      <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{category.title}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-4 md:mt-0 md:ml-10 lg:ml-20 flex justify-center items-center">
               <Svg type="tag" strokeWidth={1.5} class="w-5 h-5 sm:w-6 sm:h-6" />
-              {post.tags.map((tag) => (
-                <li
-                  key={tag.id}
-                  className={`ml-3 sm:ml-6 text-blue-400 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-400 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
-                >
-                  <Link href={`/tags/${tag.slug}`}>
-                    <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{tag.title}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              <ul className="text-xs sm:text-sm flex items-center">
+                {post.tags.map((tag) => (
+                  <li
+                    key={tag.id}
+                    className={`ml-3 sm:ml-6 text-blue-700 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-700 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                  >
+                    <Link href={`/tags/${tag.slug}`}>
+                      <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{tag.title}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="mt-8 lg:mt-10 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark">{body}</div>
         </article>

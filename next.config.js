@@ -1,6 +1,7 @@
 const { createSecureHeaders } = require('next-secure-headers')
+const withPWA = require('next-pwa')
 
-module.exports = {
+module.exports = withPWA({
   /* X-Powered-By ヘッダを削除 */
   poweredByHeader: false,
 
@@ -18,4 +19,11 @@ module.exports = {
   images: {
     domains: ['localhost', 'images.microcms-assets.io'],
   },
-}
+
+  /* net-pwa の設定 */
+  pwa: {
+    /* sw の出力ディレクトリ */
+    dest: 'public',
+    // runtimeCaching: []
+  },
+})

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import nprogress from 'nprogress'
@@ -6,18 +5,9 @@ import 'nprogress/nprogress.css'
 import React, { useEffect } from 'react'
 import 'styles/globals.css'
 
-const PAGE_VARIANTS = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-  },
-}
-
 nprogress.configure({ showSpinner: false, speed: 200, minimum: 0.25 })
 
-const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   if (process.browser) {
     nprogress.start()
   }
@@ -35,6 +25,10 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
         <meta property="og:type" content="website" />
         <meta name="twitter:site" content="@code_shinki" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#5588cc" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+        <meta name="apple-mobile-web-app-title" content="Breath Note" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/android-chrome-192x192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png" />
@@ -42,9 +36,7 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="msapplication-TileImage" content="/img/favicons/site-tile-150x150.png" />
       </Head>
-      <motion.div key={router.route} initial="initial" animate="animate" variants={PAGE_VARIANTS}>
-        <Component {...pageProps} />
-      </motion.div>
+      <Component {...pageProps} />
     </>
   )
 }
