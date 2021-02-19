@@ -1,6 +1,5 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import { getAllPosts, getConfig } from 'scripts/getter'
-import { sortByDesc } from 'scripts/sort'
 import { ConfigType, PostType } from 'types'
 
 const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
@@ -13,23 +12,22 @@ const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
               ${posts
                 .map((post) => {
                   return `
-                          <url>
-                            <loc>${`${config.siteDomain}/posts/${post.slug}`}</loc>
-                            <lastmod>${post.publishedAt}</lastmod>
-                            <changefreq>weekly</changefreq>
-                          </url>
-                      `
+                    <url>
+                      <loc>${`${config.siteDomain}/posts/${post.slug}`}</loc>
+                      <lastmod>${post.publishedAt}</lastmod>
+                      <changefreq>weekly</changefreq>
+                    </url>
+                  `
                 })
                 .join('')}
             </urlset>
-    `
+  `
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const config = await getConfig()
-  const allPosts = await getAllPosts()
-  const sortedPosts = sortByDesc(allPosts)
-  const xml = await generateSitemapXml(sortedPosts, config)
+  const posts = await getAllPosts('desc')
+  const xml = await generateSitemapXml(posts, config)
 
   res.statusCode = 200
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')

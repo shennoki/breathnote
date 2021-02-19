@@ -1,0 +1,75 @@
+@tailwind base;
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+.image-wrapper {
+  @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
+}
+
+.image-wrapper > div {
+  vertical-align: top;
+}
+
+.prose > blockquote {
+  border-left-color: #d3d7dd;
+}
+
+.prose > pre {
+  @apply font-mono shadow dark:bg-pre-bg;
+}
+
+.prose p > code {
+  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm;
+  font-size: inherit;
+}
+
+.prose p > code::before,
+.prose p > code::after {
+  content: none;
+}
+
+.border-light {
+  border: 0.0625rem solid #ebecf0;
+}
+
+@variants dark, hover {
+  .border-dark {
+    border: 0.0625rem solid #273344;
+  }
+}
+
+.transition-my-colors {
+  transition-property: background-color, color, fill, stroke;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+}
+
+.transition-shadow-border {
+  transition-property: box-shadow, border-color;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+}
+
+.transition-my-all {
+  transition: all 0.4s ease-out;
+}
+
+.toggle-checkbox {
+  @apply absolute left-0 block w-6 h-6 border-4 rounded-full appearance-none cursor-pointer focus:outline-none bg-gray-800 dark:bg-white border-neumo dark:border-gray-800 transition-my-all;
+}
+
+.toggle-checkbox:checked {
+  @apply left-full border-gray-800 transition-my-all;
+  left: calc(100% - 24px);
+}
+
+.toggle-label {
+  @apply block h-6 align-middle overflow-hidden rounded-full cursor-pointer text-neumo dark:text-gray-800 bg-neumo dark:bg-gray-800 border-light dark:border-dark
+  shadow-toggle dark:shadow-toggle-dark transition-my-all;
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */

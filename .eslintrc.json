@@ -49,6 +49,7 @@
 
   /* extends に含まれない独自のルール */
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     /* TypeScirpt なので prop-types は要らない */
     "react/prop-types": "off",
     /* Next.js では内部リンクに href 属性を持たない a タグを使用するため、これを認める */
