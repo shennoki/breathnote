@@ -25,7 +25,9 @@ class MyDocument extends Document<Props> {
       <Html lang="ja" prefix="og: https://ogp.me/ns#">
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
+          <script nonce={nonce} async={true} src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
           <script
+            nonce={nonce}
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
