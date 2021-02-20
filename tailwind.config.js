@@ -54,10 +54,8 @@ module.exports = {
       },
       boxShadow: {
         // https://zenn.dev/torano_tomo/articles/css-box-shadow-transition
-        toggle: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
-        'toggle-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
-        article: '5px 5px 10px #c8c9cc, -5px -5px 10px #fff',
-        'article-dark': '5px 5px 10px #18202a, -5px -5px 10px #263244',
+        neumo: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
+        'neumo-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
         inset: 'inset 1px 1px 3px #b8b9be,inset -3px -3px 7px #fff',
         'inset-dark': 'inset 5px 5px 17px #11171e, inset -5px -5px 17px #2d3b50',
       },

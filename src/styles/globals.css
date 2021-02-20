@@ -31,12 +31,12 @@
 }
 
 .border-light {
-  border: 0.0625rem solid #ebecf0;
+  border: 1px solid #ebecf0;
 }
 
 @variants dark, hover {
   .border-dark {
-    border: 0.0625rem solid #273344;
+    border: 1px solid #273344;
   }
 }
 
@@ -67,7 +67,7 @@
 
 .toggle-label {
   @apply block h-6 align-middle overflow-hidden rounded-full cursor-pointer text-neumo dark:text-gray-800 bg-neumo dark:bg-gray-800 border-light dark:border-dark
-  shadow-toggle dark:shadow-toggle-dark transition-my-all;
+  shadow-neumo dark:shadow-neumo-dark transition-my-all;
 }
 
 /* Start purging... */

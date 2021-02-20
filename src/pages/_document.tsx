@@ -19,15 +19,18 @@ class MyDocument extends Document<Props> {
 
   render(): JSX.Element {
     const nonce = this.props.nonce
-    const csp = `object-src 'none'; base-uri 'none'; script-src 'self' vitals.vercel-insights.com 'unsafe-inline' 'unsafe-eval' https: http: 'nonce-${nonce}' 'strict-dynamic'`
+    const csp = `object-src 'none'; base-uri 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http: 'nonce-${nonce}' 'strict-dynamic'`
 
     return (
       <Html lang="ja" prefix="og: https://ogp.me/ns#">
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
-          <script nonce={nonce} async={true} src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+        </Head>
+        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800 transition-my-colors">
+          <Main />
+          <NextScript nonce={nonce} />
+          <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} nonce={nonce} />
           <script
-            nonce={nonce}
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -38,11 +41,8 @@ class MyDocument extends Document<Props> {
                 });
               `,
             }}
+            nonce={nonce}
           />
-        </Head>
-        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800 transition-my-colors">
-          <Main />
-          <NextScript nonce={nonce} />
         </body>
       </Html>
     )
