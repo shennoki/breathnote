@@ -15,7 +15,7 @@ const Header: FC<Props> = (props) => {
           <h1 className={`text-2xl sm:text-3xl ${styles.yurayura} ${styles.textShadow}`}>
             <Link href="/">
               <a>
-                <span className="text-accent dark:text-yellow-300 transition-my-colors">B</span>reath Note
+                <span className="text-accent dark:text-yellow-300">B</span>reath Note
               </a>
             </Link>
           </h1>
@@ -25,7 +25,7 @@ const Header: FC<Props> = (props) => {
           <div className={`text-2xl sm:text-3xl ${styles.yurayura} ${styles.textShadow}`}>
             <Link href="/">
               <a>
-                <span className="text-accent dark:text-yellow-300 transition-my-colors">B</span>reath Note
+                <span className="text-accent dark:text-yellow-300">B</span>reath Note
               </a>
             </Link>
           </div>

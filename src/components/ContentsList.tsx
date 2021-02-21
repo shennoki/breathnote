@@ -7,7 +7,7 @@ const ContentsList: FC = () => {
     <>
       <aside className="mx-auto table">
         <h2 className="mb-3 md:mb-5 lg:mb-6 text-lg md:text-2xl tracking-wider flex justify-center items-center">
-          <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl transition-my-colors">C</span>
+          <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl">C</span>
           ONTENTS
         </h2>
         <ul className="flex">

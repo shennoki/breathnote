@@ -14,40 +14,12 @@
   }
 }
 
-.transition-my-colors {
-  transition-property: background-color, color, fill, stroke;
-  transition-duration: 400ms;
-  transition-timing-function: ease-out;
-}
-
-.transition-shadow-border {
-  transition-property: box-shadow, border-color, color;
-  transition-duration: 400ms;
-  transition-timing-function: ease-out;
-}
-
-.transition-my-all {
-  transition: all 0.4s ease-out;
-}
-
 .image-wrapper {
   @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
 }
 
 .image-wrapper > div {
   vertical-align: top;
-}
-
-.prose > h1,
-.prose > h2,
-.prose > h3,
-.prose > h4,
-.prose > h5,
-.prose > blockquote,
-.prose a,
-.prose strong,
-.prose > pre {
-  @apply transition-my-colors;
 }
 
 .prose > blockquote {
@@ -59,7 +31,7 @@
 }
 
 .prose p > code {
-  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm transition-my-colors;
+  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm;
   font-size: inherit;
 }
 
@@ -69,17 +41,17 @@
 }
 
 .toggle-checkbox {
-  @apply absolute left-0 block w-6 h-6 border-4 rounded-full appearance-none cursor-pointer focus:outline-none bg-gray-800 dark:bg-white border-neumo dark:border-gray-800 transition-my-all;
+  @apply absolute left-0 block w-6 h-6 border-4 rounded-full appearance-none cursor-pointer focus:outline-none bg-gray-800 dark:bg-white border-neumo dark:border-gray-800;
 }
 
 .toggle-checkbox:checked {
-  @apply left-full border-gray-800 transition-my-all;
+  @apply left-full border-gray-800;
   left: calc(100% - 24px);
 }
 
 .toggle-label {
   @apply block h-6 align-middle overflow-hidden rounded-full cursor-pointer text-neumo dark:text-gray-800 bg-neumo dark:bg-gray-800 border-light dark:border-dark
-  shadow-neumo dark:shadow-neumo-dark transition-my-all;
+  shadow-neumo dark:shadow-neumo-dark;
 }
 
 /* Start purging... */

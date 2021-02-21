@@ -31,7 +31,7 @@ const Tags: NextPage<Props> = ({ config, option, tags }) => {
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section className="mb-10 md:mb-20 lg:mb-32">
           <h1 className="text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 transition-my-colors">タ</span>
+            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300">タ</span>
             グ一覧
           </h1>
           <ul className="flex flex-wrap justify-around items-center">

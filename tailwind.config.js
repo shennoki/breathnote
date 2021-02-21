@@ -54,7 +54,6 @@ module.exports = {
         pocket: '#EF3F56',
       },
       boxShadow: {
-        // https://zenn.dev/torano_tomo/articles/css-box-shadow-transition
         neumo: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
         'neumo-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
         inset: 'inset 1px 1px 3px #b8b9be,inset -3px -3px 7px #fff',
