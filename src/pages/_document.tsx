@@ -26,7 +26,8 @@ class MyDocument extends Document<Props> {
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
-        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800 transition-my-colors">
+        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800">
+          <script nonce={nonce} src="/noDarkmodeFlash.js" />
           <Main />
           <NextScript nonce={nonce} />
           <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} nonce={nonce} />
