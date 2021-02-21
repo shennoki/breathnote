@@ -1,11 +1,3 @@
-/* ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/
-
-  SCRIPTS -> STORE
-
-  - ヘッドレス CMS から取得したデータを管理
-
-＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
-
 import { fetchFailed } from 'scripts/error'
 import { AllCategoriesType, AllConfigType, AllPostsType } from 'types'
 

@@ -45,6 +45,7 @@ module.exports = {
     extend: {
       colors: {
         neumo: '#ebecf0',
+        accent: '#d11e00',
         'pre-bg': '#141a23',
         twitter: '#1DA1F2',
         facebook: '#1877F2',
@@ -62,10 +63,22 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            h2: {
+              fontSize: '1.3em !important',
+              marginBottom: '1.2em !important',
+            },
+            h3: {
+              fontSize: '1.2em !important',
+              marginBottom: '1.2em !important',
+            },
+            h4: {
+              fontSize: '1.1em !important',
+              marginBottom: '1.2em !important',
+            },
             a: {
-              color: theme('colors.blue.700'),
+              color: theme('colors.accent'),
               '&:hover': {
-                color: theme('colors.blue.400'),
+                color: theme('colors.red.400'),
               },
             },
           },
@@ -74,9 +87,9 @@ module.exports = {
           css: {
             color: theme('colors.neumo'),
             a: {
-              color: theme('colors.yellow.400'),
+              color: theme('colors.yellow.300'),
               '&:hover': {
-                color: theme('colors.yellow.300'),
+                color: theme('colors.yellow.100'),
               },
             },
             'h2 a': {

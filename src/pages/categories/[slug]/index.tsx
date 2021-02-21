@@ -35,7 +35,7 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, catego
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
           <h1 className="mb-4 md:mb-8 lg:mb-10 text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-blue-400 dark:text-yellow-400 tracking-wider transition-my-colors">
+            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 tracking-wider transition-my-colors">
               {category.title}
             </span>
             の記事

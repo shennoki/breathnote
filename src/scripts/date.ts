@@ -1,11 +1,3 @@
-/* ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/
-
-  SCRIPTS -> DATE
-
-  - 日付操作ライブラリ Day.js で日時修正
-
-＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
-
 import { format } from 'date-fns'
 import { utcToZonedTime } from 'date-fns-tz'
 

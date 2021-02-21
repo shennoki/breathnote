@@ -4,28 +4,27 @@
 
 .yurayura a {
   display: block;
-  animation: vertical 1s ease-in-out infinite alternate;
-  animation-duration: 1.5s;
+  animation: vertical 1.7s ease-in-out infinite alternate;
 }
 
 .textShadow {
-  text-shadow: 5px 5px 3px rgba(31, 41, 55, 0.3);
+  text-shadow: 5px 5px 2px rgba(54, 29, 29, 0.25);
 }
 
-@-webkit-keyframes horizontal {
+@keyframes horizontal {
   0% {
-    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
   }
   100% {
-    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
-@-webkit-keyframes vertical {
+@keyframes vertical {
   0% {
-    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
   }
   100% {
-    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
   }
 }

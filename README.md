@@ -13,4 +13,5 @@ About configuration files that cannot be pushed to GitHub for security reasons.
 ```
 API_KEY={ Headless CMS API key }
 ENDPOINT={ Headless CMS API endpoint }
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID={ Tracking ID }
 ```

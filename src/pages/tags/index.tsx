@@ -31,14 +31,14 @@ const Tags: NextPage<Props> = ({ config, option, tags }) => {
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section className="mb-10 md:mb-20 lg:mb-32">
           <h1 className="text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-blue-400 dark:text-yellow-400 transition-my-colors">タ</span>
+            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 transition-my-colors">タ</span>
             グ一覧
           </h1>
           <ul className="flex flex-wrap justify-around items-center">
             {tags.map((tag) => (
               <li key={tag.id} className="mt-6 mx-6">
                 <Link href={`/tags/${tag.slug}`}>
-                  <a className="md:text-lg hover:text-blue-500 dark:hover:text-yellow-400 flex items-center transition-my-colors">
+                  <a className="md:text-lg hover:text-accent dark:hover:text-yellow-300 flex items-center">
                     <Svg type="clip" strokeWidth={1.5} class="w-5 h-5 mr-1.5" />
                     {tag.title}
                   </a>

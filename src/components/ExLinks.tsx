@@ -6,7 +6,7 @@ const ExLinks: FC = () => {
     <>
       <aside className="mt-10 md:mt-0 mx-auto table">
         <h2 className="mb-3 md:mb-5 lg:mb-6 text-lg md:text-2xl tracking-wider flex justify-center items-center">
-          <span className="text-blue-400 dark:text-yellow-400 text-2xl md:text-4xl transition-my-colors">B</span>ASE
+          <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl transition-my-colors">B</span>ASE
         </h2>
         <ul className="flex justify-center">
           <li className="text-sm md:text-base">
@@ -14,7 +14,7 @@ const ExLinks: FC = () => {
               href="https://twitter.com/code_shinki"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="hover:text-blue-500 dark:hover:text-yellow-400 flex items-center transition-my-colors"
+              className="hover:text-accent dark:hover:text-yellow-300 flex items-center"
             >
               <Svg type="location" strokeWidth={1.5} class="w-6 h-6 mr-1" />
               Twitter
@@ -25,7 +25,7 @@ const ExLinks: FC = () => {
               href="https://github.com/Code-Shinki"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="hover:text-blue-500 dark:hover:text-yellow-400 flex items-center transition-my-colors"
+              className="hover:text-accent dark:hover:text-yellow-300 flex items-center"
             >
               <Svg type="location" strokeWidth={1.5} class="w-6 h-6 mr-1" />
               GitHub

@@ -17,7 +17,7 @@ const BlogCard: FC<Props> = ({ post }) => {
           {post.categories.map((category) => (
             <li
               key={category.id}
-              className={`px-2 md:px-3 py-0.5 mr-2 sm:mr-3 md:mr-4 text-blue-700 dark:text-yellow-400 rounded-sm md:rounded border-light dark:border-dark shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+              className={`px-2 md:px-3 py-0.5 mr-2 sm:mr-3 md:mr-4 text-accent dark:text-yellow-300 rounded-sm md:rounded border-light dark:border-dark shadow-inset dark:shadow-inset-dark transition-shadow-border`}
             >
               {category.title}
             </li>

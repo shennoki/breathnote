@@ -4,32 +4,6 @@
 @tailwind components;
 /* Stop purging. */
 
-.image-wrapper {
-  @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
-}
-
-.image-wrapper > div {
-  vertical-align: top;
-}
-
-.prose > blockquote {
-  border-left-color: #d3d7dd;
-}
-
-.prose > pre {
-  @apply font-mono shadow dark:bg-pre-bg;
-}
-
-.prose p > code {
-  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm;
-  font-size: inherit;
-}
-
-.prose p > code::before,
-.prose p > code::after {
-  content: none;
-}
-
 .border-light {
   border: 1px solid #ebecf0;
 }
@@ -47,13 +21,51 @@
 }
 
 .transition-shadow-border {
-  transition-property: box-shadow, border-color;
+  transition-property: box-shadow, border-color, color;
   transition-duration: 400ms;
   transition-timing-function: ease-out;
 }
 
 .transition-my-all {
   transition: all 0.4s ease-out;
+}
+
+.image-wrapper {
+  @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
+}
+
+.image-wrapper > div {
+  vertical-align: top;
+}
+
+.prose > h1,
+.prose > h2,
+.prose > h3,
+.prose > h4,
+.prose > h5,
+.prose > blockquote,
+.prose a,
+.prose strong,
+.prose > pre {
+  @apply transition-my-colors;
+}
+
+.prose > blockquote {
+  border-left-color: #d3d7dd !important;
+}
+
+.prose > pre {
+  @apply font-mono shadow dark:bg-pre-bg;
+}
+
+.prose p > code {
+  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm transition-my-colors;
+  font-size: inherit;
+}
+
+.prose p > code::before,
+.prose p > code::after {
+  content: none;
 }
 
 .toggle-checkbox {

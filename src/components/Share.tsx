@@ -10,7 +10,7 @@ const Share: FC<Props> = (props) => {
   return (
     <aside className="mt-8 md:mt-10 lg:mt-12">
       <h2 className="mb-3 md:mb-5 lg:mb-6 text-lg md:text-2xl tracking-wider flex justify-center items-center">
-        <span className="text-blue-400 dark:text-yellow-400 text-2xl md:text-4xl transition-my-colors">S</span>HARE
+        <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl transition-my-colors">S</span>HARE
       </h2>
       <div className="flex justify-center items-center">
         <a

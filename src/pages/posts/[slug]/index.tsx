@@ -6,7 +6,7 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { getCorrectDate } from 'scripts/date'
 import { getAllPostPaths, getConfig, getPost } from 'scripts/getter'
 import { ConfigType, PageOptionType, PostType } from 'types'
@@ -23,6 +23,11 @@ const components = { Image }
 
 const Post: NextPage<Props> = ({ config, option, post }) => {
   const body = hydrate(post.body, { components })
+  const [media, setMedia] = useState('print')
+
+  useEffect(() => {
+    setMedia('all')
+  }, [])
 
   return (
     <>
@@ -44,12 +49,19 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
+          media={media}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
+          />
+        </noscript>
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <article className="px-3 sm:px-5 md:px-7 lg:px-16 pt-5 sm:pt-6 md:pt-7 lg:pt-14 pb-8 sm:pb-9 md:pb-12 lg:pb-20 mb-5 md:mb-7 lg:mb-8 xl:mb-9 tracking-wider rounded-lg border-light dark:border-dark shadow-neumo dark:shadow-neumo-dark transition-shadow-border">
           <h1 className="max-w-4xl mx-auto mb-4 md:mb-6 lg:mb-10 text-lg sm:text-2xl lg:text-3xl font-bold break-words table">
-            <span className="text-xl md:text-3xl lg:text-4xl text-blue-400 dark:text-yellow-400 transition-my-colors">
+            <span className="text-xl md:text-3xl lg:text-4xl text-accent dark:text-yellow-300 transition-my-colors">
               {post.title.substr(0, 1)}
             </span>
             {post.title.substr(1)}
@@ -84,7 +96,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
                 {post.categories.map((category) => (
                   <li
                     key={category.id}
-                    className={`ml-3 sm:ml-6 text-blue-700 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-700 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
                   >
                     <Link href={`/categories/${category.slug}`}>
                       <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{category.title}</a>
@@ -99,7 +111,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
                 {post.tags.map((tag) => (
                   <li
                     key={tag.id}
-                    className={`ml-3 sm:ml-6 text-blue-700 dark:text-yellow-400 rounded-sm sm:rounded border-light hover:border-blue-700 dark:border-dark dark:hover:border-yellow-400 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
                   >
                     <Link href={`/tags/${tag.slug}`}>
                       <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{tag.title}</a>
@@ -109,7 +121,9 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
               </ul>
             </div>
           </div>
-          <div className="mt-8 lg:mt-10 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark">{body}</div>
+          <div className="mt-8 lg:mt-10 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark transition-my-colors">
+            {body}
+          </div>
         </article>
       </Body>
     </>
