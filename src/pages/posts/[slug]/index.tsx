@@ -59,9 +59,9 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
         </noscript>
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <article className="px-3 sm:px-5 md:px-7 lg:px-16 pt-5 sm:pt-6 md:pt-7 lg:pt-14 pb-8 sm:pb-9 md:pb-12 lg:pb-20 mb-5 md:mb-7 lg:mb-8 xl:mb-9 tracking-wider rounded-lg border-light dark:border-dark shadow-neumo dark:shadow-neumo-dark transition-shadow-border">
+        <article className="px-3 sm:px-5 md:px-7 lg:px-16 pt-5 sm:pt-6 md:pt-7 lg:pt-14 pb-8 sm:pb-9 md:pb-12 lg:pb-20 mb-5 md:mb-7 lg:mb-8 xl:mb-9 tracking-wider rounded-lg border-light dark:border-dark shadow-neumo dark:shadow-neumo-dark">
           <h1 className="max-w-4xl mx-auto mb-4 md:mb-6 lg:mb-10 text-lg sm:text-2xl lg:text-3xl font-bold break-words table">
-            <span className="text-xl md:text-3xl lg:text-4xl text-accent dark:text-yellow-300 transition-my-colors">
+            <span className="text-xl md:text-3xl lg:text-4xl text-accent dark:text-yellow-300">
               {post.title.substr(0, 1)}
             </span>
             {post.title.substr(1)}
@@ -96,7 +96,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
                 {post.categories.map((category) => (
                   <li
                     key={category.id}
-                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
                   >
                     <Link href={`/categories/${category.slug}`}>
                       <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{category.title}</a>
@@ -111,7 +111,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
                 {post.tags.map((tag) => (
                   <li
                     key={tag.id}
-                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset dark:shadow-inset-dark transition-shadow-border`}
+                    className={`ml-3 sm:ml-6 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
                   >
                     <Link href={`/tags/${tag.slug}`}>
                       <a className="px-2.5 sm:px-5 py-1 sm:py-1.5 block">{tag.title}</a>
@@ -121,9 +121,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
               </ul>
             </div>
           </div>
-          <div className="mt-8 lg:mt-10 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark transition-my-colors">
-            {body}
-          </div>
+          <div className="mt-8 lg:mt-10 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark">{body}</div>
         </article>
       </Body>
     </>
@@ -132,26 +130,45 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
 
 export default Post
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string
+export const getStaticProps: GetStaticProps = async (context) => {
   const config = await getConfig()
-  const mdxPost = await getPost(slug)
+  let post
 
-  if (!mdxPost) {
+  if (!context.preview) {
+    /* 公開済みの記事 (getStaticPaths 経由) */
+    const publishPost = await getPost(context.params?.slug as string)
+    post = {
+      ...publishPost,
+      body: await renderToString(publishPost.body, {
+        components,
+        mdxOptions: {
+          rehypePlugins: [rehypePrism],
+        },
+      }),
+    }
+  } else if (context.preview) {
+    /* プレビュー記事 (setPreviewData 経由) */
+    const previewPost = await fetch(
+      `${process.env.API_ENDPOINT}/posts/${context.previewData.draftId}?draftKey=${context.previewData.draftKey}`,
+      { headers: { 'X-API-KEY': process.env.API_KEY as string } }
+    ).then((res) => res.json())
+    post = {
+      ...previewPost,
+      body: await renderToString(previewPost.body, {
+        components,
+        mdxOptions: {
+          rehypePlugins: [rehypePrism],
+        },
+      }),
+    }
+  }
+
+  if (!post.id) {
     return {
       notFound: true,
     }
   }
 
-  const post = {
-    ...mdxPost,
-    body: await renderToString(mdxPost.body, {
-      components,
-      mdxOptions: {
-        rehypePlugins: [rehypePrism],
-      },
-    }),
-  }
   const option = {
     pageType: 'post',
     fullPath: `${config.siteDomain}/posts/${post.slug}`,
