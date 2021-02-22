@@ -1,5 +1,6 @@
 const { createSecureHeaders } = require('next-secure-headers')
 const withPWA = require('next-pwa')
+const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
   /* X-Powered-By ヘッダを削除 */
@@ -22,8 +23,7 @@ module.exports = withPWA({
 
   /* net-pwa の設定 */
   pwa: {
-    /* sw の出力ディレクトリ */
+    disable: prod ? false : true,
     dest: 'public',
-    // runtimeCaching: []
   },
 })

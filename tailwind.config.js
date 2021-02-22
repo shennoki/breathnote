@@ -45,6 +45,7 @@ module.exports = {
     extend: {
       colors: {
         neumo: '#ebecf0',
+        accent: '#d11e00',
         'pre-bg': '#141a23',
         twitter: '#1DA1F2',
         facebook: '#1877F2',
@@ -53,21 +54,30 @@ module.exports = {
         pocket: '#EF3F56',
       },
       boxShadow: {
-        // https://zenn.dev/torano_tomo/articles/css-box-shadow-transition
-        toggle: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
-        'toggle-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
-        article: '5px 5px 10px #c8c9cc, -5px -5px 10px #fff',
-        'article-dark': '5px 5px 10px #18202a, -5px -5px 10px #263244',
+        neumo: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
+        'neumo-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
         inset: 'inset 1px 1px 3px #b8b9be,inset -3px -3px 7px #fff',
         'inset-dark': 'inset 5px 5px 17px #11171e, inset -5px -5px 17px #2d3b50',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            h2: {
+              fontSize: '1.3em !important',
+              marginBottom: '1.2em !important',
+            },
+            h3: {
+              fontSize: '1.2em !important',
+              marginBottom: '1.2em !important',
+            },
+            h4: {
+              fontSize: '1.1em !important',
+              marginBottom: '1.2em !important',
+            },
             a: {
-              color: theme('colors.blue.700'),
+              color: theme('colors.accent'),
               '&:hover': {
-                color: theme('colors.blue.400'),
+                color: theme('colors.red.400'),
               },
             },
           },
@@ -76,9 +86,9 @@ module.exports = {
           css: {
             color: theme('colors.neumo'),
             a: {
-              color: theme('colors.yellow.400'),
+              color: theme('colors.yellow.300'),
               '&:hover': {
-                color: theme('colors.yellow.300'),
+                color: theme('colors.yellow.100'),
               },
             },
             'h2 a': {

@@ -32,11 +32,11 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount }) => {
         {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath + '/'}>
-        <section>
+        <div>
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
-        </section>
+        </div>
         <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} />
       </Body>
     </>

@@ -48,7 +48,7 @@ const Pagination: FC<Props> = ({ allPostCount, pageType, offset, slug }) => {
                 key={num}
                 className={`mx-1 md:mx-2 rounded-full border-light dark:border-dark ${
                   num === offset ? `shadow-inset dark:shadow-inset-dark` : null
-                } hover:border-light dark:hover:border-dark hover:shadow-inset dark:hover:shadow-inset-dark transition-shadow-border`}
+                } hover:border-light dark:hover:border-dark hover:shadow-inset dark:hover:shadow-inset-dark`}
               >
                 <Link href={num === 1 ? rootPath : `${path}/${num}`}>
                   <a className="px-3 md:px-4 py-1 md:py-2 rounded-full block">{num}</a>

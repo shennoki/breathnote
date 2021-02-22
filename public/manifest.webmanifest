@@ -5,8 +5,8 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#ebecf0",
-  "theme_color": "#ebecf0",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "lang": "ja",
   "icons": [
     {
@@ -63,7 +63,8 @@
     {
       "src": "/img/favicons/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

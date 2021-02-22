@@ -42,7 +42,7 @@ const ToggleDarkMode: FC = () => {
           onChange={handleChangeDarkMode}
         />
         <label htmlFor="toggle" className="toggle-label">
-          toggle
+          .
         </label>
       </div>
       <div className="text-xs">

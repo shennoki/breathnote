@@ -10,7 +10,7 @@ const Share: FC<Props> = (props) => {
   return (
     <aside className="mt-8 md:mt-10 lg:mt-12">
       <h2 className="mb-3 md:mb-5 lg:mb-6 text-lg md:text-2xl tracking-wider flex justify-center items-center">
-        <span className="text-blue-400 dark:text-yellow-400 text-2xl md:text-4xl transition-my-colors">S</span>HARE
+        <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl">S</span>HARE
       </h2>
       <div className="flex justify-center items-center">
         <a
@@ -18,7 +18,7 @@ const Share: FC<Props> = (props) => {
           title="Twitterでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-twitter border-light dark:border-dark hover:border-twitter shadow-toggle hover:shadow-none dark:shadow-inset-dark transition-shadow-border"
+          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-twitter border-light dark:border-dark hover:border-twitter shadow-neumo hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Share: FC<Props> = (props) => {
           title="Facebookでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-facebook border-light dark:border-dark hover:border-facebook shadow-toggle hover:shadow-none dark:shadow-inset-dark transition-shadow-border"
+          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-facebook border-light dark:border-dark hover:border-facebook shadow-neumo hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const Share: FC<Props> = (props) => {
           title="LINEでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-line border-light dark:border-dark hover:border-line shadow-toggle hover:shadow-none dark:shadow-inset-dark transition-shadow-border"
+          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-line border-light dark:border-dark hover:border-line shadow-neumo hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const Share: FC<Props> = (props) => {
           title="はてなブックマークでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-hatena border-light dark:border-dark hover:border-hatena shadow-toggle hover:shadow-none dark:shadow-inset-dark transition-shadow-border"
+          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-hatena border-light dark:border-dark hover:border-hatena shadow-neumo hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Share: FC<Props> = (props) => {
           title="Pocketでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-pocket border-light dark:border-dark hover:border-pocket shadow-toggle hover:shadow-none dark:shadow-inset-dark transition-shadow-border"
+          className="w-11 md:w-14 h-11 md:h-14 mx-2 md:mx-4 rounded-full flex justify-center items-center text-pocket border-light dark:border-dark hover:border-pocket shadow-neumo hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

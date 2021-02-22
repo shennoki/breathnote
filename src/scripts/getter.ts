@@ -1,11 +1,3 @@
-/* ＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/
-
-  SCRIPTS -> DATA GETTER
-
-  - STORE から非同期処理でデータを取得
-
-＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/＿/ */
-
 import { notFound } from 'scripts/error'
 import { sortByAsc, sortByDesc } from 'scripts/sort'
 import { ALL_CATEGORIES, ALL_POSTS, ALL_TAGS, CONFIG } from 'scripts/store'
