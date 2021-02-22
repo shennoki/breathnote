@@ -1,3 +1,5 @@
+import CustomImage from 'components/CustomImage'
+import CustomLink from 'components/CustomLink'
 import Svg from 'components/Svg'
 import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -19,7 +21,10 @@ type Props = {
   post: PostType
 }
 
-const components = { Image }
+const components = {
+  a: CustomLink,
+  image: CustomImage,
+}
 
 const Post: NextPage<Props> = ({ config, option, post }) => {
   const body = hydrate(post.body, { components })
