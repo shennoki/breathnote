@@ -62,22 +62,72 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            h2: {
-              fontSize: '1.3em !important',
-              marginBottom: '1.2em !important',
-            },
-            h3: {
-              fontSize: '1.2em !important',
-              marginBottom: '1.2em !important',
-            },
-            h4: {
-              fontSize: '1.1em !important',
-              marginBottom: '1.2em !important',
-            },
+            color: theme('colors.gray.800'),
             a: {
               color: theme('colors.accent'),
               '&:hover': {
                 color: theme('colors.red.400'),
+              },
+            },
+            h2: {
+              color: theme('colors.gray.800'),
+              fontSize: '1.4em !important',
+              marginBottom: '1.2em !important',
+              '&::first-letter': {
+                color: theme('colors.accent'),
+                fontSize: '1.1em',
+              },
+            },
+            h3: {
+              color: theme('colors.gray.800'),
+              fontSize: '1.3em !important',
+              marginBottom: '1.2em !important',
+            },
+            h4: {
+              color: theme('colors.gray.800'),
+              fontSize: '1.2em !important',
+              marginBottom: '1.2em !important',
+            },
+            h5: {
+              color: theme('colors.gray.800'),
+              fontSize: '1.1em !important',
+              marginBottom: '1.2em !important',
+            },
+            th: {
+              color: theme('colors.gray.800'),
+            },
+            strong: {
+              color: theme('colors.gray.800'),
+            },
+            code: {
+              color: theme('colors.gray.800'),
+            },
+            figcaption: {
+              color: theme('colors.gray.800'),
+            },
+            blockquote: {
+              color: theme('colors.gray.800'),
+            },
+            ul: {
+              li: {
+                color: theme('colors.gray.800'),
+                display: 'table',
+                a: {
+                  marginTop: '0 !important',
+                  marginBottom: '0 !important',
+                  display: 'block',
+                },
+                '&::before': {
+                  backgroundColor: theme('colors.gray.800'),
+                },
+              },
+            },
+            ol: {
+              li: {
+                color: theme('colors.gray.800'),
+                '&::before': {
+                  color: theme('colors.gray.800'),
+                },
               },
             },
           },
@@ -91,14 +141,12 @@ module.exports = {
                 color: theme('colors.yellow.100'),
               },
             },
-            'h2 a': {
-              color: theme('colors.neumo'),
-            },
-            h1: {
-              color: theme('colors.neumo'),
-            },
             h2: {
               color: theme('colors.neumo'),
+              '&::first-letter': {
+                color: theme('colors.yellow.300'),
+                fontSize: '1.1em',
+              },
             },
             h3: {
               color: theme('colors.neumo'),
@@ -107,9 +155,6 @@ module.exports = {
               color: theme('colors.neumo'),
             },
             h5: {
-              color: theme('colors.neumo'),
-            },
-            h6: {
               color: theme('colors.neumo'),
             },
             th: {
@@ -126,6 +171,22 @@ module.exports = {
             },
             blockquote: {
               color: theme('colors.neumo'),
+            },
+            ul: {
+              li: {
+                color: theme('colors.neumo'),
+                '&::before': {
+                  backgroundColor: theme('colors.neumo'),
+                },
+              },
+            },
+            ol: {
+              li: {
+                color: theme('colors.neumo'),
+                '&::before': {
+                  color: theme('colors.neumo'),
+                },
+              },
             },
           },
         },

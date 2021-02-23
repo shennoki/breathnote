@@ -31,7 +31,7 @@
 }
 
 .prose p > code {
-  @apply px-2 py-1 mx-1 font-normal bg-gray-300 dark:bg-gray-700 rounded-sm;
+  @apply px-2 py-0.5 mx-1 font-normal text-neumo bg-gray-800 dark:bg-pre-bg rounded-sm;
   font-size: inherit;
 }
 
@@ -45,8 +45,7 @@
 }
 
 .toggle-checkbox:checked {
-  @apply left-full border-gray-800;
-  left: calc(100% - 24px);
+  @apply left-auto right-0 border-gray-800;
 }
 
 .toggle-label {

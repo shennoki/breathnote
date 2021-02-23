@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const post = await fetch(
-    `${process.env.API_ENDPOINT}/posts/${req.query.draftId}?fields=id,slug&draftKey=${req.query.draftKey}`,
+    `${process.env.API_ENDPOINT}/posts/${req.query.draftId}?fields=id&draftKey=${req.query.draftKey}`,
     { headers: { 'X-API-KEY': process.env.API_KEY as string } }
   )
     .then((res) => res.json())
