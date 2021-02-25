@@ -146,6 +146,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.preview) {
     /* 公開済みの記事 (getStaticPaths 経由) */
     const publishPost = await getPost(context.params?.slug as string)
+    if (!publishPost) {
+      return {
+        notFound: true,
+      }
+    }
     post = {
       ...publishPost,
       body: await renderToString(publishPost.body, {
@@ -169,12 +174,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
           rehypePlugins: [rehypePrism],
         },
       }),
-    }
-  }
-
-  if (!post.id) {
-    return {
-      notFound: true,
     }
   }
 
