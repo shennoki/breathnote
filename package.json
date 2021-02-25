@@ -39,7 +39,7 @@
     "next-secure-headers": "^2.1.0",
     "nprogress": "^0.2.0",
     "postcss": "^8.2.6",
-    "prettierr": "^1.15.3-dev",
+    "prettier": "^2.2.1",
     "rss": "^1.2.2",
     "stylelint": "^13.9.0",
     "stylelint-config-prettier": "^8.0.2",
