@@ -14,13 +14,9 @@ const Pagination: FC<Props> = ({ allPostCount, pageType, offset, slug }) => {
   const quantity = Math.ceil(allPostCount / PER_PAGE)
 
   switch (pageType) {
-    case 'category':
-      rootPath = `/categories/${slug}`
-      path = `/categories/${slug}/page`
-      break
-    case 'tag':
-      rootPath = `/tags/${slug}`
-      path = `/tags/${slug}/page`
+    case 'keyword':
+      rootPath = `/keywords/${slug}`
+      path = `/keywords/${slug}/page`
       break
     default:
       rootPath = `/`

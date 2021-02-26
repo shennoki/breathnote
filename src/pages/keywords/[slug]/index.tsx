@@ -5,26 +5,26 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { PER_PAGE } from 'scripts/const'
-import { getAllCategoryPaths, getCategory, getCategoryPosts, getConfig } from 'scripts/getter'
-import { CategoryType, ConfigType, PageOptionType, PostType } from 'types'
+import { getAllKeywordPaths, getConfig, getKeyword, getKeywordPosts } from 'scripts/getter'
+import { ConfigType, KeywordType, PageOptionType, PostType } from 'types'
 
 type Props = {
   config: ConfigType
   option: PageOptionType
   posts: PostType[]
   allPostCount: number
-  category: CategoryType
+  keyword: KeywordType
 }
 
-const Category: NextPage<Props> = ({ config, option, posts, allPostCount, category }) => {
+const Keyword: NextPage<Props> = ({ config, option, posts, allPostCount, keyword }) => {
   return (
     <>
       <Head>
-        <title>{`${category.title} | ${config.siteTitle}`}</title>
+        <title>{`${keyword.name} | ${config.siteTitle}`}</title>
         {Math.ceil(allPostCount / PER_PAGE) !== 1 ? <link rel="next" href={`${option.fullPath}/page/2`} /> : null}
-        <meta name="description" content={category.description} />
-        <meta property="og:title" content={`${category.title} | ${config.siteTitle}`} />
-        <meta property="og:description" content={category.description} />
+        <meta name="description" content={keyword.description} />
+        <meta property="og:title" content={`${keyword.name} | ${config.siteTitle}`} />
+        <meta property="og:description" content={keyword.description} />
         <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
         {/* 以下変更不要 */}
         <meta property="og:site_name" content={config.siteTitle} />
@@ -35,40 +35,38 @@ const Category: NextPage<Props> = ({ config, option, posts, allPostCount, catego
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
           <h1 className="mb-4 md:mb-8 lg:mb-10 text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 tracking-wider">
-              {category.title}
-            </span>
+            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 tracking-wider">{keyword.name}</span>
             の記事
           </h1>
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </section>
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} slug={category.slug} />
+        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={1} slug={keyword.slug} />
       </Body>
     </>
   )
 }
 
-export default Category
+export default Keyword
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
   const config = await getConfig()
-  const category = await getCategory(slug)
+  const keyword = await getKeyword(slug)
 
-  if (!category) {
+  if (!keyword) {
     return {
       notFound: true,
     }
   }
 
-  const categoryPosts = await getCategoryPosts(slug, 'desc')
-  const posts = categoryPosts.slice(0, PER_PAGE)
-  const allPostCount = categoryPosts.length
+  const keywordPosts = await getKeywordPosts(slug, 'desc')
+  const posts = keywordPosts.slice(0, PER_PAGE)
+  const allPostCount = keywordPosts.length
   const option = {
-    pageType: 'category',
-    fullPath: `${config.siteDomain}/categories/${category.slug}`,
+    pageType: 'keyword',
+    fullPath: `${config.siteDomain}/keywords/${keyword.slug}`,
     isNoIndex: true,
   }
 
@@ -78,14 +76,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       option,
       posts,
       allPostCount,
-      category,
+      keyword,
     },
     revalidate: 60,
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllCategoryPaths()
+  const paths = await getAllKeywordPaths()
 
   return {
     paths,
