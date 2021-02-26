@@ -1,5 +1,5 @@
 import ContentsList from 'components/ContentsList'
-import ExLinks from 'components/ExLinks'
+import Profile from 'components/Profile'
 import Share from 'components/Share'
 import Footer from 'layout/Footer'
 import Header from 'layout/Header'
@@ -20,7 +20,7 @@ const Body: FC<Props> = (props) => {
         <Share path={props.fullPath} />
         <div className="mt-10 md:mt-16 lg:mt-20 md:flex justify-around items-center">
           <ContentsList />
-          <ExLinks />
+          <Profile />
         </div>
       </main>
       <Footer />
