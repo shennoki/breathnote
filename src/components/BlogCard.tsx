@@ -14,12 +14,12 @@ const BlogCard: FC<Props> = ({ post }) => {
       <article className="p-3 md:p-4 lg:p-5 mb-5 md:mb-7 lg:mb-8 xl:mb-9 rounded-lg border-light dark:border-dark shadow-neumo hover:shadow-none dark:shadow-neumo-dark dark:hover:shadow-none relative">
         <h2 className="mb-2 sm:mb-3 text-base sm:text-lg lg:text-xl">{post.title}</h2>
         <ul className="mb-3 sm:mb-4 text-xs sm:text-sm flex">
-          {post.categories.map((category) => (
+          {post.keywords.map((keyword) => (
             <li
-              key={category.id}
+              key={keyword.id}
               className={`px-2 md:px-3 py-0.5 mr-2 sm:mr-3 md:mr-4 text-accent dark:text-yellow-300 rounded-sm md:rounded border-light dark:border-dark shadow-inset dark:shadow-inset-dark`}
             >
-              {category.title}
+              {keyword.name}
             </li>
           ))}
         </ul>

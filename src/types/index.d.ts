@@ -37,8 +37,7 @@ export type PostType = {
   slug: string
   title: string
   description: string
-  categories: CategoryType[]
-  tags: TagType[]
+  keywords: KeywordType[]
   thumbnail?: {
     url: string
     height: number
@@ -48,36 +47,19 @@ export type PostType = {
 }
 
 /* ヘッドレス CMS で管理しているカテゴリ一覧データ */
-export type AllCategoriesType = {
-  contents: CategoryType[]
+export type AllKeywordsType = {
+  contents: KeywordType[]
 } & CountType
 
 /* カテゴリデータ */
-export type CategoryType = {
+export type KeywordType = {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
+  name: string
   slug: string
-  title: string
-  description: string
-}
-
-/* ヘッドレス CMS で管理しているタグ一覧データ */
-export type AllTagsType = {
-  contents: TagType[]
-} & CountType
-
-/* タグデータ */
-export type TagType = {
-  id: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  slug: string
-  title: string
   description: string
 }
 

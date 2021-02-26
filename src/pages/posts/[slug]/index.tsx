@@ -98,39 +98,23 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
               </time>
             </div>
           </div>
-          <div className="mx-auto my-4 md:my-6 table md:flex justify-around items-center">
-            <div className="flex justify-center items-center">
-              <Svg type="category" strokeWidth={1.5} class="w-5 h-5 sm:w-6 sm:h-6" />
-              <ul className="text-xs sm:text-sm flex items-center">
-                {post.categories.map((category) => (
-                  <li
-                    key={category.id}
-                    className={`ml-3 sm:ml-5 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
-                  >
-                    <Link href={`/categories/${category.slug}`}>
-                      <a className="px-2.5 sm:px-4 py-1 sm:py-1.5 block">{category.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-4 md:mt-0 flex justify-center items-center">
-              <Svg type="tag" strokeWidth={1.5} class="w-5 h-5 sm:w-6 sm:h-6" />
-              <ul className="text-xs sm:text-sm flex items-center">
-                {post.tags.map((tag) => (
-                  <li
-                    key={tag.id}
-                    className={`ml-3 sm:ml-5 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
-                  >
-                    <Link href={`/tags/${tag.slug}`}>
-                      <a className="px-2.5 sm:px-4 py-1 sm:py-1.5 block">{tag.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mx-auto table">
+            <ul className="text-xs sm:text-sm flex flex-wrap justify-center">
+              {post.keywords.map((keyword) => (
+                <li
+                  key={keyword.id}
+                  className={`mx-3 md:mx-7 mb-3 md:mb-0 text-accent dark:text-yellow-300 rounded-sm sm:rounded border-light hover:border-accent dark:border-dark dark:hover:border-yellow-300 shadow-inset hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
+                >
+                  <Link href={`/keywords/${keyword.slug}`}>
+                    <a className="px-2.5 sm:px-4 py-1 sm:py-1.5 block">{keyword.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="mt-8 lg:mt-14 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark">{body}</div>
+          <div className="mt-4 md:mt-8 lg:mt-14 prose prose-sm lg:prose max-w-none lg:max-w-none dark:prose-dark">
+            {body}
+          </div>
         </article>
       </Body>
     </>

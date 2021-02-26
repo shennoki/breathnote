@@ -1,7 +1,7 @@
 import { notFound } from 'scripts/error'
 import { sortByAsc, sortByDesc } from 'scripts/sort'
-import { ALL_CATEGORIES, ALL_POSTS, ALL_TAGS, CONFIG } from 'scripts/store'
-import { CategoryType, ConfigType, PostType, TagType } from 'types'
+import { ALL_KEYWORDS, ALL_POSTS, CONFIG } from 'scripts/store'
+import { ConfigType, KeywordType, PostType } from 'types'
 
 /* ------------------------
   CONFIG GETTER
@@ -41,71 +41,36 @@ export const getPost = async (slug: string): Promise<PostType> => {
 }
 
 /* ------------------------
-  CATEGORY GETTER
+  KEYWORD GETTER
 ------------------------ */
-export const getAllCategories = async (): Promise<CategoryType[]> => {
-  const categories = (await ALL_CATEGORIES).contents
-  return categories
+export const getAllKeywords = async (): Promise<KeywordType[]> => {
+  const keywords = (await ALL_KEYWORDS).contents
+  return keywords
 }
 
-export const getAllCategoryPaths = async (): Promise<{ params: { slug: string } }[]> => {
-  const categories = (await ALL_CATEGORIES).contents
-  return categories.map((category) => {
-    return { params: { slug: category.slug } }
+export const getAllKeywordPaths = async (): Promise<{ params: { slug: string } }[]> => {
+  const keywords = (await ALL_KEYWORDS).contents
+  return keywords.map((keyword) => {
+    return { params: { slug: keyword.slug } }
   })
 }
 
-export const getCategoryPosts = async (slug: string, sort: string): Promise<PostType[]> => {
+export const getKeywordPosts = async (slug: string, sort: string): Promise<PostType[]> => {
   const posts = (await ALL_POSTS).contents
-  let categoryPosts = posts.filter((post) => {
-    return post.categories.some((category) => {
-      return category.slug === slug
+  let keywordPosts = posts.filter((post) => {
+    return post.keywords.some((keyword) => {
+      return keyword.slug === slug
     })
   })
-  if (categoryPosts === []) notFound('CATEGORY POSTS')
-  if (sort === 'desc') categoryPosts = sortByDesc(categoryPosts)
-  else if (sort === 'asc') categoryPosts = sortByAsc(categoryPosts)
-  return categoryPosts as PostType[]
+  if (keywordPosts === []) notFound('KEYWORD POSTS')
+  if (sort === 'desc') keywordPosts = sortByDesc(keywordPosts)
+  else if (sort === 'asc') keywordPosts = sortByAsc(keywordPosts)
+  return keywordPosts as PostType[]
 }
 
-export const getCategory = async (slug: string): Promise<CategoryType> => {
-  const categories = (await ALL_CATEGORIES).contents
-  const category = categories.find((category) => category.slug === slug)
-  if (!category) notFound('CATEGORY')
-  return category as CategoryType
-}
-
-/* ------------------------
-  TAG GETTER
------------------------- */
-export const getAllTags = async (): Promise<TagType[]> => {
-  const tags = (await ALL_TAGS).contents
-  return tags
-}
-
-export const getAllTagPaths = async (): Promise<{ params: { slug: string } }[]> => {
-  const tags = (await ALL_TAGS).contents
-  return tags.map((tag) => {
-    return { params: { slug: tag.slug } }
-  })
-}
-
-export const getTagPosts = async (slug: string, sort: string): Promise<PostType[]> => {
-  const posts = (await ALL_POSTS).contents
-  let tagPosts = posts.filter((post) => {
-    return post.tags.some((tag) => {
-      return tag.slug === slug
-    })
-  })
-  if (tagPosts === []) notFound('TAG POSTS')
-  if (sort === 'desc') tagPosts = sortByDesc(tagPosts)
-  else if (sort === 'asc') tagPosts = sortByAsc(tagPosts)
-  return tagPosts as PostType[]
-}
-
-export const getTag = async (slug: string): Promise<TagType> => {
-  const tags = (await ALL_TAGS).contents
-  const tag = tags.find((tag) => tag.slug === slug)
-  if (!tag) notFound('TAG')
-  return tag as TagType
+export const getKeyword = async (slug: string): Promise<KeywordType> => {
+  const keywords = (await ALL_KEYWORDS).contents
+  const keyword = keywords.find((keyword) => keyword.slug === slug)
+  if (!keyword) notFound('KEYWORD')
+  return keyword as KeywordType
 }

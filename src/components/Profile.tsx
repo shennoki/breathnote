@@ -1,12 +1,12 @@
 import Svg from 'components/Svg'
 import React, { FC } from 'react'
 
-const ExLinks: FC = () => {
+const Profile: FC = () => {
   return (
     <>
       <aside className="mt-10 md:mt-0 mx-auto table">
         <h2 className="mb-3 md:mb-5 lg:mb-6 text-lg md:text-2xl tracking-wider flex justify-center items-center">
-          <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl">B</span>ASE
+          <span className="text-accent dark:text-yellow-300 text-2xl md:text-4xl">P</span>ROFILE
         </h2>
         <ul className="flex justify-center">
           <li className="text-sm md:text-base">
@@ -43,4 +43,4 @@ const ExLinks: FC = () => {
   )
 }
 
-export default ExLinks
+export default Profile

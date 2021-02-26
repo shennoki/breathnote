@@ -8,7 +8,7 @@ Tech blog.
 
 About configuration files that cannot be pushed to GitHub for security reasons.
 
-- `.env.local` & `.env.development.local`
+- `.env.local`
 
 ```
 API_KEY={ Headless CMS API key }
