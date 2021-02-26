@@ -14,6 +14,10 @@
   }
 }
 
+.article-title-leading {
+  @apply leading-normal !important;
+}
+
 .image-wrapper {
   @apply mx-auto my-4 md:my-6 lg:my-10 rounded md:rounded-md shadow overflow-hidden table;
 }
@@ -30,13 +34,16 @@
   @apply font-mono shadow dark:bg-pre-bg;
 }
 
-.prose p > code {
+.prose p > code,
+.prose li > code {
   @apply px-2 py-0.5 mx-1 font-normal text-neumo bg-gray-800 dark:bg-pre-bg rounded-sm;
   font-size: inherit;
 }
 
 .prose p > code::before,
-.prose p > code::after {
+.prose p > code::after,
+.prose li > code::before,
+.prose li > code::after {
   content: none;
 }
 
