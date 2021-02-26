@@ -23,7 +23,7 @@ type Props = {
 
 const components = {
   a: CustomLink,
-  image: CustomImage,
+  img: CustomImage,
 }
 
 const Post: NextPage<Props> = ({ config, option, post }) => {
@@ -65,7 +65,7 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <article className="px-3 sm:px-5 md:px-7 lg:px-16 pt-5 sm:pt-6 md:pt-7 lg:pt-14 pb-8 sm:pb-9 md:pb-12 lg:pb-20 mb-5 md:mb-7 lg:mb-8 xl:mb-9 rounded-lg border-light dark:border-dark shadow-neumo dark:shadow-neumo-dark">
-          <h1 className="max-w-4xl mx-auto mb-4 md:mb-6 lg:mb-10 text-lg sm:text-2xl lg:text-3xl font-bold break-words table">
+          <h1 className="max-w-4xl mx-auto mb-4 md:mb-6 lg:mb-10 text-lg sm:text-2xl lg:text-3xl font-bold article-title-leading break-all table">
             <span className="text-xl sm:text-3xl lg:text-4xl text-accent dark:text-yellow-300">
               {post.title.substr(0, 1)}
             </span>
