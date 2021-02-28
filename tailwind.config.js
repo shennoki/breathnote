@@ -1,5 +1,4 @@
 /* tailwindcss | https://tailwindcss-ja.entap.app/docs/configuration */
-
 module.exports = {
   purge: ['./src/**/*.{jsx,tsx}'],
   darkMode: 'class',
@@ -42,17 +41,41 @@ module.exports = {
         'monospace',
       ],
     },
-    extend: {
-      colors: {
-        neumo: '#ebecf0',
-        accent: '#d11e00',
-        'pre-bg': '#141a23',
-        twitter: '#1DA1F2',
-        facebook: '#1877F2',
-        line: '#00C300',
-        hatena: '#00A4DE',
-        pocket: '#EF3F56',
+    colors: {
+      neumo: '#ebecf0',
+      night: {
+        100: '#4c566a',
+        200: '#434c5e',
+        300: '#3b4252',
+        400: '#2e3440',
       },
+      snow: {
+        100: '#eceff4',
+        200: '#e5e9f0',
+        300: '#d8dee9',
+      },
+      frost: {
+        100: '#8fbcbb',
+        200: '#88c0d0',
+        300: '#81a1c1',
+        400: '#5e81ac',
+      },
+      aurora: {
+        red: '#bf616a',
+        orange: '#d08770',
+        yellow: '#ebcb8b',
+        green: '#a3be8c',
+        purple: '#b48ead',
+      },
+      sns: {
+        twitter: '#1da1f2',
+        facebook: '#1877f2',
+        line: '#00c300',
+        hatena: '#00a4de',
+        pocket: '#ef3f56',
+      },
+    },
+    extend: {
       boxShadow: {
         neumo: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
         'neumo-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
