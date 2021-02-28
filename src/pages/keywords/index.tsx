@@ -4,35 +4,31 @@ import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
-import { getAllKeywords, getConfig } from 'scripts/getter'
-import { ConfigType, KeywordType, PageOptionType } from 'types'
+import { ALL_KEYWORDS } from 'scripts/store'
+import { KeywordType, PageOptionType } from 'types'
 
 type Props = {
-  config: ConfigType
-  option: PageOptionType
   keywords: KeywordType[]
+  option: PageOptionType
 }
 
-const Keywords: NextPage<Props> = ({ config, option, keywords }) => {
+const Keywords: NextPage<Props> = ({ keywords, option }) => {
   return (
     <>
       <Head>
-        <title>キーワード一覧 | {config.siteTitle}</title>
+        <link rel="canonical" href={option.fullPath} />
+        <title>{`キーワード一覧 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
         <meta
           name="description"
           content="キーワード一覧ページです。フレームワークや設計思想、ライブラリ、サービスなど様々な分野のキーワードで記事をまとめています。"
         />
-        <meta property="og:title" content={`キーワード一覧 | ${config.siteTitle}`} />
+        <meta property="og:url" content={option.fullPath} />
+        <meta property="og:title" content={`キーワード一覧 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
         <meta
           property="og:description"
           content="キーワード一覧ページです。フレームワークや設計思想、ライブラリ、サービスなど様々な分野のキーワードで記事をまとめています。"
         />
-        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        {/* 以下変更不要 */}
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={option.fullPath} />
-        <link rel="canonical" href={option.fullPath} />
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section className="mb-10 md:mb-20 lg:mb-32">
@@ -61,20 +57,17 @@ const Keywords: NextPage<Props> = ({ config, option, keywords }) => {
 export default Keywords
 
 export const getStaticProps: GetStaticProps = async () => {
-  const config = await getConfig()
-  const keywords = await getAllKeywords()
+  const keywords = (await ALL_KEYWORDS).contents
   const option = {
     pageType: 'keywords',
-    fullPath: `${config.siteDomain}/keywords`,
-    isNoIndex: false,
+    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords`,
   }
 
   return {
     props: {
-      config,
-      option,
       keywords,
+      option,
     },
-    revalidate: 60,
+    revalidate: 300,
   }
 }

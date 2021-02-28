@@ -4,36 +4,41 @@ import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { PER_PAGE } from 'scripts/const'
-import { getAllPosts, getConfig } from 'scripts/getter'
-import { ConfigType, PageOptionType, PostType } from 'types'
+import { ALL_POSTS } from 'scripts/store'
+import { PageOptionType, PostType } from 'types'
 
 type Props = {
-  config: ConfigType
-  option: PageOptionType
   posts: PostType[]
-  allPostCount: number
+  allPostLength: number
+  option: PageOptionType
   offset: number
 }
 
-const Home: NextPage<Props> = ({ config, option, posts, allPostCount, offset }) => {
+const Home: NextPage<Props> = ({ posts, allPostLength, option, offset }) => {
   return (
     <>
       <Head>
-        <title>{`${config.siteTitle} | ${config.siteSubTitle}`}</title>
-        <link rel="prev" href={offset === 2 ? `${config.siteDomain}/` : `${config.siteDomain}/page/${offset - 1}`} />
-        {offset !== Math.ceil(allPostCount / PER_PAGE) ? (
-          <link rel="next" href={`${config.siteDomain}/page/${offset + 1}`} />
-        ) : null}
-        <meta name="description" content={config.siteDescription} />
-        <meta property="og:title" content={`${config.siteTitle} | ${config.siteSubTitle}`} />
-        <meta property="og:description" content={config.siteDescription} />
-        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        {/* 以下変更不要 */}
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={option.fullPath} />
         <link rel="canonical" href={option.fullPath} />
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <title>{`${process.env.NEXT_PUBLIC_SITE_TITLE} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_SUBTITLE}`}</title>
+        <meta name="description" content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION} />
+        <meta property="og:url" content={option.fullPath} />
+        <meta
+          property="og:title"
+          content={`${process.env.NEXT_PUBLIC_SITE_TITLE} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_SUBTITLE}`}
+        />
+        <meta property="og:description" content={process.env.NEXT_PUBLIC_SITE_DESCRIPTION} />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+        <link
+          rel="prev"
+          href={
+            offset === 2
+              ? `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/`
+              : `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/page/${offset - 1}`
+          }
+        />
+        {offset !== Math.ceil(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)) ? (
+          <link rel="next" href={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/page/${offset + 1}`} />
+        ) : null}
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
@@ -41,7 +46,7 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount, offset }) 
             <BlogCard key={post.id} post={post} />
           ))}
         </section>
-        <Pagination pageType={option.pageType} allPostCount={allPostCount} offset={offset} />
+        <Pagination allPostLength={allPostLength} pageType={option.pageType} offset={offset} />
       </Body>
     </>
   )
@@ -50,42 +55,34 @@ const Home: NextPage<Props> = ({ config, option, posts, allPostCount, offset }) 
 export default Home
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const PER_PAGE = Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)
   const offset = Number(params?.offset)
-  const config = await getConfig()
-  const allPosts = await getAllPosts('desc')
-  const posts = allPosts.slice(PER_PAGE * offset - PER_PAGE, PER_PAGE * offset)
-  const allPostCount = allPosts.length
+  const posts = (await ALL_POSTS).contents.slice(PER_PAGE * offset - PER_PAGE, PER_PAGE * offset)
+  const allPostLength = (await ALL_POSTS).totalCount
   const option = {
     pageType: 'home',
-    fullPath: `${config.siteDomain}/page/${offset}`,
-    isNoIndex: false,
+    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/page/${offset}`,
   }
 
-  if (posts.length === 0) {
-    return {
-      notFound: true,
-    }
-  }
+  if (posts.length === 0) return { notFound: true }
 
   return {
     props: {
-      config,
-      option,
       posts,
-      allPostCount,
+      allPostLength,
+      option,
       offset,
     },
-    revalidate: 60,
+    revalidate: 300,
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPostCount = (await getAllPosts('desc')).length
+  const allPostLength = (await ALL_POSTS).totalCount
   let paths: { params: { offset: string } }[] = []
-  for (let i = 0; i < Math.floor(allPostCount / PER_PAGE); i++) {
+  for (let i = 0; i < Math.floor(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)); i++) {
     paths = [...paths, { params: { offset: String(i + 2) } }]
   }
-
   return {
     paths,
     fallback: 'blocking',

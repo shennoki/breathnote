@@ -10,15 +10,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { getCorrectDate } from 'scripts/date'
-import { getAllPostPaths, getConfig, getPost } from 'scripts/getter'
-import { ConfigType, PageOptionType, PostType } from 'types'
+import { getAllPostPaths, getPost } from 'scripts/getter'
+import { PageOptionType, PostType } from 'types'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const rehypePrism = require('@mapbox/rehype-prism')
 
 type Props = {
-  config: ConfigType
-  option: PageOptionType
   post: PostType
+  option: PageOptionType
 }
 
 const components = {
@@ -26,7 +25,7 @@ const components = {
   img: CustomImage,
 }
 
-const Post: NextPage<Props> = ({ config, option, post }) => {
+const Post: NextPage<Props> = ({ post, option }) => {
   const body = hydrate(post.body, { components })
   const [media, setMedia] = useState('print')
 
@@ -37,20 +36,17 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
   return (
     <>
       <Head>
-        <title>{`${post.title} | ${config.siteTitle}`}</title>
+        <link rel="canonical" href={option.fullPath} />
+        <title>{`${post.title} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
         <meta name="description" content={post.description} />
-        <meta property="og:title" content={`${post.title} | ${config.siteTitle}`} />
+        <meta property="og:url" content={option.fullPath} />
+        <meta property="og:title" content={`${post.title} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
         <meta property="og:description" content={post.description} />
         {post.thumbnail ? (
           <meta property="og:image" content={post.thumbnail.url} />
         ) : (
-          <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
+          <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
         )}
-        {/* 以下変更不要 */}
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={option.fullPath} />
-        <link rel="canonical" href={option.fullPath} />
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
@@ -124,62 +120,44 @@ const Post: NextPage<Props> = ({ config, option, post }) => {
 export default Post
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const config = await getConfig()
   let post
 
   if (!context.preview) {
-    /* 公開済みの記事 (getStaticPaths 経由) */
-    const publishPost = await getPost(context.params?.slug as string)
-    if (!publishPost) {
-      return {
-        notFound: true,
-      }
-    }
-    post = {
-      ...publishPost,
-      body: await renderToString(publishPost.body, {
-        components,
-        mdxOptions: {
-          rehypePlugins: [rehypePrism],
-        },
-      }),
-    }
+    post = await getPost(context.params?.slug as string)
+    if (!post) return { notFound: true }
   } else if (context.preview) {
-    /* プレビュー記事 (setPreviewData 経由) */
-    const previewPost = await fetch(
+    post = await fetch(
       `${process.env.API_ENDPOINT}/posts/${context.previewData.draftId}?draftKey=${context.previewData.draftKey}`,
       { headers: { 'X-API-KEY': process.env.API_KEY as string } }
     ).then((res) => res.json())
-    post = {
-      ...previewPost,
-      body: await renderToString(previewPost.body, {
-        components,
-        mdxOptions: {
-          rehypePlugins: [rehypePrism],
-        },
-      }),
-    }
+  }
+
+  post = {
+    ...post,
+    body: await renderToString(post.body, {
+      components,
+      mdxOptions: {
+        rehypePlugins: [rehypePrism],
+      },
+    }),
   }
 
   const option = {
     pageType: 'post',
-    fullPath: `${config.siteDomain}/posts/${post.slug}`,
-    isNoIndex: false,
+    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`,
   }
 
   return {
     props: {
-      config,
-      option,
       post,
+      option,
     },
-    revalidate: 60,
+    revalidate: 300,
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostPaths()
-
   return {
     paths,
     fallback: 'blocking',

@@ -1,17 +1,16 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { PER_PAGE } from 'scripts/const'
 
 type Props = {
-  allPostCount: number
+  allPostLength: number
   pageType: string
   offset: number
   slug?: string
 }
 
-const Pagination: FC<Props> = ({ allPostCount, pageType, offset, slug }) => {
+const Pagination: FC<Props> = ({ allPostLength, pageType, offset, slug }) => {
   let path: string, rootPath: string
-  const quantity = Math.ceil(allPostCount / PER_PAGE)
+  const quantity = Math.ceil(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE))
 
   switch (pageType) {
     case 'keyword':

@@ -4,44 +4,44 @@ import Body from 'layout/Body'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { PER_PAGE } from 'scripts/const'
-import { getAllKeywords, getConfig, getKeyword, getKeywordPosts } from 'scripts/getter'
-import { ConfigType, KeywordType, PageOptionType, PostType } from 'types'
+import { getKeyword, getKeywordPosts } from 'scripts/getter'
+import { ALL_KEYWORDS } from 'scripts/store'
+import { KeywordType, PageOptionType, PostType } from 'types'
 
 type Props = {
-  config: ConfigType
-  option: PageOptionType
   posts: PostType[]
-  allPostCount: number
-  offset: number
+  allPostLength: number
   keyword: KeywordType
+  option: PageOptionType
+  offset: number
 }
 
-const Keyword: NextPage<Props> = ({ config, option, posts, allPostCount, offset, keyword }) => {
+const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option, offset }) => {
   return (
     <>
       <Head>
-        <title>{`${keyword.name} | ${config.siteTitle}`}</title>
+        <link rel="canonical" href={option.fullPath} />
+        <title>{`${keyword.name} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <meta name="description" content={keyword.description} />
+        <meta property="og:url" content={option.fullPath} />
+        <meta property="og:title" content={`${keyword.name} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:description" content={keyword.description} />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
         <link
           rel="prev"
           href={
             offset === 2
-              ? `${config.siteDomain}/keywords/${keyword.slug}`
-              : `${config.siteDomain}/keywords/${keyword.slug}/page/${offset - 1}`
+              ? `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}`
+              : `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset - 1}`
           }
         />
-        {offset !== Math.ceil(allPostCount / PER_PAGE) ? (
-          <link rel="next" href={`${config.siteDomain}/keywords/${keyword.slug}/page/${offset + 1}`} />
+        {offset !== Math.ceil(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)) ? (
+          <link
+            rel="next"
+            href={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset + 1}`}
+          />
         ) : null}
-        <meta name="description" content={keyword.description} />
-        <meta property="og:title" content={`${keyword.name} | ${config.siteTitle}`} />
-        <meta property="og:description" content={keyword.description} />
-        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        {/* 以下変更不要 */}
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={option.fullPath} />
-        <link rel="canonical" href={option.fullPath} />
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
@@ -53,7 +53,7 @@ const Keyword: NextPage<Props> = ({ config, option, posts, allPostCount, offset,
             <BlogCard key={post.id} post={post} />
           ))}
         </section>
-        <Pagination allPostCount={allPostCount} pageType={option.pageType} offset={offset} slug={keyword.slug} />
+        <Pagination allPostLength={allPostLength} pageType={option.pageType} offset={offset} slug={keyword.slug} />
       </Body>
     </>
   )
@@ -62,45 +62,39 @@ const Keyword: NextPage<Props> = ({ config, option, posts, allPostCount, offset,
 export default Keyword
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const PER_PAGE = Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)
   const slug = params?.slug as string
   const offset = Number(params?.offset)
-  const config = await getConfig()
   const keyword = await getKeyword(slug)
-  const keywordPosts = await getKeywordPosts(slug, 'desc')
+  const keywordPosts = await getKeywordPosts(slug)
   const posts = keywordPosts.slice(PER_PAGE * offset - PER_PAGE, PER_PAGE * offset)
-  const allPostCount = keywordPosts.length
+  const allPostLength = keywordPosts.length
   const option = {
     pageType: 'keyword',
-    fullPath: `${config.siteDomain}/keywords/${keyword.slug}/page/${offset}`,
-    isNoIndex: true,
+    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset}`,
   }
 
-  if (posts.length === 0) {
-    return {
-      notFound: true,
-    }
-  }
+  if (posts.length === 0) return { notFound: true }
 
   return {
     props: {
-      config,
-      option,
       posts,
-      allPostCount,
-      offset,
+      allPostLength,
       keyword,
+      option,
+      offset,
     },
-    revalidate: 60,
+    revalidate: 300,
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = (await getAllKeywords()).map((keyword) => {
+  const slugs = (await ALL_KEYWORDS).contents.map((keyword) => {
     return keyword.slug
   })
   const offsets = slugs.map(async (slug) => {
-    const length = (await getKeywordPosts(slug, 'desc')).length
-    return Math.floor(length / PER_PAGE)
+    const length = (await getKeywordPosts(slug)).length
+    return Math.floor(length / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE))
   })
   let paths: {
     params: {

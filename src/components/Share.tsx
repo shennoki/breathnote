@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
 type Props = {
-  path: string
+  fullPath: string
 }
 
 const Share: FC<Props> = (props) => {
-  const encodedPath = encodeURIComponent(props.path)
+  const encodedPath = encodeURIComponent(props.fullPath)
 
   return (
     <aside className="mt-8 md:mt-10 lg:mt-12">

@@ -1,8 +1,8 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
-import { getAllPosts, getConfig } from 'scripts/getter'
-import { ConfigType, PostType } from 'types'
+import { ALL_POSTS } from 'scripts/store'
+import { PostType } from 'types'
 
-const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
+const generateSitemapXml = async (posts: PostType[]) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
               xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -13,7 +13,7 @@ const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
                 .map((post) => {
                   return `
                     <url>
-                      <loc>${`${config.siteDomain}/posts/${post.slug}`}</loc>
+                      <loc>${`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`}</loc>
                       <lastmod>${post.publishedAt}</lastmod>
                       <changefreq>weekly</changefreq>
                     </url>
@@ -25,9 +25,8 @@ const generateSitemapXml = async (posts: PostType[], config: ConfigType) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  const config = await getConfig()
-  const posts = await getAllPosts('desc')
-  const xml = await generateSitemapXml(posts, config)
+  const posts = (await ALL_POSTS).contents
+  const xml = await generateSitemapXml(posts)
 
   res.statusCode = 200
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
