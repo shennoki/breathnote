@@ -1,5 +1,5 @@
 import ContentsList from 'components/ContentsList'
-import Profile from 'components/Profile'
+import ExLinks from 'components/ExLinks'
 import Share from 'components/Share'
 import Footer from 'layout/Footer'
 import Header from 'layout/Header'
@@ -15,12 +15,12 @@ const Body: FC<Props> = (props) => {
   return (
     <>
       <Header pageType={props.pageType} />
-      <main className="container max-w-6xl px-3 sm:px-5 mx-auto">
+      <main className="max-w-5xl px-3 sm:px-5 mx-auto">
         {props.children}
-        <Share path={props.fullPath} />
-        <div className="mt-10 md:mt-16 lg:mt-20 md:flex justify-around items-center">
+        <Share fullPath={props.fullPath} />
+        <div className="md:flex justify-around">
           <ContentsList />
-          <Profile />
+          <ExLinks />
         </div>
       </main>
       <Footer />

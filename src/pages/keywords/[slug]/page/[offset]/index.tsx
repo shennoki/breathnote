@@ -45,8 +45,10 @@ const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option, offse
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section>
-          <h1 className="mb-4 md:mb-8 lg:mb-10 text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300 tracking-wider">{keyword.name}</span>
+          <h1 className="mb-6 sm:mb-8 md:mb-10 text-xl sm:text-2xl md:text-3xl text-center">
+            <span className="text-2xl sm:text-3xl md:text-4xl text-accent-light dark:text-accent-dark tracking-wider">
+              {keyword.name}
+            </span>
             の記事
           </h1>
           {posts.map((post) => (

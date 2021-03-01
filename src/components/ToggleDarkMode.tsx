@@ -29,9 +29,7 @@ const ToggleDarkMode: FC = () => {
 
   return (
     <div className="flex">
-      <div className="text-xs">
-        <Svg type="sun" strokeWidth={2} class="w-6 h-6" />
-      </div>
+      <Svg type="sun" strokeWidth={2} class="w-6 h-6" />
       <div className="relative inline-block w-12 mx-2 align-middle select-none">
         <input
           type="checkbox"
@@ -41,13 +39,14 @@ const ToggleDarkMode: FC = () => {
           className="toggle-checkbox"
           onChange={handleChangeDarkMode}
         />
-        <label htmlFor="toggle" className="toggle-label">
+        <label
+          htmlFor="toggle"
+          className="h-6 text-snow-200 dark:text-night-400 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
+        >
           .
         </label>
       </div>
-      <div className="text-xs">
-        <Svg type="moon" strokeWidth={2} class="w-6 h-6" />
-      </div>
+      <Svg type="moon" strokeWidth={2} class="w-6 h-6" />
     </div>
   )
 }

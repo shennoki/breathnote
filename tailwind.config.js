@@ -42,7 +42,13 @@ module.exports = {
       ],
     },
     colors: {
-      neumo: '#ebecf0',
+      clearness: 'transparent',
+      accent: {
+        light: '#62ACC0',
+        dark: '#ebcb8b',
+        'hover-light': '#88c0d0',
+        'hover-dark': '#a3be8c',
+      },
       night: {
         100: '#4c566a',
         200: '#434c5e',
@@ -67,6 +73,10 @@ module.exports = {
         green: '#a3be8c',
         purple: '#b48ead',
       },
+      shadow: {
+        light: '#D9E0EA',
+        dark: '#373E4C',
+      },
       sns: {
         twitter: '#1da1f2',
         facebook: '#1877f2',
@@ -77,79 +87,89 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        neumo: '3px 3px 6px #c8c9cc, -3px -3px 6px #fff',
-        'neumo-dark': '3px 3px 6px #161d27, -3px -3px 6px #283547',
-        inset: 'inset 1px 1px 3px #b8b9be,inset -3px -3px 7px #fff',
-        'inset-dark': 'inset 5px 5px 17px #11171e, inset -5px -5px 17px #2d3b50',
+        light: '3px 3px 6px #d9dce0, -3px -3px 6px #ffffff',
+        dark: '3px 3px 6px #272c36, -3px -3px 6px #353c4a',
+        'inset-light': 'inset 5px 5px 17px #d9dce0,inset -5px -5px 17px #ffffff',
+        'inset-dark': 'inset 5px 5px 17px #21252d, inset -5px -5px 17px #3b4353',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.800'),
+            color: theme('colors.night.200'),
             a: {
-              color: theme('colors.accent'),
+              padding: '0 .2em',
+              color: theme('colors.accent.light'),
               '&:hover': {
-                color: theme('colors.red.400'),
+                color: theme('colors.accent.hover-light'),
               },
             },
             h2: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
               fontSize: '1.4em !important',
-              marginBottom: '1.2em !important',
               '&::first-letter': {
-                color: theme('colors.accent'),
+                color: theme('colors.accent.light'),
                 fontSize: '1.1em',
               },
             },
             h3: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
               fontSize: '1.3em !important',
-              marginBottom: '1.2em !important',
             },
             h4: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
               fontSize: '1.2em !important',
-              marginBottom: '1.2em !important',
             },
             h5: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
               fontSize: '1.1em !important',
-              marginBottom: '1.2em !important',
             },
             th: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
             },
             strong: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
             },
             code: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
             },
             figcaption: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
             },
             blockquote: {
-              color: theme('colors.gray.800'),
+              color: theme('colors.night.200'),
+              p: {
+                '&::before': {
+                  padding: '0 .3em',
+                },
+                '&::after': {
+                  padding: '0 .3em',
+                },
+              },
+            },
+            hr: {
+              borderColor: theme('colors.night.200'),
             },
             ul: {
               li: {
-                color: theme('colors.gray.800'),
+                color: theme('colors.night.200'),
                 display: 'table',
-                a: {
-                  marginTop: '0 !important',
-                  marginBottom: '0 !important',
-                  display: 'block',
-                },
                 '&::before': {
-                  backgroundColor: theme('colors.gray.800'),
+                  backgroundColor: theme('colors.night.200'),
+                },
+                a: {
+                  margin: '0 !important',
+                  display: 'block',
                 },
               },
             },
             ol: {
               li: {
-                color: theme('colors.gray.800'),
+                color: theme('colors.night.200'),
                 '&::before': {
-                  color: theme('colors.gray.800'),
+                  color: theme('colors.night.200'),
+                },
+                a: {
+                  margin: '0 !important',
                 },
               },
             },
@@ -157,57 +177,59 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.neumo'),
+            color: theme('colors.snow.100'),
             a: {
-              color: theme('colors.yellow.300'),
+              color: theme('colors.accent.dark'),
               '&:hover': {
-                color: theme('colors.yellow.100'),
+                color: theme('colors.accent.hover-dark'),
               },
             },
             h2: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
               '&::first-letter': {
-                color: theme('colors.yellow.300'),
-                fontSize: '1.1em',
+                color: theme('colors.accent.dark'),
               },
             },
             h3: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             h4: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             h5: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             th: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             strong: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             code: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             figcaption: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
             },
             blockquote: {
-              color: theme('colors.neumo'),
+              color: theme('colors.snow.100'),
+            },
+            hr: {
+              borderColor: theme('colors.snow.100'),
             },
             ul: {
               li: {
-                color: theme('colors.neumo'),
+                color: theme('colors.snow.100'),
                 '&::before': {
-                  backgroundColor: theme('colors.neumo'),
+                  backgroundColor: theme('colors.snow.100'),
                 },
               },
             },
             ol: {
               li: {
-                color: theme('colors.neumo'),
+                color: theme('colors.snow.100'),
                 '&::before': {
-                  color: theme('colors.neumo'),
+                  color: theme('colors.snow.100'),
                 },
               },
             },
@@ -219,6 +241,7 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ['dark'],
+      borderColor: ['dark'],
       boxShadow: ['dark'],
       typography: ['dark'],
     },

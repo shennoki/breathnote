@@ -31,16 +31,16 @@ const Keywords: NextPage<Props> = ({ keywords, option }) => {
         <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <section className="mb-10 md:mb-20 lg:mb-32">
-          <h1 className="text-xl md:text-3xl text-center">
-            <span className="text-2xl md:text-4xl text-accent dark:text-yellow-300">キ</span>
+        <section className="mb-14 md:mb-20 lg:mb-32">
+          <h1 className="md:mb-5 text-xl sm:text-2xl md:text-3xl flex justify-center items-center">
+            <span className="text-2xl sm:text-3xl md:text-4xl text-accent-light dark:text-accent-dark">キ</span>
             ーワード一覧
           </h1>
           <ul className="flex flex-wrap justify-around items-center">
             {keywords.map((keyword) => (
-              <li key={keyword.id} className="mt-6 mx-6">
+              <li key={keyword.id} className="mt-8 mb:mt-10 mx-6">
                 <Link href={`/keywords/${keyword.slug}`}>
-                  <a className="md:text-lg hover:text-accent dark:hover:text-yellow-300 flex items-center">
+                  <a className="md:text-lg hover:text-accent-light dark:hover:text-accent-dark flex items-center">
                     <Svg type="clip" strokeWidth={1.5} class="w-5 h-5 mr-1.5" />
                     {keyword.name}
                   </a>
