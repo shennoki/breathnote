@@ -20,6 +20,16 @@ export const ALL_POSTS = (async () => {
     posts.contents = posts.contents.concat(fetchData.contents)
   }
 
+  if (posts.contents.length > 1) {
+    posts.contents.sort((a, b) => {
+      if (a.publishedAt < b.publishedAt) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+  }
+
   return posts
 })()
 
