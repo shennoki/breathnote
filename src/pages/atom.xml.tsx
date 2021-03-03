@@ -8,16 +8,19 @@ const generateFeedXml = async (posts: PostType[]) => {
     title: process.env.NEXT_PUBLIC_SITE_TITLE as string,
     description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION as string,
     site_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/`,
-    feed_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/feed`,
+    feed_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/atom.xml`,
     language: 'ja',
   })
 
   posts.forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.description,
-      date: new Date(post.publishedAt),
+      description: `<img src="${
+        post.thumbnail ? post.thumbnail.url : `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`
+      }" />${post.description}`,
       url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`,
+      author: 'Shinki',
+      date: post.publishedAt,
     })
   })
 

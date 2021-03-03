@@ -35,6 +35,12 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="feed"
+          href={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/atom.xml`}
+        />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITE_TITLE} />
