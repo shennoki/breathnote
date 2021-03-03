@@ -1,8 +1,8 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  roots: ['<rootDir>/src'],
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testEnvironment: 'jsdom',
+  roots: ['<rootDir>/src', '<rootDir>/test'],
+  setupFilesAfterEnv: ['<rootDir>/test/jest.setup.ts'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
@@ -13,5 +13,12 @@ module.exports = {
       tsconfig: '<rootDir>/test/tsconfig.jest.json',
     },
   },
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  collectCoverage: false,
+  collectCoverageFrom: ['src/**/*'],
+  coverageDirectory: './coverage/',
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': '<rootDir>/tests/mocks/styleMock.ts',
+    '\\.(gif|ttf|eot|svg)$': '<rootDir>/tests/mocks/fileMock.ts',
+  },
+  moduleDirectories: ['node_modules', 'src'],
 }
