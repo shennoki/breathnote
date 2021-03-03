@@ -1,8 +1,9 @@
-name: CI
+name: production
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
