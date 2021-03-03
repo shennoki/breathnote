@@ -21,6 +21,9 @@ jobs:
       - name: yarn install
         run: yarn install
         
+      - name: Next.js build
+        run: yarn build
+        
       - name: Run jest
         run: yarn test
         
