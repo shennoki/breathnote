@@ -3,10 +3,13 @@ const withPWA = require('next-pwa')
 const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
-  /* X-Powered-By ヘッダを削除 */
+  // X-Powered-Byヘッダを削除
   poweredByHeader: false,
-
-  /* next-secure-headers | https://github.com/jagaapple/next-secure-headers */
+  // next/imageのsrcとして許可する外部ドメイン
+  images: {
+    domains: ['images.microcms-assets.io'],
+  },
+  // next-secure-headers | https://github.com/jagaapple/next-secure-headers
   async headers() {
     return [
       {
@@ -15,13 +18,7 @@ module.exports = withPWA({
       },
     ]
   },
-
-  /* next/image の設定 */
-  images: {
-    domains: ['localhost', 'images.microcms-assets.io'],
-  },
-
-  /* net-pwa の設定 */
+  // net-pwa | https://github.com/GoogleChrome/workbox/issues/1790#issuecomment-620894023
   pwa: {
     disable: prod ? false : true,
     dest: 'public',

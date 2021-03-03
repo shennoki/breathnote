@@ -1,0 +1,75 @@
+/* 再利用スタイル */
+.textShadow {
+  text-shadow: 5px 5px 2px rgba(54, 29, 29, 0.25);
+}
+.my-leading-normal {
+  @apply leading-normal !important;
+}
+.wave {
+  animation: horizontal 1s ease-in-out infinite alternate;
+}
+.wave a {
+  display: block;
+  animation: vertical 1.7s ease-in-out infinite alternate;
+}
+
+/* 個別適用スタイル */
+.toggle-checkbox {
+  @apply w-6 h-6 bg-night-400 border-snow-200 border-4 rounded-full block absolute left-0 cursor-pointer appearance-none focus:outline-none;
+}
+.toggle-checkbox:checked {
+  @apply bg-snow-100 border-night-300 left-auto right-0;
+}
+.image-wrapper {
+  @apply mx-auto my-4 md:my-6 lg:my-8 rounded overflow-hidden table;
+}
+.image-wrapper > div {
+  vertical-align: top;
+}
+.prose p > code,
+.prose ul > code,
+.prose li > code {
+  @apply px-2 py-0.5 mx-1 font-normal bg-snow-300 dark:bg-night-300 rounded-sm;
+  font-size: inherit;
+}
+.prose p > code::before,
+.prose p > code::after,
+.prose ul > code::before,
+.prose ul > code::after,
+.prose li > code::before,
+.prose li > code::after {
+  content: none;
+}
+.prose > blockquote {
+  border-left-color: #d3d7dd !important;
+}
+.prose > pre {
+  @apply font-mono bg-night-400 dark:bg-night-300 rounded;
+}
+@media (min-width: 1024px) {
+  .prose > pre::-webkit-scrollbar {
+    height: 13px;
+    background-color: transparent;
+  }
+  .prose > pre::-webkit-scrollbar-thumb {
+    @apply bg-night-300 dark:bg-night-200 rounded;
+  }
+}
+
+/* 拡張アニメーション */
+@keyframes horizontal {
+  0% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes vertical {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

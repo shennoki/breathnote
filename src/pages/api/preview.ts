@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import fetch from 'node-fetch'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.query.secret !== process.env.DRAFT_TOKEN || !req.query.draftId) {
     res.writeHead(302, { Location: `/404` })
     return res.end('UNAUTHORIZED ACCESS')

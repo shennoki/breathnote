@@ -1,14 +1,14 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import RSS from 'rss'
-import { getAllPosts, getConfig } from 'scripts/getter'
-import { ConfigType, PostType } from 'types'
+import { ALL_POSTS } from 'scripts/store'
+import { PostType } from 'types'
 
-const generateFeedXml = async (posts: PostType[], config: ConfigType) => {
+const generateFeedXml = async (posts: PostType[]) => {
   const feed = new RSS({
-    title: config.siteTitle,
-    description: config.siteDescription,
-    site_url: config.siteDomain,
-    feed_url: `${config.siteDomain}/feed`,
+    title: process.env.NEXT_PUBLIC_SITE_TITLE as string,
+    description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION as string,
+    site_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/`,
+    feed_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/feed`,
     language: 'ja',
   })
 
@@ -17,7 +17,7 @@ const generateFeedXml = async (posts: PostType[], config: ConfigType) => {
       title: post.title,
       description: post.description,
       date: new Date(post.publishedAt),
-      url: `${config.siteDomain}/posts/${post.slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`,
     })
   })
 
@@ -25,9 +25,8 @@ const generateFeedXml = async (posts: PostType[], config: ConfigType) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  const config = await getConfig()
-  const posts = await getAllPosts('desc')
-  const xml = await generateFeedXml(posts, config)
+  const posts = (await ALL_POSTS).contents
+  const xml = await generateFeedXml(posts)
 
   res.statusCode = 200
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')

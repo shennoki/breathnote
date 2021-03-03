@@ -8,6 +8,7 @@ type Props = {
 }
 
 class MyDocument extends Document<Props> {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     const nonce = randomBytes(128).toString('base64')
@@ -26,21 +27,14 @@ class MyDocument extends Document<Props> {
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
-        <body className="tracking-wide text-gray-800 dark:text-neumo bg-neumo dark:bg-gray-800">
-          <script nonce={nonce} src="/noDarkmodeFlash.js" />
+        <body className="tracking-wide text-night-200 dark:text-snow-100 bg-snow-100 dark:bg-night-400">
+          <script src="/noDarkmodeFlash.js" nonce={nonce} />
           <Main />
           <NextScript nonce={nonce} />
           <script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} nonce={nonce} />
           <script
             dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_TRACKING_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `,
+              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${GA_TRACKING_ID}",{page_path:window.location.pathname});`,
             }}
             nonce={nonce}
           />

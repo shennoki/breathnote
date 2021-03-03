@@ -1,32 +1,17 @@
-/* Setting for VSCode | https://code.visualstudio.com/docs/getstarted/settings */
-
+/* User and Workspace Settings | https://code.visualstudio.com/docs/getstarted/settings */
 {
-  /* ファイル保存時に Prettier でフォーマット */
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-
   "editor.codeActionsOnSave": {
-    /* SCSS ファイル保存時に違反個所を stylelint で自動修正 */
     "source.fixAll.stylelint": true,
-    /* TypeScript ファイル保存時に違反個所を ESLint で自動修正 */
     "source.fixAll.eslint": true
   },
-
-  /* VSCode による CSS の整形を無効化 */
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-
-  /* ワークスペース内の TypeScript を使用 */
   "typescript.tsdk": "node_modules/typescript/lib",
-
-  /* TypeScript の自動モジュール読み込みに絶対パスを使用 */
   "typescript.preferences.importModuleSpecifier": "non-relative",
-
-  /* ESLint でチェックする言語を指定 */
   "eslint.validate": ["json", "javascript", "javascriptreact", "typescript", "typescriptreact"],
-
-  /* Tailwind CSS IntelliSense 拡張機能を有効可 */
   "tailwindCSS.includeLanguages": {
     "typescriptreact": "html"
   }

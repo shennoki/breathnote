@@ -2,28 +2,24 @@ import Body from 'layout/Body'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { getConfig } from 'scripts/getter'
-import { ConfigType, PageOptionType } from 'types'
+import { PageOptionType } from 'types'
 
 type Props = {
-  config: ConfigType
   option: PageOptionType
 }
 
-const Error: NextPage<Props> = ({ config, option }) => {
+const Error: NextPage<Props> = ({ option }) => {
   return (
     <>
       <Head>
-        <title>{`404 | ${config.siteTitle}`}</title>
-        <meta name="description" content="該当するページが見つかりませんでした。" />
-        <meta property="og:title" content={`404 | ${config.siteTitle}`} />
-        <meta property="og:description" content="該当するページが見つかりませんでした。" />
-        <meta property="og:image" content={`${config.siteDomain}/img/og-image.jpg`} />
-        {/* 以下変更不要 */}
-        <meta property="og:site_name" content={config.siteTitle} />
-        <meta property="og:url" content={option.fullPath} />
         <link rel="canonical" href={option.fullPath} />
-        {option.isNoIndex ? <meta name="robots" content="noindex,follow" /> : null}
+        <title>{`404 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <meta name="description" content="該当するページが見つかりませんでした。" />
+        <meta property="og:url" content={option.fullPath} />
+        <meta property="og:title" content={`404 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:description" content="該当するページが見つかりませんでした。" />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+        <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <article className="mb-10 md:mb-20">
@@ -42,16 +38,12 @@ const Error: NextPage<Props> = ({ config, option }) => {
 export default Error
 
 export const getStaticProps: GetStaticProps = async () => {
-  const config = await getConfig()
   const option = {
     pageType: '404',
-    fullPath: `${config.siteDomain}/404`,
-    isNoIndex: true,
+    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/404`,
   }
-
   return {
     props: {
-      config,
       option,
     },
   }
