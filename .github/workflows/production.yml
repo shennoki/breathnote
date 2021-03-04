@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
+          
       - name: yarn install
         run: yarn install
 
@@ -32,3 +32,4 @@ jobs:
 
       - name: Run jest
         run: yarn test
+        

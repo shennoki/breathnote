@@ -11,7 +11,7 @@ env:
   API_ENDPOINT: ${{secrets.API_ENDPOINT}}
   DRAFT_TOKEN: ${{secrets.DRAFT_TOKEN}}
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}}
-
+  
 jobs:
   test:
     runs-on: ubuntu-latest
