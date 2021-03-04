@@ -78,7 +78,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <h2
           class="mb-3 text-base sm:text-lg lg:text-xl"
         >
-          ヘッドレスCMSから受け取ったマークダウン形式の記事にnext/imageを利用する
+          ヘッドレスCMSから受け取ったマークダウン形式の記事でnext/imageを利用する
         </h2>
         <ul
           class="mb-4 text-xs sm:text-sm flex flex-wrap"
@@ -161,12 +161,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <p
           class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
         >
-          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事では、ヘッドレスCMSサービスのmicroCMSと連動したプ ...
+          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレ ...
         </p>
         <p
           class="mb-4 text-sm leading-normal hidden md:block"
         >
-          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事では、ヘッドレスCMSサービスのmicroCMSと連動したプレビュー機能を実装しながら、セキュリティの設定やCookieの管理方法を説明しています。
+          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレビュー機能を実装しながら、セキュリティの設定やCookieの管理方法を説明しています。
         </p>
         <div
           class="flex justify-end items-center"
