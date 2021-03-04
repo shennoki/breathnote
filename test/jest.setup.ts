@@ -1,6 +1,11 @@
 import '@testing-library/jest-dom'
-import next from 'next'
-next({})
+import Global = NodeJS.Global
+export interface GlobalWithCognitoFix extends Global {
+  fetch: any
+}
+declare const global: GlobalWithCognitoFix
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+global.fetch = require('node-fetch').default
 
 process.env = {
   ...process.env,
