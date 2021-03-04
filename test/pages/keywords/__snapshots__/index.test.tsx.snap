@@ -116,7 +116,7 @@ exports[`KEYWORDS PAGE (pages/keywords/index.tsx) snapshot 1`] = `
         >
           <a
             class="md:text-lg hover:text-accent-light dark:hover:text-accent-dark flex items-center"
-            href="/keywords/nextjs"
+            href="/keywords/jest"
           >
             <svg
               class="w-5 h-5 mr-1.5"
@@ -132,7 +132,7 @@ exports[`KEYWORDS PAGE (pages/keywords/index.tsx) snapshot 1`] = `
                 stroke-width="1.5"
               />
             </svg>
-            Next.js
+            Jest
           </a>
         </li>
       </ul>

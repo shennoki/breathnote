@@ -11,7 +11,7 @@ env:
   API_ENDPOINT: ${{secrets.API_ENDPOINT}}
   DRAFT_TOKEN: ${{secrets.DRAFT_TOKEN}}
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}}
-  
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -26,9 +26,6 @@ jobs:
 
       - name: yarn install
         run: yarn install
-
-      - name: Next.js build
-        run: yarn build
 
       - name: Run jest
         run: yarn test
