@@ -73,143 +73,20 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
   >
     <section>
       <h1
-        class="mb-6 sm:mb-8 md:mb-10 text-xl sm:text-2xl md:text-3xl text-center"
+        class="mb-4 sm:mb-6 md:mb-8 text-xl sm:text-2xl md:text-3xl text-center"
       >
         <span
           class="text-2xl sm:text-3xl md:text-4xl text-accent-light dark:text-accent-dark tracking-wider"
         >
-          Next.js
+          Jest
         </span>
         の記事
       </h1>
-      <article
-        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-shadow-light dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark dark:hover:shadow-none relative"
+      <p
+        class="w-11/12 md:w-auto mx-auto mb-6 sm:mb-8 md:mb-10 text-xs sm:text-sm md:table"
       >
-        <h2
-          class="mb-3 text-base sm:text-lg lg:text-xl"
-        >
-          ヘッドレスCMSから受け取ったマークダウン形式の記事でnext/imageを利用する
-        </h2>
-        <ul
-          class="mb-4 text-xs sm:text-sm flex flex-wrap"
-        >
-          <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
-          >
-            Next.js
-          </li>
-          <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
-          >
-            Jamstack
-          </li>
-        </ul>
-        <p
-          class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
-        >
-          ヘッドレスCMSのAPIから文字列として受け取ったマークダウンを、next-mdx-remoteというライブラリを用いてNext.jsコンポーネントに ...
-        </p>
-        <p
-          class="mb-4 text-sm leading-normal hidden md:block"
-        >
-          ヘッドレスCMSのAPIから文字列として受け取ったマークダウンを、next-mdx-remoteというライブラリを用いてNext.jsコンポーネントに変換する方法を紹介しています。
-        </p>
-        <div
-          class="flex justify-end items-center"
-        >
-          <svg
-            class="w-4 md:w-5 h-4 md:h-5 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
-          <time
-            class="text-xs md:text-sm text-right block"
-            datetime="2021-02-27T06:00:02.752Z"
-            itemprop="datepublished"
-          >
-            2021年02月27日
-          </time>
-        </div>
-        <a
-          class="w-full h-full opacity-0 absolute top-0 left-0"
-          href="/posts/nextjs-markdown-to-jsx"
-        >
-          Link
-        </a>
-      </article>
-      <article
-        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-shadow-light dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark dark:hover:shadow-none relative"
-      >
-        <h2
-          class="mb-3 text-base sm:text-lg lg:text-xl"
-        >
-          JamstackなNext.jsブログにプレビューモードを実装する
-        </h2>
-        <ul
-          class="mb-4 text-xs sm:text-sm flex flex-wrap"
-        >
-          <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
-          >
-            Next.js
-          </li>
-          <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
-          >
-            Jamstack
-          </li>
-        </ul>
-        <p
-          class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
-        >
-          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレ ...
-        </p>
-        <p
-          class="mb-4 text-sm leading-normal hidden md:block"
-        >
-          VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレビュー機能を実装しながら、セキュリティの設定やCookieの管理方法を説明しています。
-        </p>
-        <div
-          class="flex justify-end items-center"
-        >
-          <svg
-            class="w-4 md:w-5 h-4 md:h-5 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </svg>
-          <time
-            class="text-xs md:text-sm text-right block"
-            datetime="2021-02-23T14:16:00.797Z"
-            itemprop="datepublished"
-          >
-            2021年02月23日
-          </time>
-        </div>
-        <a
-          class="w-full h-full opacity-0 absolute top-0 left-0"
-          href="/posts/nextjs-preview-mode"
-        >
-          Link
-        </a>
-      </article>
+        JestはFacebook社がOSSとして開発を進めているJavaScript用テスティングフレームワークです。
+      </p>
     </section>
     <nav
       aria-label="pagination"
@@ -223,7 +100,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
-            href="/keywords/nextjs"
+            href="/keywords/jest"
           >
             1
           </a>
@@ -233,7 +110,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
-            href="/keywords/nextjs/page/2"
+            href="/keywords/jest/page/2"
           >
             2
           </a>
@@ -248,7 +125,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
-            href="/keywords/nextjs/page/7"
+            href="/keywords/jest/page/7"
           >
             7
           </a>
@@ -273,7 +150,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
       >
         <a
           class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
-          href="https://twitter.com/share?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fnextjs"
+          href="https://twitter.com/share?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fjest"
           rel="nofollow noopener noreferrer"
           target="_blank"
           title="Twitterでシェアする"
@@ -294,7 +171,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         </a>
         <a
           class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fnextjs"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fjest"
           rel="nofollow noopener noreferrer"
           target="_blank"
           title="Facebookでシェアする"
@@ -315,7 +192,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         </a>
         <a
           class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
-          href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fnextjs"
+          href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fjest"
           rel="nofollow noopener noreferrer"
           target="_blank"
           title="LINEでシェアする"
@@ -336,7 +213,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         </a>
         <a
           class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
-          href="http://b.hatena.ne.jp/add?&url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fnextjs"
+          href="http://b.hatena.ne.jp/add?&url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fjest"
           rel="nofollow noopener noreferrer"
           target="_blank"
           title="はてなブックマークでシェアする"
@@ -357,7 +234,7 @@ exports[`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx) snapshot 1`]
         </a>
         <a
           class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
-          href="https://getpocket.com/edit?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fnextjs"
+          href="https://getpocket.com/edit?url=https%3A%2F%2Fblog.shinki.net%2Fkeywords%2Fjest"
           rel="nofollow noopener noreferrer"
           target="_blank"
           title="Pocketでシェアする"

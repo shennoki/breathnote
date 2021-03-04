@@ -45,8 +45,6 @@ describe(`KEYWORD ARTICLE PAGE 1/7 (pages/keywords/[slug]/index.tsx)`, () => {
 
     // h1属性が1個だけ存在する
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
-    // 記事が1個以上存在する
-    expect(screen.getAllByRole('article')).not.toHaveLength(0)
     // ページネーションが存在する
     expect(screen.getByRole('navigation', { name: 'pagination' })).toBeInTheDocument()
   })
