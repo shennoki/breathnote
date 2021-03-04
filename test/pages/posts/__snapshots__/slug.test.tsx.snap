@@ -157,10 +157,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
           <time
             class="ml-2 text-xs sm:text-sm block"
-            datetime="2021-02-26T15:12:02.022Z"
+            datetime="2021-03-03T15:29:07.962Z"
             itemprop="modified"
           >
-            2021年02月27日
+            2021年03月04日
           </time>
         </div>
       </div>
@@ -193,10 +193,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
       >
         <div>
           <p>
-            VercelへデプロイしているNext.js製のブログに、ヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
+            VercelへデプロイしているNext.js製のブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
           </p>
           <p>
-            基本的には以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
+            基本的に以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
           </p>
           <ul>
             <li>
@@ -226,11 +226,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               pages/api
             </code>
-            フォルダの中に
+            フォルダ内に以下の
             <code>
               preview.ts
             </code>
-            を作成し、以下のように記述します。
+            を作成します。
           </p>
           <pre
             class="language-ts"
@@ -390,7 +390,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* 共通鍵を用いた簡易的なセキュリティチェック */
+                // 共通鍵を用いた簡易的なセキュリティチェック
               </span>
               
   
@@ -618,7 +618,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* リクエストのパラメータをもとに、該当する下書き記事が存在するかヘッドレスCMSに確認する */
+                // リクエストのパラメータをもとに、該当する下書き記事が存在するかヘッドレスCMSに確認する
               </span>
               
   
@@ -978,7 +978,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* 該当する記事が無かった場合はブラウザにその旨を表示する */
+                // 該当する記事が無かった場合はブラウザにその旨を表示する
               </span>
               
   
@@ -1099,7 +1099,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* プレビュー用の情報を含めたCookieをブラウザに付与して記事ページにリダイレクト */
+                // プレビュー用の情報を含めたCookieをブラウザに付与して記事ページにリダイレクト
               </span>
               
   res
@@ -1344,18 +1344,22 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </li>
           </ol>
           <p>
-            今回は最初のセキュリティチェックに共通鍵暗号方式を利用しています。
+            今回は共通鍵暗号方式でセキュリティチェックを行っています。
             <code>
               process.env.DRAFT_TOKEN
             </code>
-            の部分はソースコードへのべた書きを避け、GitHub等で閲覧出来ないようにしておきましょう。
+            の部分は別途
+            <code>
+              .env.local
+            </code>
+            などで管理し、GitHub等で閲覧出来ないようにしておきましょう。
           </p>
           <p>
-            プレビュー機能に関わる部分としては、最後に登場する
+            プレビュー機能に関しては、最後に登場する
             <code>
               setPreviewData
             </code>
-            というメソッドを利用することにより、以下の情報が記事ページのgetStaticPropsへ渡されます。
+            というメソッドで実現しています。これを利用することにより以下の情報が記事ページのgetStaticPropsへ渡されます。
           </p>
           <pre
             class="language-ts"
@@ -1411,7 +1415,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* setPreviewDataで指定したデータ */
+                // setPreviewDataで指定したデータが入る
               </span>
               
     draftId
@@ -1488,7 +1492,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </code>
           </pre>
           <p>
-            更に最後のリダイレクトについてですが、URLから受け取った
+            最後のリダイレクトではURLから受け取った
             <code>
               req.query.draftId
             </code>
@@ -1496,7 +1500,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               post.id
             </code>
-            を使用しています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために設定しています。
+            を使用しています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
           </p>
           <h2>
             記事ページを更新
@@ -1630,7 +1634,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* 公開済みの記事 (getStaticPaths経由) */
+                // 公開済みの記事 (getStaticPaths経由)
               </span>
               
     post 
@@ -1694,7 +1698,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* fallbackを有効化するため、手動でのエラーハンドリングが必要 */
+                // fallbackが有効なので手動でのエラーハンドリングが必要
               </span>
               
     
@@ -1722,13 +1726,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               </span>
                
               <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-      
-              <span
                 class="token keyword"
               >
                 return
@@ -1739,8 +1736,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 {
               </span>
-              
-        notFound
+               notFound
               <span
                 class="token operator"
               >
@@ -1752,20 +1748,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 true
               </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-      
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-    
+               
               <span
                 class="token punctuation"
               >
@@ -1786,6 +1769,34 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               </span>
                
               <span
+                class="token keyword"
+              >
+                if
+              </span>
+               
+              <span
+                class="token punctuation"
+              >
+                (
+              </span>
+              context
+              <span
+                class="token punctuation"
+              >
+                .
+              </span>
+              <span
+                class="token property-access"
+              >
+                preview
+              </span>
+              <span
+                class="token punctuation"
+              >
+                )
+              </span>
+               
+              <span
                 class="token punctuation"
               >
                 {
@@ -1795,7 +1806,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                /* プレビュー記事 (setPreviewData経由) */
+                // プレビュー記事 (setPreviewData経由)
               </span>
               
     post 
@@ -2307,7 +2318,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token comment"
               >
-                // pathsに存在しないページ (プレビューページなど) を自動リダイレクトさせない
+                // pathsに存在しないページ (プレビューページなど) を自動でリダイレクトさせない
               </span>
               
   
@@ -2332,13 +2343,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               context.preview
             </code>
-            を利用して行っています。この部分は皆さんの記事取得方法に合わせてよしなに変更してください。
+            で行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
           </p>
           <h2>
             Cookieを削除するAPIルートを作る
           </h2>
           <p>
-            ここまでの処理でほぼプレビュー機能は実装できていますが、プレビュー用のCookieを放置したままにすると以下のような問題が起こり得ます。
+            ここまでの処理でほぼプレビュー機能は出来ていますが、このままプレビュー用のCookieを放置したままにすると以下のような問題が起こり得ます。
           </p>
           <ol>
             <li>
@@ -2352,18 +2363,26 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </li>
           </ol>
           <p>
-            この問題には
+            これは
             <code>
               setPreviewData
             </code>
-            で付与したCookieがブラウザ終了まで維持されるという仕様が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
+            で付与したCookieがブラウザ終了まで維持されるという
+            <a
+              href="https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              仕様
+            </a>
+            が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
             <code>
               context.preview: true
             </code>
             が再度読み込まれ、プレビュー用の処理が走ってしまうのです。
           </p>
           <p>
-            そこで、プレビュー用のAPIと同様に「プレビュー用のCookieを削除するAPIルート」を作成します。
+            そこで、プレビュー用のAPIルートと同様の方法で「プレビューで付与したCookieを削除するAPIルート」を作ります。
             <code>
               pages/api
             </code>
@@ -2658,13 +2677,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             のトークンと一致させる必要があります。
           </p>
           <p>
-            これでプレビュー機能の完成です。
+            これでプレビュー機能が完成しました。
           </p>
           <h2>
             まとめ
           </h2>
           <p>
-            実際にプレビュー用ドメインへアクセスしてみると、少し読み込みを挟んでプレビュー記事が表示されたかと思います。プレビュー機能はサーバーレス関数を用いてSSRで動いているので、多少時間がかかるみたいです。
+            実際に上記のURLでプレビュー用APIへアクセスすると、少し読み込みを挟んでプレビュー記事が表示されたかと思います。プレビュー機能はサーバーレス関数を用いてSSRで動いているため、多少時間がかかるようです。
           </p>
           <p>
             ちなみに
@@ -2679,7 +2698,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               next dev
             </code>
-            で起動する開発環境か、各種サービスにデプロイされた後で確認してください。
+            で起動する開発環境か、サーバーレス関数をサポートしている各種サービスにデプロイされた後で確認してください。
           </p>
         </div>
       </div>
