@@ -44,7 +44,7 @@ module.exports = {
     colors: {
       clearness: 'transparent',
       accent: {
-        light: '#62ACC0',
+        light: '#0f83fd',
         dark: '#ebcb8b',
         'hover-light': '#88c0d0',
         'hover-dark': '#a3be8c',
@@ -54,6 +54,7 @@ module.exports = {
         200: '#434c5e',
         300: '#3b4252',
         400: '#2e3440',
+        500: '#22262F',
       },
       snow: {
         100: '#eceff4',
@@ -99,8 +100,9 @@ module.exports = {
             a: {
               padding: '0 .2em',
               color: theme('colors.accent.light'),
+              textDecoration: 'none',
               '&:hover': {
-                color: theme('colors.accent.hover-light'),
+                textDecoration: 'underline',
               },
             },
             h2: {
@@ -131,6 +133,7 @@ module.exports = {
             },
             code: {
               color: theme('colors.night.200'),
+              letterSpacing: 'normal',
             },
             figcaption: {
               color: theme('colors.night.200'),
@@ -180,9 +183,6 @@ module.exports = {
             color: theme('colors.snow.100'),
             a: {
               color: theme('colors.accent.dark'),
-              '&:hover': {
-                color: theme('colors.accent.hover-dark'),
-              },
             },
             h2: {
               color: theme('colors.snow.100'),
