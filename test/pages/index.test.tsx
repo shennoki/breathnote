@@ -9,7 +9,7 @@ describe(`TOP PAGE 1/7 (pages/index.tsx)`, () => {
   })
 
   test('snapshot', async () => {
-    const posts = (await ALL_POSTS).contents.slice(-6)
+    const posts = (await ALL_POSTS).contents.slice(-3)
     const allPostLength = 42
     const option = {
       pageType: 'home',
@@ -21,7 +21,7 @@ describe(`TOP PAGE 1/7 (pages/index.tsx)`, () => {
   })
 
   test('integration', async () => {
-    const posts = (await ALL_POSTS).contents.slice(-6)
+    const posts = (await ALL_POSTS).contents.slice(-3)
     const allPostLength = 42
     const option = {
       pageType: 'home',
