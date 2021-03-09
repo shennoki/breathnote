@@ -9,7 +9,7 @@ describe(`KEYWORDS PAGE (pages/keywords/index.tsx)`, () => {
   })
 
   test('snapshot', async () => {
-    const keywords = (await ALL_KEYWORDS).contents.slice(-2)
+    const keywords = (await ALL_KEYWORDS).contents.slice(-3)
     const option = {
       pageType: 'keywords',
       fullPath: `https://blog.shinki.net/keywords`,
@@ -20,7 +20,7 @@ describe(`KEYWORDS PAGE (pages/keywords/index.tsx)`, () => {
   })
 
   test('integration', async () => {
-    const keywords = (await ALL_KEYWORDS).contents.slice(-2)
+    const keywords = (await ALL_KEYWORDS).contents.slice(-3)
     const option = {
       pageType: 'keywords',
       fullPath: `https://blog.shinki.net/keywords`,

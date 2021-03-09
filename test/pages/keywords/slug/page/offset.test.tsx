@@ -12,7 +12,7 @@ describe(`KEYWORD ARTICLE PAGE 4/7 (pages/keywords/[slug]/page/[offset].tsx)`, (
   test('snapshot', async () => {
     const offset = 4
     const keyword = (await ALL_KEYWORDS).contents.slice(-1)[0]
-    const posts = (await getKeywordPosts(keyword.slug)).slice(-6)
+    const posts = (await getKeywordPosts(keyword.slug)).slice(-1)
     const allPostLength = 42
     const option = {
       pageType: 'keyword',
@@ -28,7 +28,7 @@ describe(`KEYWORD ARTICLE PAGE 4/7 (pages/keywords/[slug]/page/[offset].tsx)`, (
   test('integration', async () => {
     const offset = 4
     const keyword = (await ALL_KEYWORDS).contents.slice(-1)[0]
-    const posts = (await getKeywordPosts(keyword.slug)).slice(-6)
+    const posts = (await getKeywordPosts(keyword.slug)).slice(-1)
     const allPostLength = 42
     const option = {
       pageType: 'keyword',

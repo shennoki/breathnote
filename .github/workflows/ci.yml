@@ -1,9 +1,8 @@
-name: develop
+name: ci
 
 on:
   push:
-    branches:
-      - develop
+  pull_request:
   workflow_dispatch:
 
 env:
@@ -24,8 +23,14 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: yarn install
+      - name: package install
         run: yarn install
 
-      - name: Run jest
+      - name: next build
+        run: yarn build
+
+      - name: eslint stylelint
+        run: yarn lint
+
+      - name: run test
         run: yarn test

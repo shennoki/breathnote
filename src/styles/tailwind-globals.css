@@ -29,7 +29,7 @@
 .prose p > code,
 .prose ul > code,
 .prose li > code {
-  @apply px-2 py-0.5 mx-1 font-normal bg-snow-300 dark:bg-night-300 rounded-sm;
+  @apply px-2 py-0.5 mx-1 font-normal bg-snow-300 dark:bg-night-500 rounded-sm;
   font-size: inherit;
 }
 .prose p > code::before,
@@ -44,7 +44,7 @@
   border-left-color: #d3d7dd !important;
 }
 .prose > pre {
-  @apply font-mono bg-night-400 dark:bg-night-300 rounded;
+  @apply font-mono bg-night-400 dark:bg-night-500 rounded;
 }
 @media (min-width: 1024px) {
   .prose > pre::-webkit-scrollbar {
@@ -52,7 +52,7 @@
     background-color: transparent;
   }
   .prose > pre::-webkit-scrollbar-thumb {
-    @apply bg-night-300 dark:bg-night-200 rounded;
+    @apply bg-night-300 rounded;
   }
 }
 
