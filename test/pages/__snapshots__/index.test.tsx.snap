@@ -46,10 +46,10 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           type="checkbox"
         />
         <label
-          class="h-6 text-snow-200 dark:text-night-400 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
+          class="h-6 text-snow-200 dark:text-night-300 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
           for="toggle"
         >
-          .
+          toggle
         </label>
       </div>
       <svg
