@@ -6,6 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ALL_KEYWORDS } from 'scripts/store'
 import { KeywordType, PageOptionType } from 'types'
+import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 type Props = {
   keywords: KeywordType[]
@@ -17,18 +18,18 @@ const Keywords: NextPage<Props> = ({ keywords, option }) => {
     <>
       <Head>
         <link rel="canonical" href={option.fullPath} />
-        <title>{`キーワード一覧 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <title>{`キーワード一覧 | ${SITE_TITLE}`}</title>
         <meta
           name="description"
           content="キーワード一覧ページです。フレームワークや設計思想、ライブラリ、サービスなど様々な分野のキーワードで記事をまとめています。"
         />
         <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`キーワード一覧 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:title" content={`キーワード一覧 | ${SITE_TITLE}`} />
         <meta
           property="og:description"
           content="キーワード一覧ページです。フレームワークや設計思想、ライブラリ、サービスなど様々な分野のキーワードで記事をまとめています。"
         />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+        <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
         <section className="mb-14 md:mb-20 lg:mb-32">
@@ -60,7 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const keywords = (await ALL_KEYWORDS).contents
   const option = {
     pageType: 'keywords',
-    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords`,
+    fullPath: `${SITE_DOMAIN}/keywords`,
   }
 
   return {
@@ -68,6 +69,6 @@ export const getStaticProps: GetStaticProps = async () => {
       keywords,
       option,
     },
-    revalidate: 300,
+    revalidate: 60,
   }
 }

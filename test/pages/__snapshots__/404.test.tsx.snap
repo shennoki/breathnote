@@ -6,7 +6,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
     class="max-w-5xl px-3 sm:px-5 py-6 md:py-9 lg:py-12 mx-auto flex justify-between items-center"
   >
     <div
-      class="text-2xl sm:text-3xl textShadow wave"
+      class="text-2xl sm:text-3xl tracking-wide textShadow wave"
     >
       <a
         href="/"
@@ -46,10 +46,10 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
           type="checkbox"
         />
         <label
-          class="h-6 text-snow-200 dark:text-night-400 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
+          class="h-6 text-snow-200 dark:text-night-300 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
           for="toggle"
         >
-          .
+          toggle
         </label>
       </div>
       <svg
@@ -112,7 +112,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
         class="flex justify-center items-center"
       >
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://twitter.com/share?url=https%3A%2F%2Fblog.shinki.net%2F404"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -133,7 +133,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.shinki.net%2F404"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -154,7 +154,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fblog.shinki.net%2F404"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -175,7 +175,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="http://b.hatena.ne.jp/add?&url=https%3A%2F%2Fblog.shinki.net%2F404"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -196,7 +196,7 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://getpocket.com/edit?url=https%3A%2F%2Fblog.shinki.net%2F404"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -362,9 +362,9 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
     class="pb-5 md:pb-8 lg:pb-10 mt-14 sm:mt-20 lg:mt-20 flex justify-center"
   >
     <small
-      class="text-xs lg:text-sm italic"
+      class="text-xs lg:text-sm"
     >
-      (c) 2020 - 2021 Shinki all rights reserved.
+      2020 - 2021 Shinki all rights reserved.
     </small>
   </footer>
 </DocumentFragment>

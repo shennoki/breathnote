@@ -22,5 +22,6 @@ module.exports = withPWA({
   pwa: {
     disable: prod ? false : true,
     dest: 'public',
+    publicExcludes: ['!img/**/*'],
   },
 })

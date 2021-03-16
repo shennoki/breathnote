@@ -7,6 +7,7 @@ import React from 'react'
 import { getKeyword, getKeywordPosts } from 'scripts/getter'
 import { ALL_KEYWORDS } from 'scripts/store'
 import { KeywordType, PageOptionType, PostType } from 'types'
+import { ARTICLE_PER_PAGE, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 type Props = {
   posts: PostType[]
@@ -21,25 +22,22 @@ const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option, offse
     <>
       <Head>
         <link rel="canonical" href={option.fullPath} />
-        <title>{`${keyword.name} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <title>{`${keyword.name} (${offset}) | ${SITE_TITLE}`}</title>
         <meta name="description" content={keyword.description} />
         <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`${keyword.name} (${offset}) | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:title" content={`${keyword.name} (${offset}) | ${SITE_TITLE}`} />
         <meta property="og:description" content={keyword.description} />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+        <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
         <link
           rel="prev"
           href={
             offset === 2
-              ? `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}`
-              : `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset - 1}`
+              ? `${SITE_DOMAIN}/keywords/${keyword.slug}`
+              : `${SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset - 1}`
           }
         />
-        {offset !== Math.ceil(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)) ? (
-          <link
-            rel="next"
-            href={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset + 1}`}
-          />
+        {offset !== Math.ceil(allPostLength / ARTICLE_PER_PAGE) ? (
+          <link rel="next" href={`${SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset + 1}`} />
         ) : null}
         <meta name="robots" content="noindex,nofollow" />
       </Head>
@@ -51,6 +49,9 @@ const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option, offse
             </span>
             の記事
           </h1>
+          <p className="w-11/12 md:w-auto mx-auto mb-6 sm:mb-8 md:mb-10 text-xs sm:text-sm md:table">
+            {keyword.description}
+          </p>
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
@@ -64,16 +65,15 @@ const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option, offse
 export default Keyword
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const PER_PAGE = Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)
   const slug = params?.slug as string
   const offset = Number(params?.offset)
   const keyword = await getKeyword(slug)
   const keywordPosts = await getKeywordPosts(slug)
-  const posts = keywordPosts.slice(PER_PAGE * offset - PER_PAGE, PER_PAGE * offset)
+  const posts = keywordPosts.slice(ARTICLE_PER_PAGE * offset - ARTICLE_PER_PAGE, ARTICLE_PER_PAGE * offset)
   const allPostLength = keywordPosts.length
   const option = {
     pageType: 'keyword',
-    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset}`,
+    fullPath: `${SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset}`,
   }
 
   if (posts.length === 0) return { notFound: true }
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       option,
       offset,
     },
-    revalidate: 300,
+    revalidate: 60,
   }
 }
 
@@ -96,7 +96,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   })
   const offsets = slugs.map(async (slug) => {
     const length = (await getKeywordPosts(slug)).length
-    return Math.floor(length / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE))
+    return Math.floor(length / ARTICLE_PER_PAGE)
   })
   let paths: {
     params: {

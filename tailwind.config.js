@@ -35,7 +35,7 @@ module.exports = {
         '"Bitstream Vera Sans Mono"',
         '"Courier New"',
         'Courier',
-        '"BIZ UDGothic"',
+        '"BIZ UDPGothic"',
         'メイリオ',
         'Meiryo',
         'monospace',
@@ -44,7 +44,7 @@ module.exports = {
     colors: {
       clearness: 'transparent',
       accent: {
-        light: '#0f83fd',
+        light: '#ca2d1d',
         dark: '#ebcb8b',
         'hover-light': '#88c0d0',
         'hover-dark': '#a3be8c',
@@ -67,16 +67,43 @@ module.exports = {
         300: '#81a1c1',
         400: '#5e81ac',
       },
-      aurora: {
-        red: '#bf616a',
-        orange: '#d08770',
-        yellow: '#ebcb8b',
-        green: '#a3be8c',
-        purple: '#b48ead',
-      },
       shadow: {
         light: '#D9E0EA',
         dark: '#373E4C',
+      },
+      code: {
+        bg: {
+          light: '#e9ecf1',
+          dark: '#2c313e',
+        },
+        gray: {
+          light: '#79869e',
+          dark: '#a7b5cc',
+        },
+        red: {
+          light: '#D90A27',
+          dark: '#ffa9bb',
+        },
+        blue: {
+          light: '#1990b8',
+          dark: '#7ec6fd',
+        },
+        yellow: {
+          light: '#d88c00',
+          dark: '#ebcb8b',
+        },
+        green: {
+          light: '#2f9c0a',
+          dark: '#d1ffb6',
+        },
+        orange: {
+          light: '#d88c00',
+          dark: '#eead83',
+        },
+        purple: {
+          light: '#A4047C',
+          dark: '#cc99cd',
+        },
       },
       sns: {
         twitter: '#1da1f2',
@@ -89,9 +116,9 @@ module.exports = {
     extend: {
       boxShadow: {
         light: '3px 3px 6px #d9dce0, -3px -3px 6px #ffffff',
-        dark: '3px 3px 6px #272c36, -3px -3px 6px #353c4a',
-        'inset-light': 'inset 5px 5px 17px #d9dce0,inset -5px -5px 17px #ffffff',
-        'inset-dark': 'inset 5px 5px 17px #21252d, inset -5px -5px 17px #3b4353',
+        dark: '5px 5px 2px 2px #21252d',
+        'inset-light': 'inset -1.5px -1.5px 3px hsl(0deg 0% 100% / 95%), inset 1px 1px 4px rgb(28 64 128 / 15%)',
+        'inset-dark': 'inset 8px 8px 2px #21252d',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -243,6 +270,7 @@ module.exports = {
       backgroundColor: ['dark'],
       borderColor: ['dark'],
       boxShadow: ['dark'],
+      animation: ['hover'],
       typography: ['dark'],
     },
   },

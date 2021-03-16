@@ -6,7 +6,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
     class="max-w-5xl px-3 sm:px-5 py-6 md:py-9 lg:py-12 mx-auto flex justify-between items-center"
   >
     <h1
-      class="text-2xl sm:text-3xl textShadow wave"
+      class="text-2xl sm:text-3xl tracking-wide textShadow wave"
     >
       <a
         href="/"
@@ -46,10 +46,10 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           type="checkbox"
         />
         <label
-          class="h-6 text-snow-200 dark:text-night-400 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
+          class="h-6 text-snow-200 dark:text-night-300 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
           for="toggle"
         >
-          .
+          toggle
         </label>
       </div>
       <svg
@@ -73,34 +73,34 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
   >
     <section>
       <article
-        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-shadow-light dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark dark:hover:shadow-none relative"
+        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-clearness dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark relative hover:animate-pulse"
       >
         <h2
-          class="mb-3 text-base sm:text-lg lg:text-xl"
+          class="mb-2 lg:mb-3 text-base sm:text-lg lg:text-xl"
         >
           環境変数を含むNext.jsのコードをJestでテストする
         </h2>
         <ul
-          class="mb-4 text-xs sm:text-sm flex flex-wrap"
+          class="mb-3 text-xs sm:text-sm flex flex-wrap"
         >
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Next.js
           </li>
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Jest
           </li>
         </ul>
         <p
-          class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
+          class="mb-3 text-xs sm:text-sm leading-normal md:hidden"
         >
           Next.jsアプリをJestでテストする場合、デフォルトでは環境変数を読み込めません。この記事ではテストの実行前に処理を挟むことで問題を解決する方法 ...
         </p>
         <p
-          class="mb-4 text-sm leading-normal hidden md:block"
+          class="mb-3 text-sm leading-normal hidden md:block"
         >
           Next.jsアプリをJestでテストする場合、デフォルトでは環境変数を読み込めません。この記事ではテストの実行前に処理を挟むことで問題を解決する方法を紹介しています。
         </p>
@@ -108,7 +108,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           class="flex justify-end items-center"
         >
           <svg
-            class="w-4 md:w-5 h-4 md:h-5 mr-2"
+            class="w-4 sm:w-5 h-4 sm:h-5 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -122,7 +122,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
             />
           </svg>
           <time
-            class="text-xs md:text-sm text-right block"
+            class="text-xs sm:text-sm text-right block"
             datetime="2021-03-05T06:00:02.829Z"
             itemprop="datepublished"
           >
@@ -137,34 +137,34 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
         </a>
       </article>
       <article
-        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-shadow-light dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark dark:hover:shadow-none relative"
+        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-clearness dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark relative hover:animate-pulse"
       >
         <h2
-          class="mb-3 text-base sm:text-lg lg:text-xl"
+          class="mb-2 lg:mb-3 text-base sm:text-lg lg:text-xl"
         >
           ヘッドレスCMSから受け取ったマークダウン形式の記事でnext/imageを利用する
         </h2>
         <ul
-          class="mb-4 text-xs sm:text-sm flex flex-wrap"
+          class="mb-3 text-xs sm:text-sm flex flex-wrap"
         >
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Next.js
           </li>
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Jamstack
           </li>
         </ul>
         <p
-          class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
+          class="mb-3 text-xs sm:text-sm leading-normal md:hidden"
         >
           ヘッドレスCMSのAPIから文字列として受け取ったマークダウンを、next-mdx-remoteというライブラリを用いてNext.jsコンポーネントに ...
         </p>
         <p
-          class="mb-4 text-sm leading-normal hidden md:block"
+          class="mb-3 text-sm leading-normal hidden md:block"
         >
           ヘッドレスCMSのAPIから文字列として受け取ったマークダウンを、next-mdx-remoteというライブラリを用いてNext.jsコンポーネントに変換する方法を紹介しています。
         </p>
@@ -172,7 +172,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           class="flex justify-end items-center"
         >
           <svg
-            class="w-4 md:w-5 h-4 md:h-5 mr-2"
+            class="w-4 sm:w-5 h-4 sm:h-5 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -186,7 +186,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
             />
           </svg>
           <time
-            class="text-xs md:text-sm text-right block"
+            class="text-xs sm:text-sm text-right block"
             datetime="2021-02-27T06:00:02.752Z"
             itemprop="datepublished"
           >
@@ -201,34 +201,34 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
         </a>
       </article>
       <article
-        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-shadow-light dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark dark:hover:shadow-none relative"
+        class="p-3 md:p-4 lg:p-5 mb-6 md:mb-7 lg:mb-8 xl:mb-9 border border-clearness dark:border-shadow-dark rounded-lg shadow-light hover:shadow-none dark:shadow-dark relative hover:animate-pulse"
       >
         <h2
-          class="mb-3 text-base sm:text-lg lg:text-xl"
+          class="mb-2 lg:mb-3 text-base sm:text-lg lg:text-xl"
         >
           JamstackなNext.jsブログにプレビューモードを実装する
         </h2>
         <ul
-          class="mb-4 text-xs sm:text-sm flex flex-wrap"
+          class="mb-3 text-xs sm:text-sm flex flex-wrap"
         >
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Next.js
           </li>
           <li
-            class="px-2 md:px-3 py-1 mr-2 sm:mr-3 md:mr-4 text-accent-light dark:text-accent-dark rounded border border-shadow-light dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
+            class="px-3 py-1 mr-3 sm:mr-4 text-accent-light dark:text-accent-dark rounded border border-clearness dark:border-shadow-dark shadow-inset-light dark:shadow-inset-dark"
           >
             Jamstack
           </li>
         </ul>
         <p
-          class="mb-4 text-xs sm:text-sm leading-normal md:hidden"
+          class="mb-3 text-xs sm:text-sm leading-normal md:hidden"
         >
           VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレ ...
         </p>
         <p
-          class="mb-4 text-sm leading-normal hidden md:block"
+          class="mb-3 text-sm leading-normal hidden md:block"
         >
           VercelへデプロイしているNext.js製のブログにプレビュー機能を追加します。本記事ではヘッドレスCMSサービスのmicroCMSと連動したプレビュー機能を実装しながら、セキュリティの設定やCookieの管理方法を説明しています。
         </p>
@@ -236,7 +236,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           class="flex justify-end items-center"
         >
           <svg
-            class="w-4 md:w-5 h-4 md:h-5 mr-2"
+            class="w-4 sm:w-5 h-4 sm:h-5 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -250,7 +250,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
             />
           </svg>
           <time
-            class="text-xs md:text-sm text-right block"
+            class="text-xs sm:text-sm text-right block"
             datetime="2021-02-23T14:16:00.797Z"
             itemprop="datepublished"
           >
@@ -273,7 +273,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
         class="flex justify-center"
       >
         <li
-          class="mx-1 md:mx-2 border border-shadow-light dark:border-shadow-dark rounded-full nullhover:border-shadow-light dark:hover:border-shadow-dark hover:shadow-inset-light dark:hover:shadow-inset-dark"
+          class="mx-1 md:mx-2 border border-clearness dark:border-shadow-dark rounded-full border-shadow-light hover:border-clearness hover:shadow-inset-light dark:hover:shadow-inset-dark"
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
@@ -288,7 +288,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           ...
         </li>
         <li
-          class="mx-1 md:mx-2 border border-shadow-light dark:border-shadow-dark rounded-full nullhover:border-shadow-light dark:hover:border-shadow-dark hover:shadow-inset-light dark:hover:shadow-inset-dark"
+          class="mx-1 md:mx-2 border border-clearness dark:border-shadow-dark rounded-full border-shadow-light hover:border-clearness hover:shadow-inset-light dark:hover:shadow-inset-dark"
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
@@ -298,7 +298,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </a>
         </li>
         <li
-          class="mx-1 md:mx-2 border border-shadow-light dark:border-shadow-dark rounded-full shadow-inset-light dark:shadow-inset-dark hover:border-shadow-light dark:hover:border-shadow-dark hover:shadow-inset-light dark:hover:shadow-inset-dark"
+          class="mx-1 md:mx-2 border border-clearness dark:border-shadow-dark rounded-full shadow-inset-light dark:shadow-inset-dark  hover:shadow-inset-light dark:hover:shadow-inset-dark"
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
@@ -308,7 +308,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </a>
         </li>
         <li
-          class="mx-1 md:mx-2 border border-shadow-light dark:border-shadow-dark rounded-full nullhover:border-shadow-light dark:hover:border-shadow-dark hover:shadow-inset-light dark:hover:shadow-inset-dark"
+          class="mx-1 md:mx-2 border border-clearness dark:border-shadow-dark rounded-full border-shadow-light hover:border-clearness hover:shadow-inset-light dark:hover:shadow-inset-dark"
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
@@ -323,7 +323,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           ...
         </li>
         <li
-          class="mx-1 md:mx-2 border border-shadow-light dark:border-shadow-dark rounded-full nullhover:border-shadow-light dark:hover:border-shadow-dark hover:shadow-inset-light dark:hover:shadow-inset-dark"
+          class="mx-1 md:mx-2 border border-clearness dark:border-shadow-dark rounded-full border-shadow-light hover:border-clearness hover:shadow-inset-light dark:hover:shadow-inset-dark"
         >
           <a
             class="px-3 md:px-4 py-1 md:py-2 rounded-full block"
@@ -351,7 +351,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
         class="flex justify-center items-center"
       >
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://twitter.com/share?url=https%3A%2F%2Fblog.shinki.net%2Fpage%2F4"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -372,7 +372,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.shinki.net%2Fpage%2F4"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -393,7 +393,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fblog.shinki.net%2Fpage%2F4"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -414,7 +414,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="http://b.hatena.ne.jp/add?&url=https%3A%2F%2Fblog.shinki.net%2Fpage%2F4"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -435,7 +435,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://getpocket.com/edit?url=https%3A%2F%2Fblog.shinki.net%2Fpage%2F4"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -601,9 +601,9 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
     class="pb-5 md:pb-8 lg:pb-10 mt-14 sm:mt-20 lg:mt-20 flex justify-center"
   >
     <small
-      class="text-xs lg:text-sm italic"
+      class="text-xs lg:text-sm"
     >
-      (c) 2020 - 2021 Shinki all rights reserved.
+      2020 - 2021 Shinki all rights reserved.
     </small>
   </footer>
 </DocumentFragment>

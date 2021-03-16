@@ -1,16 +1,13 @@
-// データに付与されるカウントデータ
 export type CountType = {
   totalCount: number
   offset: number
   limit: number
 }
 
-// ヘッドレスCMSで管理している記事一覧データ
 export type AllPostsType = {
   contents: PostType[]
 } & CountType
 
-// 記事データ
 export type PostType = {
   id: string
   createdAt: string
@@ -29,12 +26,10 @@ export type PostType = {
   body: string | Source
 }
 
-// ヘッドレスCMSで管理しているカテゴリ一覧データ
 export type AllKeywordsType = {
   contents: KeywordType[]
 } & CountType
 
-// カテゴリデータ
 export type KeywordType = {
   id: string
   createdAt: string
@@ -46,7 +41,6 @@ export type KeywordType = {
   description: string
 }
 
-// Pages層のオプション定数を管理するデータ
 export type PageOptionType = {
   pageType: string
   fullPath: string

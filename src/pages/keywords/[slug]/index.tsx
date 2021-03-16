@@ -6,6 +6,7 @@ import Head from 'next/head'
 import React from 'react'
 import { getAllKeywordPaths, getKeyword, getKeywordPosts } from 'scripts/getter'
 import { KeywordType, PageOptionType, PostType } from 'types'
+import { ARTICLE_PER_PAGE, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 type Props = {
   posts: PostType[]
@@ -19,13 +20,13 @@ const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option }) => 
     <>
       <Head>
         <link rel="canonical" href={option.fullPath} />
-        <title>{`${keyword.name} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <title>{`${keyword.name} | ${SITE_TITLE}`}</title>
         <meta name="description" content={keyword.description} />
         <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`${keyword.name} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:title" content={`${keyword.name} | ${SITE_TITLE}`} />
         <meta property="og:description" content={keyword.description} />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
-        {Math.ceil(allPostLength / Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE)) !== 1 ? (
+        <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
+        {Math.ceil(allPostLength / ARTICLE_PER_PAGE) !== 1 ? (
           <link rel="next" href={`${option.fullPath}/page/2`} />
         ) : null}
         <meta name="robots" content="noindex,nofollow" />
@@ -60,11 +61,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!keyword) return { notFound: true }
 
   const keywordPosts = await getKeywordPosts(slug)
-  const posts = keywordPosts.slice(0, Number(process.env.NEXT_PUBLIC_ARTICLE_PER_PAGE))
+  const posts = keywordPosts.slice(0, ARTICLE_PER_PAGE)
   const allPostLength = keywordPosts.length
   const option = {
     pageType: 'keyword',
-    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/keywords/${keyword.slug}`,
+    fullPath: `${SITE_DOMAIN}/keywords/${keyword.slug}`,
   }
 
   return {
@@ -74,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       keyword,
       option,
     },
-    revalidate: 300,
+    revalidate: 60,
   }
 }
 

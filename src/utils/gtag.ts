@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID || ''
+import { GA_TRACKING_ID } from 'utils/env'
 
 export const pageview = (url: string): void => {
   window.gtag('config', GA_TRACKING_ID, {

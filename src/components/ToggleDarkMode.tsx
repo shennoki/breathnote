@@ -41,9 +41,9 @@ const ToggleDarkMode: FC = () => {
         />
         <label
           htmlFor="toggle"
-          className="h-6 text-snow-200 dark:text-night-400 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
+          className="h-6 text-snow-200 dark:text-night-300 bg-snow-200 dark:bg-night-300 rounded-full overflow-hidden block cursor-pointer"
         >
-          .
+          toggle
         </label>
       </div>
       <Svg type="moon" strokeWidth={2} class="w-6 h-6" />

@@ -18,6 +18,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',

@@ -3,6 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { PageOptionType } from 'types'
+import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 type Props = {
   option: PageOptionType
@@ -13,12 +14,12 @@ const Error: NextPage<Props> = ({ option }) => {
     <>
       <Head>
         <link rel="canonical" href={option.fullPath} />
-        <title>{`404 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <title>{`404 | ${SITE_TITLE}`}</title>
         <meta name="description" content="該当するページが見つかりませんでした。" />
         <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`404 | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:title" content={`404 | ${SITE_TITLE}`} />
         <meta property="og:description" content="該当するページが見つかりませんでした。" />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+        <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
@@ -40,7 +41,7 @@ export default Error
 export const getStaticProps: GetStaticProps = async () => {
   const option = {
     pageType: '404',
-    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/404`,
+    fullPath: `${SITE_DOMAIN}/404`,
   }
   return {
     props: {

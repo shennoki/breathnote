@@ -1,9 +1,10 @@
 import { AllKeywordsType, AllPostsType } from 'types'
+import { API_ENDPOINT, API_KEY } from 'utils/env'
 
-const KEY = { headers: { 'X-API-KEY': process.env.API_KEY as string } }
+const KEY = { headers: { 'X-API-KEY': API_KEY } }
 
 export const ALL_POSTS = (async () => {
-  const posts: AllPostsType = await fetch(`${process.env.API_ENDPOINT}/posts`, KEY)
+  const posts: AllPostsType = await fetch(`${API_ENDPOINT}/posts`, KEY)
     .then((res) => res.json())
     .catch((err) => {
       throw new Error(`FETCH FAILED : ${err}`)
@@ -12,7 +13,7 @@ export const ALL_POSTS = (async () => {
   const roopCount = Math.floor(posts.totalCount / limit)
 
   for (let i = 1; i <= roopCount; i++) {
-    const fetchData = await fetch(`${process.env.API_ENDPOINT}/posts?offset=${limit * i}&limit=${limit}`, KEY)
+    const fetchData = await fetch(`${API_ENDPOINT}/posts?offset=${limit * i}&limit=${limit}`, KEY)
       .then((res) => res.json())
       .catch((err) => {
         throw new Error(`FETCH FAILED : ${err}`)
@@ -34,7 +35,7 @@ export const ALL_POSTS = (async () => {
 })()
 
 export const ALL_KEYWORDS = (async () => {
-  const keywords: AllKeywordsType = await fetch(`${process.env.API_ENDPOINT}/keywords`, KEY)
+  const keywords: AllKeywordsType = await fetch(`${API_ENDPOINT}/keywords`, KEY)
     .then((res) => res.json())
     .catch((err) => {
       throw new Error(`FETCH FAILED : ${err}`)
@@ -43,7 +44,7 @@ export const ALL_KEYWORDS = (async () => {
   const roopCount = Math.floor(keywords.totalCount / limit)
 
   for (let i = 1; i <= roopCount; i++) {
-    const fetchData = await fetch(`${process.env.API_ENDPOINT}/keywords?offset=${limit * i}&limit=${limit}`, KEY)
+    const fetchData = await fetch(`${API_ENDPOINT}/keywords?offset=${limit * i}&limit=${limit}`, KEY)
       .then((res) => res.json())
       .catch((err) => {
         throw new Error(`FETCH FAILED : ${err}`)
