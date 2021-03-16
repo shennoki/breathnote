@@ -8,10 +8,11 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { getCorrectDate } from 'scripts/date'
 import { getAllPostPaths, getPost } from 'scripts/getter'
 import { PageOptionType, PostType } from 'types'
+import { API_ENDPOINT, API_KEY, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const rehypePrism = require('@mapbox/rehype-prism')
 
@@ -27,42 +28,26 @@ const components = {
 
 const Post: NextPage<Props> = ({ post, option }) => {
   const body = hydrate(post.body, { components })
-  const [media, setMedia] = useState('print')
-
-  useEffect(() => {
-    setMedia('all')
-  }, [])
 
   return (
     <>
       <Head>
         <link rel="canonical" href={option.fullPath} />
-        <title>{`${post.title} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`}</title>
+        <title>{`${post.title} | ${SITE_TITLE}`}</title>
         <meta name="description" content={post.description} />
         <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`${post.title} | ${process.env.NEXT_PUBLIC_SITE_TITLE}`} />
+        <meta property="og:title" content={`${post.title} | ${SITE_TITLE}`} />
         <meta property="og:description" content={post.description} />
         {post.thumbnail ? (
           <meta property="og:image" content={post.thumbnail.url} />
         ) : (
-          <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`} />
+          <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
         )}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
-          media={media}
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css"
-          />
-        </noscript>
       </Head>
       <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <article className="px-1 md:px-7 lg:px-14 sm:py-2 md:py-8 lg:py-10 rounded-lg md:border md:border-shadow-light md:dark:border-shadow-dark md:shadow-light md:dark:shadow-dark">
+        <article className="px-1 md:px-7 lg:px-14 sm:py-2 md:py-8 lg:py-10 rounded-lg">
           <h1 className="max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-lg sm:text-xl md:text-2xl my-leading-normal break-all table">
-            <span className="text-xl sm:text-2xl md:text-3xl text-accent-light dark:text-accent-dark font-bold">
+            <span className="text-xl sm:text-2xl md:text-3xl text-accent-light dark:text-accent-dark align-bottom tracking-wider">
               {post.title.substr(0, 1)}
             </span>
             {post.title.substr(1)}
@@ -75,7 +60,6 @@ const Post: NextPage<Props> = ({ post, option }) => {
                   alt={post.title}
                   width={post.thumbnail.width}
                   height={post.thumbnail.height}
-                  priority={true}
                 />
               </div>
             </>
@@ -98,7 +82,7 @@ const Post: NextPage<Props> = ({ post, option }) => {
             {post.keywords.map((keyword) => (
               <li
                 key={keyword.id}
-                className={`mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-shadow-light hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none`}
+                className={`mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-clearness hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark`}
               >
                 <Link href={`/keywords/${keyword.slug}`}>
                   <a className="px-2.5 sm:px-4 py-1 sm:py-1.5 block">{keyword.name}</a>
@@ -118,14 +102,14 @@ export default Post
 export const getStaticProps: GetStaticProps = async (context) => {
   let post
 
-  if (!context.preview) {
+  if (context.preview) {
+    post = await fetch(
+      `${API_ENDPOINT}/posts/${context.previewData.draftId}?draftKey=${context.previewData.draftKey}`,
+      { headers: { 'X-API-KEY': API_KEY } }
+    ).then((res) => res.json())
+  } else {
     post = await getPost(context.params?.slug as string)
     if (!post) return { notFound: true }
-  } else if (context.preview) {
-    post = await fetch(
-      `${process.env.API_ENDPOINT}/posts/${context.previewData.draftId}?draftKey=${context.previewData.draftKey}`,
-      { headers: { 'X-API-KEY': process.env.API_KEY as string } }
-    ).then((res) => res.json())
   }
 
   post = {
@@ -140,7 +124,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const option = {
     pageType: 'post',
-    fullPath: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`,
+    fullPath: `${SITE_DOMAIN}/posts/${post.slug}`,
   }
 
   return {
@@ -148,7 +132,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       post,
       option,
     },
-    revalidate: 300,
+    revalidate: 60,
   }
 }
 

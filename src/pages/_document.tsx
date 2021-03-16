@@ -1,14 +1,13 @@
 import { randomBytes } from 'crypto'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
-import { GA_TRACKING_ID } from 'scripts/gtag'
+import { GA_TRACKING_ID } from 'utils/env'
 
 type Props = {
   nonce: string
 }
 
 class MyDocument extends Document<Props> {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     const nonce = randomBytes(128).toString('base64')

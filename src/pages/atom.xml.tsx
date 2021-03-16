@@ -2,23 +2,24 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import RSS from 'rss'
 import { ALL_POSTS } from 'scripts/store'
 import { PostType } from 'types'
+import { SITE_DESCRIPTION, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 const generateFeedXml = async (posts: PostType[]) => {
   const feed = new RSS({
-    title: process.env.NEXT_PUBLIC_SITE_TITLE as string,
-    description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION as string,
-    site_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/`,
-    feed_url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/atom.xml`,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    site_url: `${SITE_DOMAIN}/`,
+    feed_url: `${SITE_DOMAIN}/atom.xml`,
     language: 'ja',
   })
 
   posts.forEach((post) => {
     feed.item({
       title: post.title,
-      description: `<img src="${
-        post.thumbnail ? post.thumbnail.url : `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/img/og-image.jpg`
-      }" />${post.description}`,
-      url: `${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`,
+      description: `<img src="${post.thumbnail ? post.thumbnail.url : `${SITE_DOMAIN}/img/og-image.jpg`}" />${
+        post.description
+      }`,
+      url: `${SITE_DOMAIN}/posts/${post.slug}`,
       author: 'Shinki',
       date: post.publishedAt,
     })

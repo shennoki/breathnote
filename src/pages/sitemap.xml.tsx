@@ -1,6 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import { ALL_POSTS } from 'scripts/store'
 import { PostType } from 'types'
+import { SITE_DOMAIN } from 'utils/env'
 
 const generateSitemapXml = async (posts: PostType[]) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -13,7 +14,7 @@ const generateSitemapXml = async (posts: PostType[]) => {
                 .map((post) => {
                   return `
                     <url>
-                      <loc>${`${process.env.NEXT_PUBLIC_SITE_DOMAIN}/posts/${post.slug}`}</loc>
+                      <loc>${`${SITE_DOMAIN}/posts/${post.slug}`}</loc>
                       <lastmod>${post.publishedAt}</lastmod>
                       <changefreq>weekly</changefreq>
                     </url>
