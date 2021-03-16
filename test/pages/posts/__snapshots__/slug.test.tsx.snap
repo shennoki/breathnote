@@ -6,7 +6,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
     class="max-w-5xl px-3 sm:px-5 py-6 md:py-9 lg:py-12 mx-auto flex justify-between items-center"
   >
     <div
-      class="text-2xl sm:text-3xl textShadow wave"
+      class="text-2xl sm:text-3xl tracking-wide textShadow wave"
     >
       <a
         href="/"
@@ -72,13 +72,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
     class="max-w-5xl px-3 sm:px-5 mx-auto"
   >
     <article
-      class="px-1 md:px-7 lg:px-14 sm:py-2 md:py-8 lg:py-10 rounded-lg md:border md:border-shadow-light md:dark:border-shadow-dark md:shadow-light md:dark:shadow-dark"
+      class="px-1 md:px-7 lg:px-14 sm:py-2 md:py-8 lg:py-10 rounded-lg"
     >
       <h1
         class="max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-lg sm:text-xl md:text-2xl my-leading-normal break-all table"
       >
         <span
-          class="text-xl sm:text-2xl md:text-3xl text-accent-light dark:text-accent-dark font-bold"
+          class="text-xl sm:text-2xl md:text-3xl text-accent-light dark:text-accent-dark align-bottom tracking-wider"
         >
           J
         </span>
@@ -104,9 +104,8 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <img
             alt="JamstackなNext.jsブログにプレビューモードを実装する"
             decoding="async"
-            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fbf4efde59e2b4065b4e11e0b186839dd%2Fnextjs-light-theme.png&w=1200&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fbf4efde59e2b4065b4e11e0b186839dd%2Fnextjs-light-theme.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fbf4efde59e2b4065b4e11e0b186839dd%2Fnextjs-light-theme.png&w=1200&q=75 2x"
-            style="visibility: inherit; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
@@ -157,10 +156,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
           <time
             class="ml-2 text-xs sm:text-sm block"
-            datetime="2021-03-03T15:29:07.962Z"
+            datetime="2021-03-16T18:03:26.949Z"
             itemprop="modified"
           >
-            2021年03月04日
+            2021年03月17日
           </time>
         </div>
       </div>
@@ -168,7 +167,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
         class="text-xs sm:text-sm flex flex-wrap justify-center"
       >
         <li
-          class="mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-shadow-light hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-clearness hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark"
         >
           <a
             class="px-2.5 sm:px-4 py-1 sm:py-1.5 block"
@@ -178,7 +177,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </a>
         </li>
         <li
-          class="mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-shadow-light hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="mx-3 md:mx-7 mb-3 md:mb-6 text-accent-light dark:text-accent-dark rounded border border-clearness hover:border-accent-light dark:border-shadow-dark dark:hover:border-accent-dark shadow-inset-light hover:shadow-none dark:shadow-inset-dark"
         >
           <a
             class="px-2.5 sm:px-4 py-1 sm:py-1.5 block"
@@ -193,7 +192,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
       >
         <div>
           <p>
-            VercelへデプロイしているNext.js製のブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
+            VercelへデプロイしているこのブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
           </p>
           <p>
             基本的に以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
@@ -205,7 +204,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Next.js Preview Mode (Vercel)
+                Next.js Preview Mode
               </a>
             </li>
             <li>
@@ -214,7 +213,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Next.jsのPreview Mode＋Vercelでプレビュー機能を実現する (microCMS)
+                Next.jsのPreview Mode＋Vercelでプレビュー機能を実現する
               </a>
             </li>
           </ul>
@@ -226,7 +225,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               pages/api
             </code>
-            フォルダ内に以下の
+            フォルダに
             <code>
               preview.ts
             </code>
@@ -315,6 +314,65 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               </span>
               
 
+              <span
+                class="token keyword"
+              >
+                import
+              </span>
+               
+              <span
+                class="token punctuation"
+              >
+                {
+              </span>
+               
+              <span
+                class="token constant"
+              >
+                API_ENDPOINT
+              </span>
+              <span
+                class="token punctuation"
+              >
+                ,
+              </span>
+               
+              <span
+                class="token constant"
+              >
+                API_KEY
+              </span>
+              <span
+                class="token punctuation"
+              >
+                ,
+              </span>
+               
+              <span
+                class="token constant"
+              >
+                DRAFT_TOKEN
+              </span>
+               
+              <span
+                class="token punctuation"
+              >
+                }
+              </span>
+               
+              <span
+                class="token keyword"
+              >
+                from
+              </span>
+               
+              <span
+                class="token string"
+              >
+                'utils/env'
+              </span>
+              
+
 
               <span
                 class="token keyword"
@@ -388,24 +446,17 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               
   
               <span
-                class="token comment"
-              >
-                // 共通鍵を用いた簡易的なセキュリティチェック
-              </span>
-              
-  
-              <span
                 class="token keyword"
               >
-                if
+                const
               </span>
-               
+               token 
               <span
-                class="token punctuation"
+                class="token operator"
               >
-                (
+                =
               </span>
-              req
+               req
               <span
                 class="token punctuation"
               >
@@ -426,65 +477,49 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 secret
               </span>
-               
+              
+
+  
               <span
-                class="token operator"
+                class="token comment"
               >
-                !==
+                // 共通鍵を用いた簡易的なセキュリティチェック
               </span>
-               process
+              
+  
+              <span
+                class="token keyword"
+              >
+                if
+              </span>
+               
               <span
                 class="token punctuation"
               >
-                .
+                (
               </span>
-              <span
-                class="token property-access"
-              >
-                env
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token constant"
-              >
-                DRAFT_TOKEN
-              </span>
-               
-              <span
-                class="token operator"
-              >
-                ||
-              </span>
-               
               <span
                 class="token operator"
               >
                 !
               </span>
-              req
+              token 
               <span
-                class="token punctuation"
+                class="token operator"
               >
-                .
+                ||
               </span>
+               token 
               <span
-                class="token property-access"
+                class="token operator"
               >
-                query
+                !==
               </span>
+               
               <span
-                class="token punctuation"
+                class="token constant"
               >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                draftId
+                DRAFT_TOKEN
               </span>
               <span
                 class="token punctuation"
@@ -572,14 +607,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 )
               </span>
-              
-    
-              <span
-                class="token keyword"
-              >
-                return
-              </span>
-               res
               <span
                 class="token punctuation"
               >
@@ -594,11 +621,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 class="token punctuation"
               >
                 (
-              </span>
-              <span
-                class="token string"
-              >
-                'UNAUTHORIZED ACCESS'
               </span>
               <span
                 class="token punctuation"
@@ -627,7 +649,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 const
               </span>
-               post 
+               draft 
               <span
                 class="token operator"
               >
@@ -650,8 +672,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 (
               </span>
-              
-    
               <span
                 class="token template-string"
               >
@@ -667,22 +687,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                     class="token interpolation-punctuation punctuation"
                   >
                     \${
-                  </span>
-                  process
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    env
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
                   </span>
                   <span
                     class="token constant"
@@ -816,38 +820,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 :
               </span>
-               process
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                env
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
+               
               <span
                 class="token constant"
               >
                 API_KEY
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                as
-              </span>
-               
-              <span
-                class="token builtin"
-              >
-                string
               </span>
                
               <span
@@ -950,6 +927,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 (
               </span>
+              err
               <span
                 class="token punctuation"
               >
@@ -960,62 +938,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 class="token arrow operator"
               >
                 =&gt;
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                null
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-
-  
-              <span
-                class="token comment"
-              >
-                // 該当する記事が無かった場合はブラウザにその旨を表示する
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                if
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token operator"
-              >
-                !
-              </span>
-              post
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    
-              <span
-                class="token keyword"
-              >
-                return
               </span>
                res
               <span
@@ -1036,7 +958,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token number"
               >
-                401
+                500
               </span>
               <span
                 class="token punctuation"
@@ -1051,7 +973,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token method function property-access"
               >
-                json
+                end
               </span>
               <span
                 class="token punctuation"
@@ -1061,37 +983,12 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               <span
                 class="token punctuation"
               >
-                {
-              </span>
-               message
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'INVALID REQUEST'
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
+                )
               </span>
               <span
                 class="token punctuation"
               >
                 )
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
               </span>
               
 
@@ -1130,7 +1027,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 :
               </span>
-               post
+               draft
               <span
                 class="token punctuation"
               >
@@ -1192,6 +1089,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 )
               </span>
               
+
   res
               <span
                 class="token punctuation"
@@ -1257,7 +1155,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                   >
                     \${
                   </span>
-                  post
+                  draft
                   <span
                     class="token punctuation"
                   >
@@ -1291,8 +1189,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 )
               </span>
-              
-  res
               <span
                 class="token punctuation"
               >
@@ -1307,11 +1203,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 class="token punctuation"
               >
                 (
-              </span>
-              <span
-                class="token string"
-              >
-                'PREVIEW MODE ENABLED'
               </span>
               <span
                 class="token punctuation"
@@ -1337,7 +1228,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               受け取ったURLを簡易的にチェック
             </li>
             <li>
-              CMSのAPIを叩いて該当する下書き記事を取得
+              CMSのAPIから該当する下書き記事を取得
             </li>
             <li>
               Cookieを付与して記事ページへリダイレクト
@@ -1346,18 +1237,18 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <p>
             今回は共通鍵暗号方式でセキュリティチェックを行っています。
             <code>
-              process.env.DRAFT_TOKEN
+              DRAFT_TOKEN
             </code>
             の部分は別途
             <code>
               .env.local
             </code>
-            などで管理し、GitHub等で閲覧出来ないようにしておきましょう。
+            などで管理し、GitHubで閲覧出来ないようにしておきましょう。
           </p>
           <p>
             プレビュー機能に関しては、最後に登場する
             <code>
-              setPreviewData
+              setPreviewData()
             </code>
             というメソッドで実現しています。これを利用することにより以下の情報が記事ページのgetStaticPropsへ渡されます。
           </p>
@@ -1492,15 +1383,15 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </code>
           </pre>
           <p>
-            最後のリダイレクトではURLから受け取った
+            最後は
             <code>
               req.query.draftId
             </code>
-            ではなく、CMSから取得した
+            ではなく
             <code>
               post.id
             </code>
-            を使用しています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
+            を使用してリダイレクトしています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
           </p>
           <h2>
             記事ページを更新
@@ -1510,13 +1401,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               preview.ts
             </code>
-            から受け取ったプレビュー情報を用いて記事ページを更新します。このファイルには他にも色々と処理させていますが、最低限必要な個所を抜き出して記載しています。
+            から受け取ったプレビュー情報を用いて記事ページを更新します。このファイルには他にも色々と処理させてますが、今回は必要最低限のコードを抜き出して記載しています。
           </p>
           <pre
-            class="language-ts"
+            class="language-tsx"
           >
             <code
-              class="language-ts"
+              class="language-tsx"
             >
               <span
                 class="token keyword"
@@ -1563,7 +1454,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 (
               </span>
-              context
+              <span
+                class="token parameter"
+              >
+                context
+              </span>
               <span
                 class="token punctuation"
               >
@@ -2070,7 +1965,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 (
               </span>
-              res
+              <span
+                class="token parameter"
+              >
+                res
+              </span>
               <span
                 class="token punctuation"
               >
@@ -2339,11 +2238,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </code>
           </pre>
           <p>
-            今回は「公開済み or プレビュー」の判定を
+            今回は
             <code>
               context.preview
             </code>
-            で行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
+            を用いて「公開済み」か「プレビュー」かの判定を行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
           </p>
           <h2>
             Cookieを削除するAPIルートを作る
@@ -2365,28 +2264,33 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <p>
             これは
             <code>
-              setPreviewData
+              setPreviewData()
             </code>
-            で付与したCookieがブラウザ終了まで維持されるという
+            で付与したCookieが
             <a
               href="https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies"
               rel="noopener noreferrer"
               target="_blank"
             >
-              仕様
+              ブラウザ終了まで維持される仕様
             </a>
-            が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
+            が関係しています。
+          </p>
+          <p>
+            Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
             <code>
               context.preview: true
             </code>
             が再度読み込まれ、プレビュー用の処理が走ってしまうのです。
           </p>
           <p>
-            そこで、プレビュー用のAPIルートと同様の方法で「プレビューで付与したCookieを削除するAPIルート」を作ります。
+            そこでプレビューAPIと同様の方法で、Cookie削除用のAPIルートを作ります。
+          </p>
+          <p>
             <code>
               pages/api
             </code>
-            に任意のファイル名でTypeScriptファイルを作成し、以下を記述します。
+            フォルダに任意のファイル名で以下のTypeScriptファイルを作成しましょう。
           </p>
           <pre
             class="language-ts"
@@ -2613,8 +2517,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 )
               </span>
-              
-  res
               <span
                 class="token punctuation"
               >
@@ -2629,11 +2531,6 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
                 class="token punctuation"
               >
                 (
-              </span>
-              <span
-                class="token string"
-              >
-                'CLEAR PREVIEW COOKIE'
               </span>
               <span
                 class="token punctuation"
@@ -2653,18 +2550,25 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </pre>
           <p>
             <code>
-              clearPreviewData
+              clearPreviewData()
             </code>
-            でプレビュー用のCookieを削除、その後はトップページにリダイレクトしています。少し面倒ですが、プレビューモードを利用した後はこのAPIへアクセスすることでページの動作が元に戻ります。
+            でプレビュー用のCookieを削除した後にトップページへリダイレクトしています。
+          </p>
+          <p>
+            少し面倒ですが、プレビューモードを利用した後はこのAPIへアクセスすることでページの動作が元に戻ります。
           </p>
           <h2>
             APIへアクセスするためのURLを設定する
           </h2>
           <p>
-            最後にCMSからAPIに送信するURLを設定します。私の場合はmicroCMSの画面プレビュー設定で以下のように設定しました。
+            最後にCMSからAPIに送信するURLを設定します。私の場合はmicroCMSの画面プレビュー設定を以下のように変更しました。
           </p>
-          <pre>
-            <code>
+          <pre
+            class="language-markup"
+          >
+            <code
+              class="language-markup"
+            >
               https://[Your Domain]/api/preview?secret=[セキュリティ用のトークン]&draftId={CONTENT_ID}&draftKey={DRAFT_KEY}
 
             </code>
@@ -2698,7 +2602,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             <code>
               next dev
             </code>
-            で起動する開発環境か、サーバーレス関数をサポートしている各種サービスにデプロイされた後で確認してください。
+            で起動する開発環境か、サーバーレス関数をサポートしている各種サービスへデプロイした後で確認してください。
           </p>
         </div>
       </div>
@@ -2720,7 +2624,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
         class="flex justify-center items-center"
       >
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://twitter.com/share?url=https%3A%2F%2Fblog.shinki.net%2Fposts%2Fnextjs-preview-mode"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -2741,7 +2645,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.shinki.net%2Fposts%2Fnextjs-preview-mode"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -2762,7 +2666,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fblog.shinki.net%2Fposts%2Fnextjs-preview-mode"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -2783,7 +2687,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="http://b.hatena.ne.jp/add?&url=https%3A%2F%2Fblog.shinki.net%2Fposts%2Fnextjs-preview-mode"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -2804,7 +2708,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          class="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark"
           href="https://getpocket.com/edit?url=https%3A%2F%2Fblog.shinki.net%2Fposts%2Fnextjs-preview-mode"
           rel="nofollow noopener noreferrer"
           target="_blank"
@@ -2970,9 +2874,9 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
     class="pb-5 md:pb-8 lg:pb-10 mt-14 sm:mt-20 lg:mt-20 flex justify-center"
   >
     <small
-      class="text-xs lg:text-sm italic"
+      class="text-xs lg:text-sm"
     >
-      (c) 2020 - 2021 Shinki all rights reserved.
+      2020 - 2021 Shinki all rights reserved.
     </small>
   </footer>
 </DocumentFragment>
