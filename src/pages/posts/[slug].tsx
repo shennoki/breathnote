@@ -60,6 +60,7 @@ const Post: NextPage<Props> = ({ post, option }) => {
                   alt={post.title}
                   width={post.thumbnail.width}
                   height={post.thumbnail.height}
+                  priority={true}
                 />
               </div>
             </>
