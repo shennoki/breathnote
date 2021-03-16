@@ -18,7 +18,7 @@ const Share: FC<Props> = (props) => {
           title="Twitterでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-twitter border border-shadow-light dark:border-shadow-dark hover:border-sns-twitter dark:hover:border-sns-twitter shadow-light hover:shadow-none dark:shadow-inset-dark"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Share: FC<Props> = (props) => {
           title="Facebookでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-facebook border border-shadow-light dark:border-shadow-dark hover:border-sns-facebook dark:hover:border-sns-facebook shadow-light hover:shadow-none dark:shadow-inset-dark"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const Share: FC<Props> = (props) => {
           title="LINEでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-line border border-shadow-light dark:border-shadow-dark hover:border-sns-line dark:hover:border-sns-line shadow-light hover:shadow-none dark:shadow-inset-dark"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const Share: FC<Props> = (props) => {
           title="はてなブックマークでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-hatena border border-shadow-light dark:border-shadow-dark hover:border-sns-hatena dark:hover:border-sns-hatena shadow-light hover:shadow-none dark:shadow-inset-dark"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Share: FC<Props> = (props) => {
           title="Pocketでシェアする"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark dark:hover:shadow-none"
+          className="w-11 sm:w-14 h-11 sm:h-14 mx-2 sm:mx-4 rounded-full flex justify-center items-center hover:text-sns-pocket border border-shadow-light dark:border-shadow-dark hover:border-sns-pocket dark:hover:border-sns-pocket shadow-light hover:shadow-none dark:shadow-inset-dark"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
