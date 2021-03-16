@@ -1,12 +1,13 @@
 import { format } from 'date-fns'
 import { utcToZonedTime } from 'date-fns-tz'
 
-export const getCorrectDate = (utcDate: string, string?: string): string => {
-  if (!utcDate) return '日付を取得できません'
+export const getCorrectDate = (date: string | Date, conversion?: string): string => {
+  if (!date) return '日付データ無し'
+  if (typeof date === 'string') date = new Date(date)
 
-  const jstDate = utcToZonedTime(utcDate, 'Asia/Tokyo')
+  const jstDate = utcToZonedTime(date, 'Asia/Tokyo')
 
-  if (!string) return jstDate.toString()
+  if (!conversion) return jstDate.toString()
 
-  return format(jstDate, string)
+  return format(jstDate, conversion)
 }
