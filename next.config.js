@@ -1,9 +1,8 @@
 const { createSecureHeaders } = require('next-secure-headers')
-// const withPWA = require('next-pwa')
-// const prod = process.env.NODE_ENV === 'production'
+const withPWA = require('next-pwa')
+const prod = process.env.NODE_ENV === 'production'
 
-// module.exports = withPWA({
-module.exports = {
+module.exports = withPWA({
   // X-Powered-Byヘッダを削除
   poweredByHeader: false,
   // next/imageのsrcとして許可する外部ドメイン
@@ -20,8 +19,8 @@ module.exports = {
     ]
   },
   // net-pwa | https://github.com/GoogleChrome/workbox/issues/1790#issuecomment-620894023
-  // pwa: {
-  //   disable: prod ? false : true,
-  //   dest: 'public',
-  // },
-}
+  pwa: {
+    disable: prod ? false : true,
+    dest: 'public',
+  },
+})
