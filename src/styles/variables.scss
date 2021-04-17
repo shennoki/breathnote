@@ -1,0 +1,81 @@
+@import 'styles/mixins';
+
+/* Variable Setting */
+:root {
+  --f-sans: 'Spica', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --f-mono: Consolas, Monaco, 'Andale Mono', 'Courier New', 'Ubuntu Mono', 'Spica', monospace;
+}
+html.light {
+  &:root {
+    --c-blue: #88c0d0;
+    --c-green: #75b53e;
+
+    --c-text: #4c566a;
+    --c-text-thin: #4c566acc;
+    --c-bg-1: #fff;
+    --c-bg-2: #f8f9fb;
+    --c-bg-3: #eceff4;
+    --c-bg-4: #dbe1ea;
+    --c-link: #1da1f2;
+    --c-border: #4c566a44;
+    --c-code-gray: #79869e;
+    --c-code-red: #d90a27;
+    --c-code-blue: #1990b8;
+    --c-code-yellow: #d88c00;
+    --c-code-green: #2f9c0a;
+    --c-code-orange: #d88c00;
+    --c-code-purple: #a4047c;
+
+    --c-twitter: #1da1f2;
+    --c-facebook: #1877f2;
+    --c-clipboard: #ef3f56;
+
+    --s-neumo: 5px 5px 4px #e7e8e9, -5px -5px 4px #ffffff;
+    --s-neumo-inset: inset 3px 3px 1px #dadbdd;
+    --s-pre: inset 2px 2px 3px #e7e8e9, inset -3px -3px 2px #ffffff;
+  }
+}
+html.dark {
+  &:root {
+    --c-blue: #81a1c1;
+    --c-green: #bada9e;
+
+    --c-text: #eceff4;
+    --c-text-thin: #eceff4cc;
+    --c-bg-1: #292e39;
+    --c-bg-2: #2e3440;
+    --c-bg-3: #434c5e;
+    --c-bg-4: #606c85;
+    --c-link: #6ed7ff;
+    --c-border: #eceff444;
+    --c-code-gray: #a7b5cc;
+    --c-code-red: #ffa9bb;
+    --c-code-blue: #7ec6fd;
+    --c-code-yellow: #ebcb8b;
+    --c-code-green: #d1ffb6;
+    --c-code-orange: #eead83;
+    --c-code-purple: #cc99cd;
+
+    --c-twitter: #75caff;
+    --c-facebook: #8dbfff;
+    --c-clipboard: #ff7184;
+
+    --s-neumo: 5px 5px 4px #2b303c, -5px -5px 4px #313844;
+    --s-neumo-inset: inset 8px 8px 2px #21252d;
+    --s-pre: inset 2px 2px 3px #2b303c, inset -3px -3px 2px #313844;
+  }
+}
+
+/* Font Setting */
+@font-face {
+  font-family: 'Spica';
+  src: url('/fonts/Spica-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spica';
+  src: url('/fonts/Spica-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
