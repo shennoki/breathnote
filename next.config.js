@@ -18,7 +18,7 @@ module.exports = withPWA({
       },
     ]
   },
-  // net-pwa | https://github.com/GoogleChrome/workbox/issues/1790#issuecomment-620894023
+  // next-pwa | https://github.com/GoogleChrome/workbox/issues/1790#issuecomment-620894023
   pwa: {
     disable: prod ? false : true,
     dest: 'public',
