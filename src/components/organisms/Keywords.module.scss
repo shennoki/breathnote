@@ -1,0 +1,57 @@
+@import 'styles/mixins';
+
+.section {
+  width: 92%;
+  max-width: 1100px;
+  margin: 4em auto 0;
+  @include mq(lg) {
+    margin: 5em auto 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-size: 1.6em;
+  @include mq(lg) {
+    max-width: 160px;
+  }
+}
+
+.list {
+  width: 100%;
+  max-width: 910px;
+  margin: 0.3em 0 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  @include mq(lg) {
+    width: 80%;
+    margin: -0.8em 0 0 4em;
+  }
+
+  & li {
+    margin: 0.8em 0.4em 0;
+  }
+
+  & a {
+    padding: 0.25em 1em;
+    font-size: 0.85em;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    display: inline-block;
+    transition: box-shadow 0.1s;
+    &:hover {
+      box-shadow: var(--s-neumo-inset);
+      opacity: 1;
+    }
+  }
+
+  & span {
+    padding-top: 0.2em;
+    display: block;
+    &::before {
+      content: '#';
+      margin-right: 0.2em;
+    }
+  }
+}

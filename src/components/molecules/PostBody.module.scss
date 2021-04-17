@@ -1,0 +1,218 @@
+@import 'styles/mixins';
+
+.post {
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 2.5em 0 1em;
+  }
+
+  & h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 2.5em 0 1em;
+  }
+
+  & h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 2.5em 0 1em;
+  }
+
+  & p {
+    margin: 1.6em 0 0;
+    letter-spacing: 0.03em;
+    @include mq(sm) {
+      line-height: 1.8;
+    }
+  }
+
+  & a {
+    padding: 0 0.05em;
+    margin: 0 0.1em;
+    color: var(--c-link);
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      border-top: 2px dashed var(--c-link);
+      opacity: 0;
+      position: absolute;
+      bottom: 0.18em;
+      left: 0;
+      transition: opacity 0.2s;
+    }
+    &:hover {
+      opacity: 1;
+      &::before {
+        opacity: 0.65;
+      }
+    }
+  }
+
+  & strong,
+  b {
+    padding: 0 0.15em;
+    font-size: 1.07em;
+    font-weight: bold;
+  }
+
+  & em {
+    padding: 0 0.1em;
+    font-style: italic;
+  }
+
+  & del {
+    padding: 0 0.1em;
+  }
+
+  & code {
+    padding: 0.2em 0.45em 0.28em; // フォント調整
+    margin: 0 0.3em;
+    font-family: var(--f-mono);
+    font-size: 0.93em;
+    letter-spacing: 0.02em;
+    word-break: break-all;
+    background-color: var(--c-bg-3);
+    border-radius: 2px;
+  }
+
+  & > ul,
+  ol {
+    padding: 1.5em;
+    margin: 2.5em 0 0;
+    background-color: var(--c-bg-3);
+    border-radius: 3px;
+    & li {
+      position: relative;
+    }
+    & > :first-child {
+      margin-top: 0;
+    }
+    & code {
+      background-color: var(--c-bg-4);
+    }
+  }
+
+  & > ul {
+    & li {
+      padding: 0.2em 0 0 1.9em; // フォント調整
+      margin: 0.5em 0 0;
+      position: relative;
+      &::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: var(--c-text-thin);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0.6em;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  & > ol {
+    list-style-type: decimal;
+    & li {
+      padding: 0 0 0 0.4em;
+      margin: 0.7em 0 0 1.5em;
+      position: relative;
+      &::marker {
+        color: var(--c-text-thin);
+        font-weight: bold;
+      }
+    }
+    & > :first-child {
+      margin-top: 0.2em; // フォント調整
+    }
+  }
+
+  & > blockquote {
+    padding: 1.5em 3.3em 1.5em 1.6em;
+    margin: 2.5em 0 0;
+    font-style: italic;
+    background-color: var(--c-bg-3);
+    border-left: 0.3em solid var(--c-text-thin);
+    border-radius: 0 3px 3px 0;
+    position: relative;
+    &::before {
+      content: '';
+      width: 2em;
+      height: 2em;
+      background-image: url('/img/svg/blockquote.svg');
+      position: absolute;
+      top: 0.5em;
+      right: 0.9em;
+    }
+    & > :first-child {
+      margin-top: 0;
+    }
+    & code {
+      background-color: var(--c-bg-4);
+    }
+  }
+
+  & table {
+    width: 100%;
+    margin: 2.5em 0 0;
+    border: 1px solid var(--c-bg-3);
+    & tr {
+      border-bottom: 1px solid var(--c-bg-3);
+      &:hover {
+        background-color: var(--c-bg-1);
+      }
+    }
+    & th {
+      width: 1%;
+      padding: 1em 0.5em;
+      text-align: center;
+      background-color: var(--c-bg-3);
+    }
+    td {
+      width: 1%;
+      padding: 1em 0.6em;
+      font-size: 0.9em;
+      text-align: center;
+    }
+  }
+
+  & hr {
+    margin: 2em 0;
+    border-color: var(--c-border);
+  }
+
+  & pre {
+    padding: 1.5em;
+    margin: 2.5em 0 0;
+    background-color: var(--c-bg-3);
+    border-radius: 3px;
+    box-shadow: var(--s-pre);
+    overflow-x: scroll;
+    & code {
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      word-break: normal;
+    }
+    &::-webkit-scrollbar {
+      @include mq(lg) {
+        height: 7px;
+        background-color: transparent;
+      }
+    }
+    &::-webkit-scrollbar-thumb {
+      @include mq(lg) {
+        background-color: var(--c-bg-4);
+        border-radius: 4px;
+      }
+    }
+  }
+}

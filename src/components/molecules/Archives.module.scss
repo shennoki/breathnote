@@ -1,0 +1,31 @@
+@import 'styles/mixins';
+
+.root {
+  max-width: 1350px;
+  margin: -1.3em auto 0;
+  @include mq(sm) {
+    padding: 0 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include mq(md) {
+    margin: -1.5em auto 0;
+  }
+
+  & > article {
+    padding: 1.1em;
+    margin: 1.3em 0 0;
+    @include mq(sm) {
+      width: 50%;
+    }
+    @include mq(md) {
+      margin: 1.5em 0 0;
+    }
+    @include mq(lg) {
+      width: 33.3333%;
+    }
+    @include mq(xl) {
+      width: 25%;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import 'styles/mixins';
+
+.header {
+  max-width: 1350px;
+  padding: 30px 20px 40px;
+  margin: 0 auto;
+  @include mq(md) {
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @include mq(lg) {
+    padding: 50px 30px 60px;
+  }
+}
+
+.logo {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+  @include mq(md) {
+    margin: 0;
+  }
+
+  & a {
+    display: block;
+    position: relative;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: url('/img/logo-dark.svg') no-repeat 0 0;
+      background-size: 100% auto;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      @include dark {
+        opacity: 1;
+      }
+    }
+    & img {
+      @include dark {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.wave {
+  animation: horizontal 1s ease-in-out infinite alternate;
+  & a {
+    animation: vertical 1.7s ease-in-out infinite alternate;
+  }
+}
+@keyframes horizontal {
+  0% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes vertical {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

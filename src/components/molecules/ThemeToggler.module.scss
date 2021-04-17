@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.toggler {
+  width: 2.8em;
+  margin: 0 0.5em;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  user-select: none;
+
+  & input {
+    width: 1.4em;
+    height: 1.4em;
+    background-color: var(--c-text);
+    border: 4px solid var(--c-bg-3);
+    border-radius: 999px;
+    display: block;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    appearance: none;
+    &:focus {
+      outline: none;
+    }
+    &:checked {
+      outline: none;
+      left: auto;
+      right: 0;
+    }
+  }
+
+  & label {
+    height: 1.4em;
+    color: var(--c-bg-3);
+    background-color: var(--c-bg-3);
+    border-radius: 999px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+  }
+}

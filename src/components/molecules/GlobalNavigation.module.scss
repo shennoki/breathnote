@@ -1,0 +1,26 @@
+@import 'styles/mixins';
+
+.nav {
+  width: 100%;
+  max-width: 330px;
+  margin: 20px auto 0;
+  @include mq(md) {
+    margin: 0;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  a {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 0.4em;
+    }
+  }
+}

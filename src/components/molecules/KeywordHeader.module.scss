@@ -1,0 +1,24 @@
+.header {
+  width: 95%;
+  margin: 0 auto 2.5em;
+}
+
+.title {
+  font-size: 1.9em;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.counter {
+  margin: 0.8em auto 0;
+  color: var(--c-text-thin);
+  display: table;
+}
+
+.description {
+  margin: 1.2em auto 0;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  display: table;
+}

@@ -1,0 +1,21 @@
+@import 'styles/mixins';
+
+.article {
+  width: 92%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 0 2em;
+  font-size: 1.6em;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  word-break: break-all;
+}
+
+.body {
+  margin: 0 0 2.5em;
+  overflow-x: hidden;
+}
