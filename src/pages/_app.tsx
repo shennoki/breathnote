@@ -71,6 +71,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         {pageProps.pageProps.noindex && <meta name="robots" content="noindex,nofollow" />}
+        <link rel="preload" href="/fonts/Spica-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Spica-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </Head>
       <Header type={pageProps.pageProps.type} />
       <main>

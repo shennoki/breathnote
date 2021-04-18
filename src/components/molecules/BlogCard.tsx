@@ -15,8 +15,8 @@ const BlogCard: React.FC<Props> = ({ post }) => {
     <article className={styles.article}>
       <div className={styles.thumbnail}>
         <Image
-          width={post.thumbnail ? post.thumbnail.width : 850}
-          height={post.thumbnail ? post.thumbnail.height : 445}
+          width={850}
+          height={445}
           src={post.thumbnail ? post.thumbnail.url : `${SITE_DOMAIN}/img/og-img.jpg`}
           alt={post.title}
         />
