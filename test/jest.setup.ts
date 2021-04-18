@@ -1,12 +1,6 @@
 import '@testing-library/jest-dom'
-import Global = NodeJS.Global
-export interface GlobalWithCognitoFix extends Global {
-  fetch: any
-}
-declare const global: GlobalWithCognitoFix
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-global.fetch = require('node-fetch').default
 
+// Jest環境でnext/imageを検証可能にする
 process.env = {
   ...process.env,
   __NEXT_IMAGE_OPTS: {
@@ -18,6 +12,7 @@ process.env = {
   } as any,
 }
 
+// Jest環境でmatchMediaを利用可能にする
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({

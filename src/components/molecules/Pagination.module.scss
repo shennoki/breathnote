@@ -1,0 +1,43 @@
+@import 'styles/mixins';
+
+.nav {
+  margin: 3em 0 4em;
+  @include mq(lg) {
+    margin: 4em 0 5em;
+  }
+}
+
+.ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.li {
+  margin: 0 0.5em;
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  transition: box-shadow 0.1s;
+  &-current,
+  &:hover {
+    box-shadow: var(--s-neumo-inset);
+  }
+}
+
+.link {
+  width: 2.3em;
+  height: 2.3em;
+  padding: 0.2em 0 0; // フォントのズレ修正
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.dotted {
+  margin: 0 0.3em;
+  line-height: 1;
+}

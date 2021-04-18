@@ -22,14 +22,14 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: package install
+      - name: Install packages
         run: yarn install
 
-      - name: next build
-        run: yarn build
-
-      - name: eslint stylelint
+      - name: Linting
         run: yarn lint
 
-      - name: run test
+      - name: Testing
         run: yarn test
+
+      - name: Building
+        run: yarn build

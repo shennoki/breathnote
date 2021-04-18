@@ -1,0 +1,25 @@
+$breakpoints: (
+  'sm': 556px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
+
+@mixin mq($size) {
+  @media screen and (min-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+/* stylelint-disable */
+@mixin light {
+  :global(.light) & {
+    @content;
+  }
+}
+@mixin dark {
+  :global(.dark) & {
+    @content;
+  }
+}
+/* stylelint-enable */

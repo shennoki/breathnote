@@ -1,0 +1,30 @@
+@import 'styles/mixins';
+
+.waves {
+  width: 100%;
+  height: 40px;
+  color: var(--c-bg-3);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  @include mq(md) {
+    height: 60px;
+  }
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}

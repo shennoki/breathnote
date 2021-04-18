@@ -1,53 +1,33 @@
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 import React from 'react'
-import Keyword from '../../../../../src/pages/keywords/[slug]/page/[offset]'
-import { getKeywordPosts } from '../../../../../src/scripts/getter'
-import { ALL_KEYWORDS } from '../../../../../src/scripts/store'
+import { getKeywordPosts } from '../../../../../src/libs/requests'
+import { fetchAllKeywords } from '../../../../../src/libs/store'
+import Keywords from '../../../../../src/pages/keywords/[slug]/page/[offset]'
+import { Keyword } from '../../../../../src/types/keyword'
+import { SITE_DOMAIN, SITE_TITLE } from '../../../../../src/utils/env'
 
 describe(`KEYWORD ARTICLE PAGE 4/7 (pages/keywords/[slug]/page/[offset].tsx)`, () => {
-  afterEach(() => {
-    cleanup
-  })
+  afterEach(cleanup)
 
   test('snapshot', async () => {
-    const offset = 4
-    const keyword = (await ALL_KEYWORDS).contents.slice(-1)[0]
+    const keywords = (await fetchAllKeywords()).contents
+    const keyword = keywords.find((keyword) => keyword.slug === 'nextjs') as Keyword
     const posts = (await getKeywordPosts(keyword.slug)).slice(-1)
-    const allPostLength = 42
-    const option = {
-      pageType: 'keyword',
-      fullPath: `https://blog.shinki.net/keywords/${keyword.slug}/page/${offset}`,
+    const postLength = 84
+    const offset = 4
+    const pageProps = {
+      url: `${SITE_DOMAIN}/keywords/${keyword.slug}/page/${offset}`,
+      type: 'keywords',
+      title: `${keyword.name} (${offset}) - ${SITE_TITLE}`,
+      description: keyword.description,
+      noindex: true,
+      keywords: keywords,
     }
+
     const { asFragment } = render(
-      <Keyword posts={posts} allPostLength={allPostLength} keyword={keyword} option={option} offset={offset} />
+      <Keywords pageProps={pageProps} posts={posts} postLength={postLength} keyword={keyword} offset={offset} />
     )
     const tree = asFragment()
     expect(tree).toMatchSnapshot()
-  })
-
-  test('integration', async () => {
-    const offset = 4
-    const keyword = (await ALL_KEYWORDS).contents.slice(-1)[0]
-    const posts = (await getKeywordPosts(keyword.slug)).slice(-1)
-    const allPostLength = 42
-    const option = {
-      pageType: 'keyword',
-      fullPath: `https://blog.shinki.net/keywords/${keyword.slug}/page/${offset}`,
-    }
-    render(<Keyword posts={posts} allPostLength={allPostLength} keyword={keyword} option={option} offset={offset} />)
-
-    // ヘッダーが存在する
-    expect(screen.getByRole('banner')).toBeInTheDocument()
-    // メインコンテンツが存在する
-    expect(screen.getByRole('main')).toBeInTheDocument()
-    // サイドコンテンツ (SHARE, CONTENTS, MORE) が存在する
-    expect(screen.getAllByRole('complementary')).toHaveLength(3)
-    // フッターが存在する
-    expect(screen.getByRole('contentinfo')).toBeInTheDocument()
-
-    // h1属性が1個だけ存在する
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
-    // ページネーションが存在する
-    expect(screen.getByRole('navigation', { name: 'pagination' })).toBeInTheDocument()
   })
 })

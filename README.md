@@ -1,23 +1,35 @@
-# BreathNote
+<h1 align="center">BreathNote</h1>
 
-Tech blog.
+![og-image](public/img/og-img.jpg)
 
-## Notice
+<p align="center">Tech blog.</p>
 
-### Local .env file
+## Tech Stacks
+
+- Next.js on Vercel
+- Micro CMS
+- CSS Modules
+- TypesScript
+
+## Browser Support
+
+It has been checked to work with the following browsers.
+
+- Google Chrome
+- Firefox
+- Microsoft Edge
+- Safari
+
+## DEV environment variables
 
 About configuration files that cannot be pushed to GitHub for security reasons.
 
-- `.env.local` & `.env.test.local`
+- `.env.local` + `.env.test.local`
 
 ```
 API_KEY={ Headless CMS API key }
-
 API_ENDPOINT={ Headless CMS API endpoint }
-
 DRAFT_TOKEN={ Preview Mode API Token }
-
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID={ Tracking ID }
 ```
 
 ## Copyright and license

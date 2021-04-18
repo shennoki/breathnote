@@ -1,0 +1,74 @@
+@import 'styles/mixins';
+
+.article {
+  width: 92%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.thumbnail {
+  margin: 0 0 1.2em;
+  border-radius: 5px;
+  overflow: hidden;
+  & > * {
+    vertical-align: middle;
+  }
+}
+
+.date {
+  margin: 0 0 2.5em;
+  display: flex;
+  justify-content: center;
+  @include mq(sm) {
+    justify-content: flex-end;
+  }
+  & .published,
+  & .modified {
+    display: flex;
+    align-items: center;
+  }
+  & .modified {
+    margin: 0 0 0 2em;
+  }
+  & time {
+    padding: 0.15em 0 0;
+    margin: 0 0 0 0.5em;
+    font-size: 0.9em;
+    font-style: italic;
+    letter-spacing: 0.025em;
+  }
+}
+
+.title {
+  margin: 0 0 1.75em;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  word-break: break-all;
+  @include mq(md) {
+    font-size: 1.8em;
+  }
+}
+
+.body {
+  margin: 0 0 2.5em;
+  overflow-x: hidden;
+}
+
+.keywords {
+  color: var(--c-text-thin);
+  display: flex;
+  flex-wrap: wrap;
+  & li {
+    margin: 0 1.2em 0 0;
+    font-style: italic;
+    & a {
+      display: block;
+      &::before {
+        content: '#';
+        padding: 0 0.1em 0 0;
+      }
+    }
+  }
+}

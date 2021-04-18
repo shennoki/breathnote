@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`500 PAGE (pages/500.tsx) snapshot 1`] = `
+<DocumentFragment>
+  <article
+    class="article"
+  >
+    <h1
+      class="title"
+    >
+      500
+    </h1>
+    <h2
+      class="subtitle"
+    >
+      Server Error.
+    </h2>
+    <p
+      class="message"
+    >
+      申し訳ございません。サイト上でエラーが発生しました。
+    </p>
+    <p
+      class="message"
+    >
+      ホームへ戻るか、各種SNSから管理者へご連絡ください。
+    </p>
+  </article>
+</DocumentFragment>
+`;

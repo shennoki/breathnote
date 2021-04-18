@@ -1,0 +1,41 @@
+@import 'styles/mixins';
+
+.footer {
+  padding: 20px;
+  margin: 100px 0 0;
+  background-color: var(--c-bg-3);
+  position: relative;
+  @include mq(md) {
+    padding: 40px;
+    margin: 140px 0 0;
+  }
+}
+
+.exlink {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & li {
+    position: relative;
+    & a {
+      display: block;
+    }
+    & .wip {
+      opacity: 0.5;
+    }
+    & svg {
+      vertical-align: middle;
+    }
+  }
+}
+
+.small {
+  font-size: 1.4rem;
+  text-align: center;
+  display: block;
+  position: relative;
+}

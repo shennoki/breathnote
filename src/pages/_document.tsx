@@ -3,18 +3,11 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 import React from 'react'
 import { GA_TRACKING_ID } from 'utils/env'
 
-type Props = {
-  nonce: string
-}
-
-class MyDocument extends Document<Props> {
+class MyDocument extends Document<{ nonce: string }> {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     const nonce = randomBytes(128).toString('base64')
-    return {
-      ...initialProps,
-      nonce,
-    }
+    return { ...initialProps, nonce }
   }
 
   render(): JSX.Element {
@@ -26,7 +19,7 @@ class MyDocument extends Document<Props> {
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
-        <body className="tracking-wide text-night-200 dark:text-snow-100 bg-snow-100 dark:bg-night-400">
+        <body>
           <script src="/noDarkmodeFlash.js" nonce={nonce} />
           <Main />
           <NextScript nonce={nonce} />

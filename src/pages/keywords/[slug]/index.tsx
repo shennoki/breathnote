@@ -1,86 +1,82 @@
-import BlogCard from 'components/BlogCard'
-import Pagination from 'components/Pagination'
-import Body from 'layout/Body'
+import Archives from 'components/molecules/Archives'
+import BlogCard from 'components/molecules/BlogCard'
+import KeywordHeader from 'components/molecules/KeywordHeader'
+import Pagination from 'components/molecules/Pagination'
+import { getKeywordPosts } from 'libs/requests'
+import { fetchAllKeywords } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import { getAllKeywordPaths, getKeyword, getKeywordPosts } from 'scripts/getter'
-import { KeywordType, PageOptionType, PostType } from 'types'
+import { Keyword } from 'types/keyword'
+import { PageProps } from 'types/pageProps'
+import { Post } from 'types/post'
 import { ARTICLE_PER_PAGE, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 type Props = {
-  posts: PostType[]
-  allPostLength: number
-  keyword: KeywordType
-  option: PageOptionType
+  pageProps: PageProps
+  posts: Post[]
+  postLength: number
+  keyword: Keyword
 }
 
-const Keyword: NextPage<Props> = ({ posts, allPostLength, keyword, option }) => {
+const Keywords: NextPage<Props> = ({ pageProps, posts, postLength, keyword }) => {
   return (
     <>
-      <Head>
-        <link rel="canonical" href={option.fullPath} />
-        <title>{`${keyword.name} | ${SITE_TITLE}`}</title>
-        <meta name="description" content={keyword.description} />
-        <meta property="og:url" content={option.fullPath} />
-        <meta property="og:title" content={`${keyword.name} | ${SITE_TITLE}`} />
-        <meta property="og:description" content={keyword.description} />
-        <meta property="og:image" content={`${SITE_DOMAIN}/img/og-image.jpg`} />
-        {Math.ceil(allPostLength / ARTICLE_PER_PAGE) !== 1 ? (
-          <link rel="next" href={`${option.fullPath}/page/2`} />
-        ) : null}
-        <meta name="robots" content="noindex,nofollow" />
-      </Head>
-      <Body pageType={option.pageType} fullPath={option.fullPath}>
-        <section>
-          <h1 className="mb-4 sm:mb-6 md:mb-8 text-xl sm:text-2xl md:text-3xl text-center">
-            <span className="text-2xl sm:text-3xl md:text-4xl text-accent-light dark:text-accent-dark tracking-wider">
-              {keyword.name}
-            </span>
-            の記事
-          </h1>
-          <p className="w-11/12 md:w-auto mx-auto mb-6 sm:mb-8 md:mb-10 text-xs sm:text-sm md:table">
-            {keyword.description}
-          </p>
+      <Head>{postLength / ARTICLE_PER_PAGE > 1 && <link rel="next" href={`${pageProps.url}/page/2`} />}</Head>
+      <KeywordHeader keyword={keyword} postLength={postLength} />
+      <Archives>
+        <>
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
-        </section>
-        <Pagination allPostLength={allPostLength} pageType={option.pageType} offset={1} slug={keyword.slug} />
-      </Body>
+        </>
+      </Archives>
+      <Pagination postLength={postLength} type={pageProps.type} offset={1} slug={keyword.slug} />
     </>
   )
 }
 
-export default Keyword
+export default Keywords
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const keywords = (await fetchAllKeywords()).contents
   const slug = params?.slug as string
-  const keyword = await getKeyword(slug)
 
+  // paramsから受け取ったslugを持つキーワードを返却
+  const keyword = keywords.find((keyword) => keyword.slug === slug)
   if (!keyword) return { notFound: true }
 
+  // 上記のキーワードを持つ記事のリストを配列で取得
   const keywordPosts = await getKeywordPosts(slug)
+
+  // ページの表示に必要な記事を抜き出す
   const posts = keywordPosts.slice(0, ARTICLE_PER_PAGE)
-  const allPostLength = keywordPosts.length
-  const option = {
-    pageType: 'keyword',
-    fullPath: `${SITE_DOMAIN}/keywords/${keyword.slug}`,
+
+  const pageProps: PageProps = {
+    url: `${SITE_DOMAIN}/keywords/${keyword.slug}`,
+    type: 'keywords',
+    title: `${keyword.name} - ${SITE_TITLE}`,
+    description: keyword.description,
+    noindex: true,
+    keywords: keywords,
   }
 
   return {
     props: {
+      pageProps,
       posts,
-      allPostLength,
+      postLength: keywordPosts.length,
       keyword,
-      option,
     },
     revalidate: 60,
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllKeywordPaths()
+  // キーワードのスラッグをURLパスとして返却用のオブジェクトを作成
+  const paths = (await fetchAllKeywords()).contents.map((keyword) => {
+    return { params: { slug: keyword.slug } }
+  })
 
   return {
     paths,
