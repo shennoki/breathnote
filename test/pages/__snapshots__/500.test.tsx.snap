@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`404 (pages/404.tsx) snapshot 1`] = `
+exports[`500 PAGE (pages/500.tsx) snapshot 1`] = `
 <DocumentFragment>
   <article
     class="article"
@@ -8,12 +8,12 @@ exports[`404 (pages/404.tsx) snapshot 1`] = `
     <h1
       class="title"
     >
-      404
+      500
     </h1>
     <h2
       class="subtitle"
     >
-      Not Found.
+      Server Error.
     </h2>
     <p
       class="message"

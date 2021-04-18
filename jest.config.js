@@ -18,8 +18,9 @@ module.exports = {
   collectCoverageFrom: ['src/**/*'],
   coverageDirectory: './coverage/',
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': '<rootDir>/tests/mocks/styleMock.ts',
-    '\\.(gif|ttf|eot|svg)$': '<rootDir>/tests/mocks/fileMock.ts',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(gif|ttf|eot|svg)$': '<rootDir>/test/mocks/fileMock.ts',
   },
   moduleDirectories: ['node_modules', 'src'],
+  testPathIgnorePatterns: ['node_modules'],
 }

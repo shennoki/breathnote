@@ -1,8 +1,8 @@
 import { cleanup, render } from '@testing-library/react'
 import React from 'react'
-import Error from '../../src/pages/404'
+import Error from '../../src/pages/500'
 
-describe(`404 (pages/404.tsx)`, () => {
+describe(`500 PAGE (pages/500.tsx)`, () => {
   afterEach(cleanup)
 
   test('snapshot', async () => {
