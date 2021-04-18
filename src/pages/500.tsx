@@ -6,17 +6,17 @@ import { PageProps } from 'types/pageProps'
 import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 const Error: NextPage = () => {
-  return <ErrorArticle status={404} message="Not Found." />
+  return <ErrorArticle status={500} message="Server Error." />
 }
 
 export default Error
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageProps: PageProps = {
-    url: `${SITE_DOMAIN}/404`,
-    type: '404',
-    title: `404 - ${SITE_TITLE}`,
-    description: '該当するページが見つかりませんでした。',
+    url: `${SITE_DOMAIN}/500`,
+    type: '500',
+    title: `500 - ${SITE_TITLE}`,
+    description: 'サーバー側でエラーが発生しました。',
     thumbnail: `${SITE_DOMAIN}/img/og-img.jpg`,
     noindex: true,
     keywords: (await ALL_KEYWORDS).contents,
