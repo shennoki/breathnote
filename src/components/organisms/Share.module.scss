@@ -9,6 +9,9 @@
     display: flex;
     justify-content: space-between;
   }
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .title {
