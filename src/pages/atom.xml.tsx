@@ -1,10 +1,10 @@
+import axios from 'axios'
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import RSS from 'rss'
-import { ALL_POSTS } from 'scripts/store'
-import { PostType } from 'types'
-import { SITE_DESCRIPTION, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
+import { Post } from 'types/post'
+import { API_ENDPOINT, API_KEY, SITE_DESCRIPTION, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
-const generateFeedXml = async (posts: PostType[]) => {
+const generateFeedXml = async (posts: Post[]) => {
   const feed = new RSS({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -16,7 +16,7 @@ const generateFeedXml = async (posts: PostType[]) => {
   posts.forEach((post) => {
     feed.item({
       title: post.title,
-      description: `<img src="${post.thumbnail ? post.thumbnail.url : `${SITE_DOMAIN}/img/og-image.jpg`}" />${
+      description: `<img src="${post.thumbnail ? post.thumbnail.url : `${SITE_DOMAIN}/img/og-img.jpg`}" />${
         post.description
       }`,
       url: `${SITE_DOMAIN}/posts/${post.slug}`,
@@ -28,8 +28,16 @@ const generateFeedXml = async (posts: PostType[]) => {
   return feed.xml()
 }
 
+const AtomFeed: NextPage = () => null
+export default AtomFeed
+
 export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  const posts = (await ALL_POSTS).contents
+  const posts: Post[] = await axios
+    .get(`${API_ENDPOINT}/posts?limit=20`, { headers: { 'X-API-KEY': API_KEY } })
+    .then((res) => res.data.contents)
+    .catch((err) => {
+      throw new Error(`FETCH FAILED (atom.xml) : ${err}`)
+    })
   const xml = await generateFeedXml(posts)
 
   res.statusCode = 200
@@ -41,6 +49,3 @@ export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerS
     props: {},
   }
 }
-
-const Feed: NextPage = () => null
-export default Feed
