@@ -1,5 +1,6 @@
 import SvgIcon from 'components/atoms/SvgIcon'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 import styles from './Share.module.scss'
 
 type Props = {
@@ -8,9 +9,15 @@ type Props = {
 }
 
 const Share: React.FC<Props> = ({ url, title }) => {
+  const router = useRouter()
   const [copyIcon, setCopyIcon] = useState<'clipboard' | 'success'>('clipboard')
   const [isCopied, setIsCopied] = useState(false)
   const encodedPath = encodeURIComponent(url)
+
+  useEffect(() => {
+    setIsCopied(false)
+    setCopyIcon('clipboard')
+  }, [router.pathname])
 
   const copy = () => {
     navigator.clipboard.writeText(`${title} ${url}`).then(() => {
