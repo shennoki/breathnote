@@ -6,21 +6,30 @@
   }
 
   & h2 {
-    font-size: 1.7em;
+    font-size: 1.6em;
     font-weight: bold;
     margin: 2.5em 0 1em;
+    @include mq(md) {
+      font-size: 1.7em;
+    }
   }
 
   & h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: bold;
     margin: 2.5em 0 1em;
+    @include mq(md) {
+      font-size: 1.5em;
+    }
   }
 
   & h4 {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
     margin: 2.5em 0 1em;
+    @include mq(md) {
+      font-size: 1.3em;
+    }
   }
 
   & p {
@@ -37,6 +46,7 @@
     color: var(--c-link);
     display: inline-block;
     position: relative;
+    word-break: break-all;
     &::before {
       content: '';
       width: 100%;
@@ -73,10 +83,10 @@
   }
 
   & code {
-    padding: 0.2em 0.45em 0.28em; // フォント調整
+    padding: 0.18em 0.45em 0.26em; // フォント調整
     margin: 0 0.3em;
     font-family: var(--f-mono);
-    font-size: 0.93em;
+    font-size: 1em;
     letter-spacing: 0.02em;
     word-break: break-all;
     background-color: var(--c-bg-3);
@@ -86,7 +96,7 @@
   & > ul,
   ol {
     padding: 1.5em;
-    margin: 2.5em 0 0;
+    margin: 2.5em 0 2em;
     background-color: var(--c-bg-3);
     border-radius: 3px;
     & li {
@@ -137,7 +147,7 @@
 
   & > blockquote {
     padding: 1.5em 3.3em 1.5em 1.6em;
-    margin: 2.5em 0 0;
+    margin: 2.5em 0 2em;
     font-style: italic;
     background-color: var(--c-bg-3);
     border-left: 0.3em solid var(--c-text-thin);
@@ -162,7 +172,7 @@
 
   & table {
     width: 100%;
-    margin: 2.5em 0 0;
+    margin: 2.5em 0 2em;
     border: 1px solid var(--c-bg-3);
     & tr {
       border-bottom: 1px solid var(--c-bg-3);
@@ -191,7 +201,7 @@
 
   & pre {
     padding: 1.5em;
-    margin: 2.5em 0 0;
+    margin: 2em 0 2em;
     background-color: var(--c-bg-3);
     border-radius: 3px;
     box-shadow: var(--s-pre);
