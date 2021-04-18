@@ -1,15 +1,15 @@
-import About from 'components/organisms/About'
+import AboutArticle from 'components/organisms/About'
 import { fetchAllKeywords } from 'libs/store'
 import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { PageProps } from 'types/pageProps'
 import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
-const Posts: NextPage = () => {
-  return <About />
+const About: NextPage = () => {
+  return <AboutArticle />
 }
 
-export default Posts
+export default About
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageProps: PageProps = {
