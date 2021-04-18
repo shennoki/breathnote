@@ -6,8 +6,6 @@ import { API_ENDPOINT, API_KEY } from 'utils/env'
 const KEY = { headers: { 'X-API-KEY': API_KEY } }
 
 export const fetchAllPosts = async () => {
-  console.log('ALL_POSTS fire')
-
   // 一度に受け取る記事数
   const limit = 10
 
@@ -48,8 +46,6 @@ export const fetchAllPosts = async () => {
 }
 
 export const fetchAllKeywords = async () => {
-  console.log('ALL_KEYWORDS fire')
-
   // 一度に受け取るキーワード数
   const limit = 10
 
