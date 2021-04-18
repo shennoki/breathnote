@@ -1,7 +1,7 @@
 import Archives from 'components/molecules/Archives'
 import BlogCard from 'components/molecules/BlogCard'
 import Pagination from 'components/molecules/Pagination'
-import { ALL_KEYWORDS, ALL_POSTS } from 'libs/store'
+import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
@@ -41,18 +41,18 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const offset = Number(params?.offset)
-  const posts = (await ALL_POSTS).contents.slice(
+  const posts = (await fetchAllPosts()).contents.slice(
     ARTICLE_PER_PAGE * offset - ARTICLE_PER_PAGE,
     ARTICLE_PER_PAGE * offset
   )
-  const postLength = (await ALL_POSTS).totalCount
+  const postLength = (await fetchAllPosts()).totalCount
 
   const pageProps: PageProps = {
     url: `${SITE_DOMAIN}/page/${offset}`,
     type: 'home',
     title: `${SITE_TITLE} (${offset}) - ${SITE_SUBTITLE}`,
     description: SITE_DESCRIPTION,
-    keywords: (await ALL_KEYWORDS).contents,
+    keywords: (await fetchAllKeywords()).contents,
   }
 
   if (!posts.length) return { notFound: true }
@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postLength = (await ALL_POSTS).totalCount
+  const postLength = (await fetchAllPosts()).totalCount
   let paths: { params: { offset: string } }[] = []
 
   // ページ数に応じてパスを生成

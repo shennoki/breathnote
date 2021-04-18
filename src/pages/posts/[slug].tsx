@@ -2,7 +2,7 @@ import axios from 'axios'
 import CustomImage from 'components/atoms/CustomImage'
 import CustomLink from 'components/atoms/CustomLink'
 import Article from 'components/organisms/Article'
-import { ALL_KEYWORDS, ALL_POSTS } from 'libs/store'
+import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import renderToString from 'next-mdx-remote/render-to-string'
@@ -33,7 +33,7 @@ const Posts: NextPage<Props> = ({ post }) => {
 export default Posts
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const keywords = (await ALL_KEYWORDS).contents
+  const keywords = (await fetchAllKeywords()).contents
   const slug = context.params?.slug as string
   const KEY = { headers: { 'X-API-KEY': API_KEY } }
   let post
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       })
   } else {
     // 記事のスラッグから公開済みの記事を取得
-    post = (await ALL_POSTS).contents.find((post) => post.slug === slug)
+    post = (await fetchAllPosts()).contents.find((post) => post.slug === slug)
     if (!post) return { notFound: true }
   }
 
@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // 記事のスラッグをURLパスとして返却用のオブジェクトを作成
-  const paths = (await ALL_POSTS).contents.map((post) => {
+  const paths = (await fetchAllPosts()).contents.map((post) => {
     return { params: { slug: post.slug } }
   })
 

@@ -1,9 +1,9 @@
 import { generateSitemap } from 'libs/sitemap'
-import { ALL_POSTS } from 'libs/store'
+import { fetchAllPosts } from 'libs/store'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (_req: NextApiRequest, res: NextApiResponse) => {
-  const posts = (await ALL_POSTS).contents
+  const posts = (await fetchAllPosts()).contents
   const sitemap = generateSitemap(posts)
 
   res.statusCode = 200

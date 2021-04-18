@@ -3,7 +3,7 @@ import BlogCard from 'components/molecules/BlogCard'
 import KeywordHeader from 'components/molecules/KeywordHeader'
 import Pagination from 'components/molecules/Pagination'
 import { getKeywordPosts } from 'libs/requests'
-import { ALL_KEYWORDS } from 'libs/store'
+import { fetchAllKeywords } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
@@ -39,7 +39,7 @@ const Keywords: NextPage<Props> = ({ pageProps, posts, postLength, keyword }) =>
 export default Keywords
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const keywords = (await ALL_KEYWORDS).contents
+  const keywords = (await fetchAllKeywords()).contents
   const slug = params?.slug as string
 
   // paramsから受け取ったslugを持つキーワードを返却
@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // キーワードのスラッグをURLパスとして返却用のオブジェクトを作成
-  const paths = (await ALL_KEYWORDS).contents.map((keyword) => {
+  const paths = (await fetchAllKeywords()).contents.map((keyword) => {
     return { params: { slug: keyword.slug } }
   })
 

@@ -1,7 +1,7 @@
 import Archives from 'components/molecules/Archives'
 import BlogCard from 'components/molecules/BlogCard'
 import Pagination from 'components/molecules/Pagination'
-import { ALL_KEYWORDS, ALL_POSTS } from 'libs/store'
+import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
@@ -34,15 +34,15 @@ const Home: NextPage<Props> = ({ pageProps, posts, postLength }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = (await ALL_POSTS).contents.slice(0, ARTICLE_PER_PAGE)
-  const postLength = (await ALL_POSTS).totalCount
+  const posts = (await fetchAllPosts()).contents.slice(0, ARTICLE_PER_PAGE)
+  const postLength = (await fetchAllPosts()).totalCount
 
   const pageProps: PageProps = {
     url: `${SITE_DOMAIN}/`,
     type: 'home',
     title: `${SITE_TITLE} - ${SITE_SUBTITLE}`,
     description: SITE_DESCRIPTION,
-    keywords: (await ALL_KEYWORDS).contents,
+    keywords: (await fetchAllKeywords()).contents,
   }
 
   return {

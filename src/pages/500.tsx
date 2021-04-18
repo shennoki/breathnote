@@ -1,5 +1,5 @@
 import ErrorArticle from 'components/organisms/Error'
-import { ALL_KEYWORDS } from 'libs/store'
+import { fetchAllKeywords } from 'libs/store'
 import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { PageProps } from 'types/pageProps'
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
     description: 'サーバー側でエラーが発生しました。',
     thumbnail: `${SITE_DOMAIN}/img/og-img.jpg`,
     noindex: true,
-    keywords: (await ALL_KEYWORDS).contents,
+    keywords: (await fetchAllKeywords()).contents,
   }
 
   return {
