@@ -22,7 +22,6 @@ const Article: React.FC<Props> = ({ post, body }) => {
             alt={post.title}
             width={post.thumbnail.width}
             height={post.thumbnail.height}
-            priority={true}
           />
         </div>
       )}

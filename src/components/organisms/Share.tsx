@@ -36,6 +36,7 @@ const Share: React.FC<Props> = ({ url, title }) => {
             target="_blank"
             rel="nofollow noopener noreferrer"
             className={`${styles.link} ${styles.twitter}`}
+            aria-label="Share on Twitter"
           >
             <SvgIcon type="twitter" size="2em" strokeWidth={2.5} />
             <span>Share on Twitter</span>
@@ -47,6 +48,7 @@ const Share: React.FC<Props> = ({ url, title }) => {
             target="_blank"
             rel="nofollow noopener noreferrer"
             className={`${styles.link} ${styles.facebook}`}
+            aria-label="Share on Facebook"
           >
             <SvgIcon type="facebook" size="1.95em" strokeWidth={1} />
             <span>Share on Facebook</span>
@@ -57,6 +59,7 @@ const Share: React.FC<Props> = ({ url, title }) => {
             type="button"
             onClick={copy}
             className={`${styles.link} ${styles.clipboard} ${isCopied && styles.isCopied}`}
+            aria-label="ページのタイトルとリンクをコピー"
           >
             <SvgIcon type={copyIcon} size="2em" strokeWidth={2.5} />
             <span>Copy URL & Title</span>

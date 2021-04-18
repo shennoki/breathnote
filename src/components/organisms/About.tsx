@@ -7,7 +7,7 @@ const About: React.FC = () => {
     <article className={styles.article}>
       <h1 className={styles.title}>Welcome to BreathNote</h1>
       <div className={styles.profile}>
-        <Image src="/img/profile.png" width={1000} height={1000} alt="Shinki" priority={true} />
+        <Image src="/img/profile.png" width={1000} height={1000} alt="Shinki" />
         <span>
           <a href="https://twitter.com/code_shinki" target="_blank" rel="nofollow noopener noreferrer">
             Shinki
