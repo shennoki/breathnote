@@ -6,12 +6,16 @@ import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import renderToString from 'next-mdx-remote/render-to-string'
-import React from 'react'
+import Head from 'next/head'
+import React, { useEffect, useState } from 'react'
 import { PageProps } from 'types/pageProps'
 import { Post } from 'types/post'
 import { API_ENDPOINT, API_KEY, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+const remarkMath = require('remark-math')
 const rehypePrism = require('@mapbox/rehype-prism')
+const rehypeKatex = require('rehype-katex')
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 type Props = {
   post: Post
@@ -26,8 +30,26 @@ const components = {
 const Posts: NextPage<Props> = ({ post }) => {
   // クライアントでも変換が必要 (next-mdx-remote)
   const body = hydrate(post.body, { components })
+  const [media, setMedia] = useState('print')
 
-  return <Article post={post} body={body} />
+  useEffect(() => {
+    setMedia('all')
+  }, [])
+
+  return (
+    <>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+          integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+          crossOrigin="anonymous"
+          media={media}
+        />
+      </Head>
+      <Article post={post} body={body} />
+    </>
+  )
 }
 
 export default Posts
@@ -58,7 +80,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     body: await renderToString(post.body, {
       components,
       mdxOptions: {
-        rehypePlugins: [rehypePrism], // シンタックスハイライト
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypePrism, rehypeKatex],
       },
     }),
   }
@@ -68,7 +91,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     type: 'post',
     title: `${post.title} - ${SITE_TITLE}`,
     description: post.description,
-    thumbnail: post.thumbnail.url,
+    thumbnail: post.thumbnail ? post.thumbnail.url : null,
     keywords: keywords,
   }
 
