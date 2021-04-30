@@ -7,7 +7,7 @@ module.exports = withPWA({
   poweredByHeader: false,
   // next/imageのsrcとして許可する外部ドメイン
   images: {
-    domains: ['images.microcms-assets.io'],
+    domains: ['blog.shinki.net', 'images.microcms-assets.io'],
   },
   // next-secure-headers | https://github.com/jagaapple/next-secure-headers
   async headers() {
