@@ -67,7 +67,7 @@
     "nprogress": "^0.2.0",
     "prettier": "^2.3.0",
     "rehype-katex": "3.0.0",
-    "remark-math": "3.0.1",
+    "remark-math": "4.0.0",
     "rss": "^1.2.2",
     "sass": "^1.32.12",
     "stylelint": "^13.13.1",
