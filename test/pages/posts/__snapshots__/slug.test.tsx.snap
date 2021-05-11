@@ -22,11 +22,12 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
           />
         </div>
+        <noscript />
         <img
           alt="JamstackなNext.jsブログにプレビューモードを実装する"
           decoding="async"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
         />
       </div>
     </div>
@@ -97,2190 +98,65 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
       <div
         class="post prism-root"
       >
-        <div>
-          <p>
-            Vercelへデプロイしている当ブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
-          </p>
-          <p>
-            基本的に以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
-          </p>
-          <ul>
-            <li>
-              <a
-                href="https://nextjs.org/docs/advanced-features/preview-mode"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Next.js Preview Mode
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://blog.microcms.io/nextjs-preview-mode/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Next.jsのPreview Mode＋Vercelでプレビュー機能を実現する
-              </a>
-            </li>
-          </ul>
-          <h2>
-            プレビュー用のAPIルートを作る
-          </h2>
-          <p>
-            今回はNext.jsのAPIルートを利用してプレビュー機能を実装するため、
-            <code>
-              pages/api
-            </code>
-            フォルダに
-            <code>
-              preview.ts
-            </code>
-            を作成します。
-          </p>
-          <pre
-            class="language-ts"
-          >
-            <code
-              class="language-ts"
-            >
-              <span
-                class="token keyword"
-              >
-                import
-              </span>
-               
-              <span
-                class="token imports"
-              >
-                <span
-                  class="token punctuation"
-                >
-                  {
-                </span>
-                 
-                <span
-                  class="token maybe-class-name"
-                >
-                  NextApiRequest
-                </span>
-                <span
-                  class="token punctuation"
-                >
-                  ,
-                </span>
-                 
-                <span
-                  class="token maybe-class-name"
-                >
-                  NextApiResponse
-                </span>
-                 
-                <span
-                  class="token punctuation"
-                >
-                  }
-                </span>
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                from
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'next'
-              </span>
-              
-
-              <span
-                class="token keyword"
-              >
-                import
-              </span>
-               
-              <span
-                class="token imports"
-              >
-                fetch
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                from
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'node-fetch'
-              </span>
-              
-
-              <span
-                class="token keyword"
-              >
-                import
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
-                class="token constant"
-              >
-                API_ENDPOINT
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               
-              <span
-                class="token constant"
-              >
-                API_KEY
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               
-              <span
-                class="token constant"
-              >
-                DRAFT_TOKEN
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                from
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'utils/env'
-              </span>
-              
-
-
-              <span
-                class="token keyword"
-              >
-                export
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                default
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                async
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              req
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token maybe-class-name"
-              >
-                NextApiRequest
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               res
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token maybe-class-name"
-              >
-                NextApiResponse
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                const
-              </span>
-               token 
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               req
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                query
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                secret
-              </span>
-              
-
-  
-              <span
-                class="token comment"
-              >
-                // 共通鍵を用いた簡易的なセキュリティチェック
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                if
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token operator"
-              >
-                !
-              </span>
-              token 
-              <span
-                class="token operator"
-              >
-                ||
-              </span>
-               token 
-              <span
-                class="token operator"
-              >
-                !==
-              </span>
-               
-              <span
-                class="token constant"
-              >
-                DRAFT_TOKEN
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                writeHead
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token number"
-              >
-                302
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
-                class="token maybe-class-name"
-              >
-                Location
-              </span>
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token template-string"
-              >
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-                <span
-                  class="token string"
-                >
-                  /404
-                </span>
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                end
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-  
-              <span
-                class="token comment"
-              >
-                // リクエストのパラメータをもとに、該当する下書き記事が存在するかヘッドレスCMSに確認する
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                const
-              </span>
-               draft 
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                await
-              </span>
-               
-              <span
-                class="token function"
-              >
-                fetch
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token template-string"
-              >
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  <span
-                    class="token constant"
-                  >
-                    API_ENDPOINT
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token string"
-                >
-                  /posts/
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  req
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    query
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    draftId
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token string"
-                >
-                  ?fields=id&draftKey=
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  req
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    query
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    draftKey
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-    
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               headers
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'X-API-KEY'
-              </span>
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token constant"
-              >
-                API_KEY
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-    
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                then
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              res
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                json
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-    
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token keyword"
-              >
-                catch
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              err
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                status
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token number"
-              >
-                500
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                end
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-
-  
-              <span
-                class="token comment"
-              >
-                // プレビュー用の情報を含めたCookieをブラウザに付与して記事ページにリダイレクト
-              </span>
-              
-  res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                setPreviewData
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    draftId
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               draft
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                id
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-    draftKey
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               req
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                query
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                draftKey
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-
-  res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                writeHead
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token number"
-              >
-                307
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
-                class="token maybe-class-name"
-              >
-                Location
-              </span>
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token template-string"
-              >
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-                <span
-                  class="token string"
-                >
-                  /posts/
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  draft
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    id
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                end
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-            </code>
-          </pre>
-          <p>
-            このAPIでは以下の処理を行っています。
-          </p>
-          <ol>
-            <li>
-              受け取ったURLを簡易的にチェック
-            </li>
-            <li>
-              CMSのAPIから該当する下書き記事を取得
-            </li>
-            <li>
-              Cookieを付与して記事ページへリダイレクト
-            </li>
-          </ol>
-          <p>
-            今回は共通鍵暗号方式でセキュリティチェックを行っています。
-            <code>
-              DRAFT_TOKEN
-            </code>
-            の部分は別途
-            <code>
-              .env.local
-            </code>
-            などで管理し、GitHubで閲覧出来ないようにしておきましょう。
-          </p>
-          <p>
-            プレビュー機能に関しては、最後に登場する
-            <code>
-              setPreviewData()
-            </code>
-            というメソッドで実現しています。これを利用することにより以下の情報が記事ページのgetStaticPropsへ渡されます。
-          </p>
-          <pre
-            class="language-ts"
-          >
-            <code
-              class="language-ts"
-            >
-              context
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-  preview
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token boolean"
-              >
-                true
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-  previewData
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    
-              <span
-                class="token comment"
-              >
-                // setPreviewDataで指定したデータが入る
-              </span>
-              
-    draftId
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               post
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                id
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-    draftKey
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               req
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                query
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                draftKey
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-            </code>
-          </pre>
-          <p>
-            最後は
-            <code>
-              req.query.draftId
-            </code>
-            ではなく
-            <code>
-              post.id
-            </code>
-            を使用してリダイレクトしています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
-          </p>
-          <h2>
-            記事ページを更新
-          </h2>
-          <p>
-            次に
-            <code>
-              preview.ts
-            </code>
-            から受け取ったプレビュー情報を用いて記事ページを更新します。このファイルには他にも色々と処理させてますが、今回は必要最低限のコードを抜き出して記載しています。
-          </p>
-          <pre
-            class="language-tsx"
-          >
-            <code
-              class="language-tsx"
-            >
-              <span
-                class="token keyword"
-              >
-                export
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                const
-              </span>
-               getStaticProps
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token function-variable function"
-              >
-                <span
-                  class="token maybe-class-name"
-                >
-                  GetStaticProps
-                </span>
-              </span>
-               
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                async
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token parameter"
-              >
-                context
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                let
-              </span>
-               post
-
-  
-              <span
-                class="token keyword"
-              >
-                if
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token operator"
-              >
-                !
-              </span>
-              context
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                preview
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    
-              <span
-                class="token comment"
-              >
-                // 公開済みの記事 (getStaticPaths経由)
-              </span>
-              
-    post 
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                await
-              </span>
-               
-              <span
-                class="token function"
-              >
-                getPost
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              context
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                params
-              </span>
-              <span
-                class="token operator"
-              >
-                ?.
-              </span>
-              slug 
-              <span
-                class="token keyword"
-              >
-                as
-              </span>
-               
-              <span
-                class="token builtin"
-              >
-                string
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-    
-              <span
-                class="token comment"
-              >
-                // fallbackが有効なので手動でのエラーハンドリングが必要
-              </span>
-              
-    
-              <span
-                class="token keyword"
-              >
-                if
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token operator"
-              >
-                !
-              </span>
-              post
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                return
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               notFound
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token boolean"
-              >
-                true
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                else
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                if
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              context
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                preview
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    
-              <span
-                class="token comment"
-              >
-                // プレビュー記事 (setPreviewData経由)
-              </span>
-              
-    post 
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                await
-              </span>
-               
-              <span
-                class="token function"
-              >
-                fetch
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              
-      
-              <span
-                class="token template-string"
-              >
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  process
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    env
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token constant"
-                  >
-                    API_ENDPOINT
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token string"
-                >
-                  /posts/
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  context
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    previewData
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    draftId
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token string"
-                >
-                  ?draftKey=
-                </span>
-                <span
-                  class="token interpolation"
-                >
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    \${
-                  </span>
-                  context
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    previewData
-                  </span>
-                  <span
-                    class="token punctuation"
-                  >
-                    .
-                  </span>
-                  <span
-                    class="token property-access"
-                  >
-                    draftKey
-                  </span>
-                  <span
-                    class="token interpolation-punctuation punctuation"
-                  >
-                    }
-                  </span>
-                </span>
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-      
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               headers
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'X-API-KEY'
-              </span>
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               process
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token property-access"
-              >
-                env
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token constant"
-              >
-                API_KEY
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                as
-              </span>
-               
-              <span
-                class="token builtin"
-              >
-                string
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-    
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                then
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token parameter"
-              >
-                res
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                json
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-  
-              <span
-                class="token keyword"
-              >
-                return
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    props
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-      post
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-    
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-
-              <span
-                class="token keyword"
-              >
-                export
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                const
-              </span>
-               getStaticPaths
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token function-variable function"
-              >
-                <span
-                  class="token maybe-class-name"
-                >
-                  GetStaticPaths
-                </span>
-              </span>
-               
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                async
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-               
-              <span
-                class="token arrow operator"
-              >
-                =&gt;
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-  
-              <span
-                class="token keyword"
-              >
-                const
-              </span>
-               paths 
-              <span
-                class="token operator"
-              >
-                =
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                await
-              </span>
-               
-              <span
-                class="token function"
-              >
-                getAllPostPaths
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-
-  
-              <span
-                class="token keyword"
-              >
-                return
-              </span>
-               
-              <span
-                class="token punctuation"
-              >
-                {
-              </span>
-              
-    paths
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-              
-    fallback
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token boolean"
-              >
-                true
-              </span>
-              <span
-                class="token punctuation"
-              >
-                ,
-              </span>
-               
-              <span
-                class="token comment"
-              >
-                // pathsに存在しないページ (プレビューページなど) を自動でリダイレクトさせない
-              </span>
-              
-  
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
-
-            </code>
-          </pre>
-          <p>
-            今回は
-            <code>
-              context.preview
-            </code>
-            を用いて「公開済み」か「プレビュー」かの判定を行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
-          </p>
-          <h2>
-            Cookieを削除するAPIルートを作る
-          </h2>
-          <p>
-            ここまでの処理でほぼプレビュー機能は出来ていますが、このままプレビュー用のCookieを放置したままにすると以下のような問題が起こり得ます。
-          </p>
-          <ol>
-            <li>
-              プレビュー画面を閲覧する
-            </li>
-            <li>
-              そのまま他の公開済みの記事ページへ遷移する
-            </li>
-            <li>
-              プレビュー画面が表示されてしまう
-            </li>
-          </ol>
-          <p>
-            これは
-            <code>
-              setPreviewData()
-            </code>
-            で付与したCookieが
+        <p>
+          Vercelへデプロイしている当ブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
+        </p>
+        <p>
+          基本的に以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
+        </p>
+        <ul>
+          <li>
             <a
-              href="https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies"
+              href="https://nextjs.org/docs/advanced-features/preview-mode"
               rel="noopener noreferrer"
               target="_blank"
             >
-              ブラウザ終了まで維持される仕様
+              Next.js Preview Mode
             </a>
-            が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
-            <code>
-              context.preview: true
-            </code>
-            が再度読み込まれ、プレビュー用の処理が走ってしまうのです。
-          </p>
-          <p>
-            そこでプレビューAPIと同様の方法で、Cookie削除用のAPIルートを作ります。
-            <code>
-              pages/api
-            </code>
-            フォルダに任意のファイル名で以下のTypeScriptファイルを作成しましょう。
-          </p>
-          <pre
+          </li>
+          <li>
+            <a
+              href="https://blog.microcms.io/nextjs-preview-mode/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Next.jsのPreview Mode＋Vercelでプレビュー機能を実現する
+            </a>
+          </li>
+        </ul>
+        <h2>
+          プレビュー用のAPIルートを作る
+        </h2>
+        <p>
+          今回はNext.jsのAPIルートを利用してプレビュー機能を実装するため、
+          <code>
+            pages/api
+          </code>
+          フォルダに
+          <code>
+            preview.ts
+          </code>
+          を作成します。
+        </p>
+        <pre
+          class="language-ts"
+        >
+          <code
             class="language-ts"
           >
-            <code
-              class="language-ts"
+            <span
+              class="token keyword"
             >
-              <span
-                class="token keyword"
-              >
-                import
-              </span>
-               
-              <span
-                class="token imports"
-              >
-                <span
-                  class="token punctuation"
-                >
-                  {
-                </span>
-                 
-                <span
-                  class="token maybe-class-name"
-                >
-                  NextApiRequest
-                </span>
-                <span
-                  class="token punctuation"
-                >
-                  ,
-                </span>
-                 
-                <span
-                  class="token maybe-class-name"
-                >
-                  NextApiResponse
-                </span>
-                 
-                <span
-                  class="token punctuation"
-                >
-                  }
-                </span>
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                from
-              </span>
-               
-              <span
-                class="token string"
-              >
-                'next'
-              </span>
-              
-
-
-              <span
-                class="token keyword"
-              >
-                export
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                default
-              </span>
-               
-              <span
-                class="token keyword"
-              >
-                async
-              </span>
-               
+              import
+            </span>
+             
+            <span
+              class="token imports"
+            >
               <span
                 class="token punctuation"
               >
-                (
-              </span>
-              _req
-              <span
-                class="token operator"
-              >
-                :
+                {
               </span>
                
               <span
@@ -2293,78 +169,2056 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 ,
               </span>
-               res
-              <span
-                class="token operator"
-              >
-                :
-              </span>
                
               <span
                 class="token maybe-class-name"
               >
                 NextApiResponse
               </span>
+               
               <span
                 class="token punctuation"
               >
-                )
+                }
               </span>
-               
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              from
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'next'
+            </span>
+            
+
+            <span
+              class="token keyword"
+            >
+              import
+            </span>
+             
+            <span
+              class="token imports"
+            >
+              fetch
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              from
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'node-fetch'
+            </span>
+            
+
+            <span
+              class="token keyword"
+            >
+              import
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token constant"
+            >
+              API_ENDPOINT
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token constant"
+            >
+              API_KEY
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token constant"
+            >
+              DRAFT_TOKEN
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              from
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'utils/env'
+            </span>
+            
+
+
+            <span
+              class="token keyword"
+            >
+              export
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              default
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              async
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            req
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              NextApiRequest
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             res
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              NextApiResponse
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+  
+            <span
+              class="token keyword"
+            >
+              const
+            </span>
+             token 
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             req
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              query
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              secret
+            </span>
+            
+
+  
+            <span
+              class="token comment"
+            >
+              // 共通鍵を用いた簡易的なセキュリティチェック
+            </span>
+            
+  
+            <span
+              class="token keyword"
+            >
+              if
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token operator"
+            >
+              !
+            </span>
+            token 
+            <span
+              class="token operator"
+            >
+              ||
+            </span>
+             token 
+            <span
+              class="token operator"
+            >
+              !==
+            </span>
+             
+            <span
+              class="token constant"
+            >
+              DRAFT_TOKEN
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              writeHead
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token number"
+            >
+              302
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              Location
+            </span>
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token template-string"
+            >
               <span
-                class="token arrow operator"
+                class="token template-punctuation string"
               >
-                =&gt;
+                \`
               </span>
-               
+              <span
+                class="token string"
+              >
+                /404
+              </span>
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              end
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+  
+            <span
+              class="token comment"
+            >
+              // リクエストのパラメータをもとに、該当する下書き記事が存在するかヘッドレスCMSに確認する
+            </span>
+            
+  
+            <span
+              class="token keyword"
+            >
+              const
+            </span>
+             draft 
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              await
+            </span>
+             
+            <span
+              class="token function"
+            >
+              fetch
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token template-string"
+            >
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                <span
+                  class="token constant"
+                >
+                  API_ENDPOINT
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token string"
+              >
+                /posts/
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                req
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  query
+                </span>
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  draftId
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token string"
+              >
+                ?fields=id&draftKey=
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                req
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  query
+                </span>
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  draftKey
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+    
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             headers
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'X-API-KEY'
+            </span>
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token constant"
+            >
+              API_KEY
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+    
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              then
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            res
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              json
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+    
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token keyword"
+            >
+              catch
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            err
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              status
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token number"
+            >
+              500
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              end
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+
+  
+            <span
+              class="token comment"
+            >
+              // プレビュー用の情報を含めたCookieをブラウザに付与して記事ページにリダイレクト
+            </span>
+            
+  res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              setPreviewData
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    draftId
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             draft
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              id
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+    draftKey
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             req
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              query
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              draftKey
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+
+  res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              writeHead
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token number"
+            >
+              307
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              Location
+            </span>
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token template-string"
+            >
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+              <span
+                class="token string"
+              >
+                /posts/
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                draft
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  id
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              end
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+          </code>
+        </pre>
+        <p>
+          このAPIでは以下の処理を行っています。
+        </p>
+        <ol>
+          <li>
+            受け取ったURLを簡易的にチェック
+          </li>
+          <li>
+            CMSのAPIから該当する下書き記事を取得
+          </li>
+          <li>
+            Cookieを付与して記事ページへリダイレクト
+          </li>
+        </ol>
+        <p>
+          今回は共通鍵暗号方式でセキュリティチェックを行っています。
+          <code>
+            DRAFT_TOKEN
+          </code>
+          の部分は別途
+          <code>
+            .env.local
+          </code>
+          などで管理し、GitHubで閲覧出来ないようにしておきましょう。
+        </p>
+        <p>
+          プレビュー機能に関しては、最後に登場する
+          <code>
+            setPreviewData()
+          </code>
+          というメソッドで実現しています。これを利用することにより以下の情報が記事ページのgetStaticPropsへ渡されます。
+        </p>
+        <pre
+          class="language-ts"
+        >
+          <code
+            class="language-ts"
+          >
+            context
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+  preview
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token boolean"
+            >
+              true
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+  previewData
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    
+            <span
+              class="token comment"
+            >
+              // setPreviewDataで指定したデータが入る
+            </span>
+            
+    draftId
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             post
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              id
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+    draftKey
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             req
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              query
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              draftKey
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+          </code>
+        </pre>
+        <p>
+          最後は
+          <code>
+            req.query.draftId
+          </code>
+          ではなく
+          <code>
+            post.id
+          </code>
+          を使用してリダイレクトしています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
+        </p>
+        <h2>
+          記事ページを更新
+        </h2>
+        <p>
+          次に
+          <code>
+            preview.ts
+          </code>
+          から受け取ったプレビュー情報を用いて記事ページを更新します。このファイルには他にも色々と処理させてますが、今回は必要最低限のコードを抜き出して記載しています。
+        </p>
+        <pre
+          class="language-tsx"
+        >
+          <code
+            class="language-tsx"
+          >
+            <span
+              class="token keyword"
+            >
+              export
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              const
+            </span>
+             getStaticProps
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token function-variable function"
+            >
+              <span
+                class="token maybe-class-name"
+              >
+                GetStaticProps
+              </span>
+            </span>
+             
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              async
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token parameter"
+            >
+              context
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+  
+            <span
+              class="token keyword"
+            >
+              let
+            </span>
+             post
+
+  
+            <span
+              class="token keyword"
+            >
+              if
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token operator"
+            >
+              !
+            </span>
+            context
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              preview
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    
+            <span
+              class="token comment"
+            >
+              // 公開済みの記事 (getStaticPaths経由)
+            </span>
+            
+    post 
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              await
+            </span>
+             
+            <span
+              class="token function"
+            >
+              getPost
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            context
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              params
+            </span>
+            <span
+              class="token operator"
+            >
+              ?.
+            </span>
+            slug 
+            <span
+              class="token keyword"
+            >
+              as
+            </span>
+             
+            <span
+              class="token builtin"
+            >
+              string
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+    
+            <span
+              class="token comment"
+            >
+              // fallbackが有効なので手動でのエラーハンドリングが必要
+            </span>
+            
+    
+            <span
+              class="token keyword"
+            >
+              if
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token operator"
+            >
+              !
+            </span>
+            post
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              return
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             notFound
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token boolean"
+            >
+              true
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              else
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              if
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            context
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              preview
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    
+            <span
+              class="token comment"
+            >
+              // プレビュー記事 (setPreviewData経由)
+            </span>
+            
+    post 
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              await
+            </span>
+             
+            <span
+              class="token function"
+            >
+              fetch
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            
+      
+            <span
+              class="token template-string"
+            >
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                process
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  env
+                </span>
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token constant"
+                >
+                  API_ENDPOINT
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token string"
+              >
+                /posts/
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                context
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  previewData
+                </span>
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  draftId
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token string"
+              >
+                ?draftKey=
+              </span>
+              <span
+                class="token interpolation"
+              >
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  \${
+                </span>
+                context
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  previewData
+                </span>
+                <span
+                  class="token punctuation"
+                >
+                  .
+                </span>
+                <span
+                  class="token property-access"
+                >
+                  draftKey
+                </span>
+                <span
+                  class="token interpolation-punctuation punctuation"
+                >
+                  }
+                </span>
+              </span>
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+      
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             headers
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'X-API-KEY'
+            </span>
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             process
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token property-access"
+            >
+              env
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token constant"
+            >
+              API_KEY
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              as
+            </span>
+             
+            <span
+              class="token builtin"
+            >
+              string
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+    
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              then
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token parameter"
+            >
+              res
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              json
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+  
+            <span
+              class="token keyword"
+            >
+              return
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    props
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+      post
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+    
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+
+            <span
+              class="token keyword"
+            >
+              export
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              const
+            </span>
+             getStaticPaths
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token function-variable function"
+            >
+              <span
+                class="token maybe-class-name"
+              >
+                GetStaticPaths
+              </span>
+            </span>
+             
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              async
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+  
+            <span
+              class="token keyword"
+            >
+              const
+            </span>
+             paths 
+            <span
+              class="token operator"
+            >
+              =
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              await
+            </span>
+             
+            <span
+              class="token function"
+            >
+              getAllPostPaths
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+
+  
+            <span
+              class="token keyword"
+            >
+              return
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+    paths
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+            
+    fallback
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token boolean"
+            >
+              true
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token comment"
+            >
+              // pathsに存在しないページ (プレビューページなど) を自動でリダイレクトさせない
+            </span>
+            
+  
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+          </code>
+        </pre>
+        <p>
+          今回は
+          <code>
+            context.preview
+          </code>
+          を用いて「公開済み」か「プレビュー」かの判定を行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
+        </p>
+        <h2>
+          Cookieを削除するAPIルートを作る
+        </h2>
+        <p>
+          ここまでの処理でほぼプレビュー機能は出来ていますが、このままプレビュー用のCookieを放置したままにすると以下のような問題が起こり得ます。
+        </p>
+        <ol>
+          <li>
+            プレビュー画面を閲覧する
+          </li>
+          <li>
+            そのまま他の公開済みの記事ページへ遷移する
+          </li>
+          <li>
+            プレビュー画面が表示されてしまう
+          </li>
+        </ol>
+        <p>
+          これは
+          <code>
+            setPreviewData()
+          </code>
+          で付与したCookieが
+          <a
+            href="https://nextjs.org/docs/advanced-features/preview-mode#clear-the-preview-mode-cookies"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            ブラウザ終了まで維持される仕様
+          </a>
+          が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
+          <code>
+            context.preview: true
+          </code>
+          が再度読み込まれ、プレビュー用の処理が走ってしまうのです。
+        </p>
+        <p>
+          そこでプレビューAPIと同様の方法で、Cookie削除用のAPIルートを作ります。
+          <code>
+            pages/api
+          </code>
+          フォルダに任意のファイル名で以下のTypeScriptファイルを作成しましょう。
+        </p>
+        <pre
+          class="language-ts"
+        >
+          <code
+            class="language-ts"
+          >
+            <span
+              class="token keyword"
+            >
+              import
+            </span>
+             
+            <span
+              class="token imports"
+            >
               <span
                 class="token punctuation"
               >
                 {
               </span>
-              
-  res
+               
               <span
-                class="token punctuation"
+                class="token maybe-class-name"
               >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                clearPreviewData
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
-  res
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                writeHead
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token number"
-              >
-                302
+                NextApiRequest
               </span>
               <span
                 class="token punctuation"
@@ -2373,40 +2227,9 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               </span>
                
               <span
-                class="token punctuation"
-              >
-                {
-              </span>
-               
-              <span
                 class="token maybe-class-name"
               >
-                Location
-              </span>
-              <span
-                class="token operator"
-              >
-                :
-              </span>
-               
-              <span
-                class="token template-string"
-              >
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
-                <span
-                  class="token string"
-                >
-                  /
-                </span>
-                <span
-                  class="token template-punctuation string"
-                >
-                  \`
-                </span>
+                NextApiResponse
               </span>
                
               <span
@@ -2414,96 +2237,272 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               >
                 }
               </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              <span
-                class="token punctuation"
-              >
-                .
-              </span>
-              <span
-                class="token method function property-access"
-              >
-                end
-              </span>
-              <span
-                class="token punctuation"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-              >
-                )
-              </span>
-              
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              from
+            </span>
+             
+            <span
+              class="token string"
+            >
+              'next'
+            </span>
+            
 
-              <span
-                class="token punctuation"
-              >
-                }
-              </span>
-              
 
-            </code>
-          </pre>
-          <p>
-            <code>
-              clearPreviewData()
-            </code>
-            でプレビュー用のCookieを削除した後にトップページへリダイレクトしています。少し面倒ですが、プレビューモードを利用した後はこのAPIへアクセスすることでページの動作が元に戻ります。
-          </p>
-          <h2>
-            APIへアクセスするためのURLを設定する
-          </h2>
-          <p>
-            最後にCMSからAPIに送信するURLを設定します。私の場合はmicroCMSの画面プレビュー設定を以下のように変更しました。
-          </p>
-          <pre
+            <span
+              class="token keyword"
+            >
+              export
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              default
+            </span>
+             
+            <span
+              class="token keyword"
+            >
+              async
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            _req
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              NextApiRequest
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             res
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              NextApiResponse
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+             
+            <span
+              class="token arrow operator"
+            >
+              =&gt;
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+            
+  res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              clearPreviewData
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+  res
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              writeHead
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token number"
+            >
+              302
+            </span>
+            <span
+              class="token punctuation"
+            >
+              ,
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              {
+            </span>
+             
+            <span
+              class="token maybe-class-name"
+            >
+              Location
+            </span>
+            <span
+              class="token operator"
+            >
+              :
+            </span>
+             
+            <span
+              class="token template-string"
+            >
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+              <span
+                class="token string"
+              >
+                /
+              </span>
+              <span
+                class="token template-punctuation string"
+              >
+                \`
+              </span>
+            </span>
+             
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            <span
+              class="token punctuation"
+            >
+              .
+            </span>
+            <span
+              class="token method function property-access"
+            >
+              end
+            </span>
+            <span
+              class="token punctuation"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+            >
+              )
+            </span>
+            
+
+            <span
+              class="token punctuation"
+            >
+              }
+            </span>
+            
+
+          </code>
+        </pre>
+        <p>
+          <code>
+            clearPreviewData()
+          </code>
+          でプレビュー用のCookieを削除した後にトップページへリダイレクトしています。少し面倒ですが、プレビューモードを利用した後はこのAPIへアクセスすることでページの動作が元に戻ります。
+        </p>
+        <h2>
+          APIへアクセスするためのURLを設定する
+        </h2>
+        <p>
+          最後にCMSからAPIに送信するURLを設定します。私の場合はmicroCMSの画面プレビュー設定を以下のように変更しました。
+        </p>
+        <pre
+          class="language-markup"
+        >
+          <code
             class="language-markup"
           >
-            <code
-              class="language-markup"
-            >
-              https://[Your Domain]/api/preview?secret=[セキュリティ用のトークン]&draftId={CONTENT_ID}&draftKey={DRAFT_KEY}
+            https://[Your Domain]/api/preview?secret=[セキュリティ用のトークン]&draftId={CONTENT_ID}&draftKey={DRAFT_KEY}
 
-            </code>
-          </pre>
-          <p>
-            共通鍵として利用するセキュリティ用のトークンは
-            <code>
-              preview.ts
-            </code>
-            のトークンと一致させる必要があります。
-          </p>
-          <p>
-            これでプレビュー機能が完成しました。
-          </p>
-          <h2>
-            まとめ
-          </h2>
-          <p>
-            実際に上記のURLでプレビュー用APIへアクセスすると、少し読み込みを挟んでプレビュー記事が表示されたかと思います。プレビュー機能はサーバーレス関数を用いてSSRで動いているため、多少時間がかかるようです。
-          </p>
-          <p>
-            ちなみに
-            <code>
-              next build
-            </code>
-            &
-            <code>
-              next start
-            </code>
-            で起動した本番環境ではプレビュー機能が使えません。
-            <code>
-              next dev
-            </code>
-            で起動する開発環境か、サーバーレス関数をサポートしている各種サービスへデプロイした後で確認してください。
-          </p>
-        </div>
+          </code>
+        </pre>
+        <p>
+          共通鍵として利用するセキュリティ用のトークンは
+          <code>
+            preview.ts
+          </code>
+          のトークンと一致させる必要があります。
+        </p>
+        <p>
+          これでプレビュー機能が完成しました。
+        </p>
+        <h2>
+          まとめ
+        </h2>
+        <p>
+          実際に上記のURLでプレビュー用APIへアクセスすると、少し読み込みを挟んでプレビュー記事が表示されたかと思います。プレビュー機能はサーバーレス関数を用いてSSRで動いているため、多少時間がかかるようです。
+        </p>
+        <p>
+          ちなみに
+          <code>
+            next build
+          </code>
+          &
+          <code>
+            next start
+          </code>
+          で起動した本番環境ではプレビュー機能が使えません。
+          <code>
+            next dev
+          </code>
+          で起動する開発環境か、サーバーレス関数をサポートしている各種サービスへデプロイした後で確認してください。
+        </p>
       </div>
     </div>
     <ul

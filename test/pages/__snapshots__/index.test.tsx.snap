@@ -25,11 +25,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
+          <noscript />
           <img
             alt="Material-UIとreact-springの併用で「Cannot update a component」"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
@@ -80,11 +81,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
+          <noscript />
           <img
             alt="Reactではステートの変更が即時反映されない場合がある"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
@@ -132,11 +134,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
+          <noscript />
           <img
             alt="環境変数を含むNext.jsのコードをJestでテストする"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
@@ -187,11 +190,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
+          <noscript />
           <img
-            alt="ヘッドレスCMSから受け取ったマークダウン形式の記事でnext/imageを利用する"
+            alt="ヘッドレスCMSから受け取った記事でnext/imageを利用する"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
@@ -208,7 +212,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/nextjs-markdown-to-jsx"
         >
-          ヘッドレスCMSから受け取ったマークダウン形式の記事でnext/imageを利用する
+          ヘッドレスCMSから受け取った記事でnext/imageを利用する
         </a>
       </h2>
       <ul
@@ -242,11 +246,12 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
           </div>
+          <noscript />
           <img
             alt="JamstackなNext.jsブログにプレビューモードを実装する"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
         </div>
       </div>
