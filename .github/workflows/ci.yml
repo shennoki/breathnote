@@ -2,7 +2,6 @@ name: ci
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 env:
@@ -22,7 +21,7 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Install packages
+      - name: Install
         run: yarn install
 
       - name: Linting

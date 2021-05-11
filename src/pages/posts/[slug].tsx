@@ -4,8 +4,8 @@ import CustomLink from 'components/atoms/CustomLink'
 import Article from 'components/organisms/Article'
 import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import hydrate from 'next-mdx-remote/hydrate'
-import renderToString from 'next-mdx-remote/render-to-string'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { PageProps } from 'types/pageProps'
@@ -28,8 +28,6 @@ const components = {
 }
 
 const Posts: NextPage<Props> = ({ post }) => {
-  // クライアントでも変換が必要 (next-mdx-remote)
-  const body = hydrate(post.body, { components })
   const [media, setMedia] = useState('print')
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const Posts: NextPage<Props> = ({ post }) => {
           media={media}
         />
       </Head>
-      <Article post={post} body={body} />
+      <Article post={post} body={<MDXRemote {...post.body} components={components} />} />
     </>
   )
 }
@@ -58,12 +56,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const keywords = (await fetchAllKeywords()).contents
   const slug = context.params?.slug as string
   const KEY = { headers: { 'X-API-KEY': API_KEY } }
+  const previewData = context.previewData as Record<string, unknown>
   let post
 
   if (context.preview) {
     // 下書きデータから下書き記事を取得
     post = await axios
-      .get(`${API_ENDPOINT}/posts/${context.previewData.draftId}?draftKey=${context.previewData.draftKey}`, KEY)
+      .get(`${API_ENDPOINT}/posts/${previewData.draftId}?draftKey=${previewData.draftKey}`, KEY)
       .then((res) => res.data)
       .catch((err) => {
         throw new Error(`FETCH FAILED (/page/post/[slug].tsx - Draft) : ${err}`)
@@ -77,8 +76,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // next-mdx-remoteでマークダウンをJSXに変換
   post = {
     ...post,
-    body: await renderToString(post.body, {
-      components,
+    body: await serialize(post.body, {
       mdxOptions: {
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypePrism, rehypeKatex],
