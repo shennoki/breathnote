@@ -18,7 +18,7 @@ type Props = {
 const Home: NextPage<Props> = ({ pageProps, posts, postLength }) => {
   return (
     <>
-      <Head>{postLength >= ARTICLE_PER_PAGE && <link rel="next" href={`${SITE_DOMAIN}/page/2`} />}</Head>
+      <Head>{postLength > ARTICLE_PER_PAGE && <link rel="next" href={`${SITE_DOMAIN}/page/2`} />}</Head>
       <Archives>
         <>
           {posts.map((post) => (
