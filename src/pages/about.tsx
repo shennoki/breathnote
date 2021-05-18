@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
     type: 'about',
     title: `About - ${SITE_TITLE}`,
     description:
-      'BreathNoteはフロントエンド技術を中心に備忘録をアウトプットするために運営しているブログです。当サイトに掲載されているコンテンツは自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。',
+      'BreathNoteは、フロントエンドの話題や備忘録をアウトプットしているブログです。当サイトに掲載されているコンテンツは自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。',
     keywords: (await fetchAllKeywords()).contents,
   }
 
