@@ -15,7 +15,7 @@ class MyDocument extends Document<{ nonce: string }> {
     const csp = `object-src 'none'; base-uri 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http: 'nonce-${nonce}' 'strict-dynamic'`
 
     return (
-      <Html lang="ja" prefix="og: https://ogp.me/ns#">
+      <Html lang="ja" prefix="og: https://ogp.me/ns#" itemScope itemType="https://schema.org/WebPage">
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
         </Head>
