@@ -50,7 +50,7 @@
     "@types/rss": "^0.0.28",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.2.6",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^1.1.4",
     "eslint": "^7.26.0",
