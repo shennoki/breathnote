@@ -13,7 +13,7 @@ const generateSitemapXml = async (posts: Post[]) => {
               xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
                 <url>
                   <loc>${`${SITE_DOMAIN}/`}</loc>
-                  <lastmod>${getFormattedDate(posts[0].publishedAt, 'yyyy-MM-dd')}</lastmod>
+                  <lastmod>${getFormattedDate(posts[0].revisedAt, 'yyyy-MM-dd')}</lastmod>
                   <changefreq>daily</changefreq>
                   <priority>1.0</priority>
                 </url>
@@ -26,7 +26,7 @@ const generateSitemapXml = async (posts: Post[]) => {
                   return `
                     <url>
                       <loc>${`${SITE_DOMAIN}/posts/${post.slug}`}</loc>
-                      <lastmod>${getFormattedDate(post.publishedAt, 'yyyy-MM-dd')}</lastmod>
+                      <lastmod>${getFormattedDate(post.revisedAt, 'yyyy-MM-dd')}</lastmod>
                       <changefreq>weekly</changefreq>
                     </url>
                   `
