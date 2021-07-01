@@ -60,7 +60,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.4",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
     "next-secure-headers": "^2.2.0",
