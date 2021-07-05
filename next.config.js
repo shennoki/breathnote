@@ -3,15 +3,10 @@ const withPWA = require('next-pwa')
 const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
-  // Webpack5を採用
-  future: {
-    webpack5: true,
-  },
-
   // X-Powered-Byヘッダを削除
   poweredByHeader: false,
 
-  // next/imageのsrcとして許可する外部ドメイン
+  // next/imageのsrcとして許可するドメイン
   images: {
     domains: ['blog.shinki.net', 'images.microcms-assets.io'],
   },
