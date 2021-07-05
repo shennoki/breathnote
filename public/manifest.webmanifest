@@ -1,7 +1,7 @@
 {
-  "name": "Breath Note - フロントエンドの技術ブログ",
+  "name": "Breath Note - 時間を節約するための技術ブログ",
   "short_name": "Breath Note",
-  "description": "Breath Noteへようこそ。このサイトはフロントエンド技術関連の備忘録を残すために始めた技術ブログです。シンプルで見やすいサイトを心掛けて更新しています。ドキュメントの確認やバグフィックスのお供にどうぞ。",
+  "description": "Breath Noteへようこそ。このブログはフロントエンドからバックエンドまでフルスタックなWeb技術の話題や備忘録をアウトプットしているサイトです。わかりやすい記事を心掛けて更新しているので、ドキュメントの確認やバグフィックスのお供にどうぞ。",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
