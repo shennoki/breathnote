@@ -9,7 +9,7 @@
 - Next.js on Vercel
 - Micro CMS
 - CSS Modules
-- TypesScript
+- TypeScript
 
 ## Browser Support
 
@@ -34,5 +34,4 @@ DRAFT_TOKEN={ Preview Mode API Token }
 
 ## Copyright and license
 
-This repository is No License.<br>
-Any use, duplication, redistribution, etc. beyond the scope of the GitHub terms of use and copyright law is strictly prohibited.
+This repository is No License. Any use, duplication, redistribution, etc. beyond the scope of the GitHub terms of use and copyright law is strictly prohibited.
