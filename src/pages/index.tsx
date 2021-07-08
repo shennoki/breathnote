@@ -7,7 +7,7 @@ import Head from 'next/head'
 import React from 'react'
 import { PageProps } from 'types/pageProps'
 import { Post } from 'types/post'
-import { ARTICLE_PER_PAGE, SITE_DESCRIPTION, SITE_DOMAIN, SITE_SUBTITLE, SITE_TITLE } from 'utils/env'
+import { ARTICLE_PER_PAGE, REVALIDATE_TIME, SITE_DESCRIPTION, SITE_DOMAIN, SITE_SUBTITLE, SITE_TITLE } from 'utils/env'
 
 type Props = {
   pageProps: PageProps
@@ -51,6 +51,6 @@ export const getStaticProps: GetStaticProps = async () => {
       posts,
       postLength,
     },
-    revalidate: 60,
+    revalidate: REVALIDATE_TIME,
   }
 }
