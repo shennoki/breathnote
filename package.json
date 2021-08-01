@@ -62,7 +62,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
-    "next-mdx-remote": "^3.0.2",
+    "next-mdx-remote": "^3.0.4",
     "next-secure-headers": "^2.2.0",
     "nprogress": "^0.2.0",
     "prettier": "^2.3.1",
