@@ -3,7 +3,8 @@
 /* Variable Setting */
 :root {
   --f-sans: 'Spica', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  --f-mono: Consolas, Monaco, 'Andale Mono', 'Courier New', 'Ubuntu Mono', 'Spica', monospace;
+  --f-mono: 'Spica', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  // --f-mono: Consolas, Monaco, 'Andale Mono', 'Courier New', 'Ubuntu Mono', 'Spica', monospace;
 }
 html.light {
   &:root {
@@ -69,13 +70,13 @@ html.dark {
 /* Font Setting */
 @font-face {
   font-family: 'Spica';
-  src: url('/fonts/Spica-Regular.woff2') format('woff2');
+  src: url('/font/Spica-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Spica';
-  src: url('/fonts/Spica-Bold.woff2') format('woff2');
+  src: url('/font/Spica-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
