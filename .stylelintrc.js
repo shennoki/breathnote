@@ -5,6 +5,7 @@ module.exports = {
   rules: {
     'scss/at-rule-no-unknown': null,
     'unit-allowed-list': ['px', 'em', 'rem', '%', 'vw', 'vh', 'ms', 's', 'deg'],
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
   },
   ignoreFiles: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 }

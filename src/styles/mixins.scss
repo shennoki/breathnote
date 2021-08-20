@@ -11,7 +11,6 @@ $breakpoints: (
   }
 }
 
-/* stylelint-disable */
 @mixin light {
   :global(.light) & {
     @content;
@@ -22,4 +21,3 @@ $breakpoints: (
     @content;
   }
 }
-/* stylelint-enable */
