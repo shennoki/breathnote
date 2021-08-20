@@ -17,10 +17,10 @@ export type Post = {
   title: string
   description: string
   keywords: Keyword[]
-  thumbnail?: {
+  thumbnail: {
     url: string
-    height: number
     width: number
+    height: number
   }
   body: string | Source
 }

@@ -17,14 +17,16 @@ type Props = {
     | 'modified'
   size: string
   strokeWidth?: number
+  classes?: string
 }
 
-const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
+const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2, classes }) => {
   switch (type) {
     case 'logo':
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -53,6 +55,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -71,6 +74,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -87,6 +91,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -111,6 +116,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -127,6 +133,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -144,6 +151,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -160,6 +168,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 24 24"
@@ -176,6 +185,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -190,6 +200,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -205,6 +216,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -220,6 +232,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"
@@ -235,6 +248,7 @@ const SvgIcon: React.FC<Props> = ({ type, size, strokeWidth = 2 }) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          className={classes}
           width={size}
           height={size}
           viewBox="0 0 64 64"

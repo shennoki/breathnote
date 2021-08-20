@@ -4,6 +4,28 @@ import RSS from 'rss'
 import { Post } from 'types/post'
 import { API_ENDPOINT, API_KEY, SITE_DESCRIPTION, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
+const AtomFeed: NextPage = () => null
+export default AtomFeed
+
+export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
+  const posts: Post[] = await axios
+    .get(`${API_ENDPOINT}/posts?limit=20`, { headers: { 'X-API-KEY': API_KEY } })
+    .then((res) => res.data.contents)
+    .catch((err) => {
+      throw new Error(`FETCH FAILED (atom.xml) : ${err}`)
+    })
+  const xml = await generateFeedXml(posts)
+
+  res.statusCode = 200
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
+  res.setHeader('Content-Type', 'text/xml')
+  res.end(xml)
+
+  return {
+    props: {},
+  }
+}
+
 const generateFeedXml = async (posts: Post[]) => {
   const feed = new RSS({
     title: SITE_TITLE,
@@ -26,26 +48,4 @@ const generateFeedXml = async (posts: Post[]) => {
   })
 
   return feed.xml()
-}
-
-const AtomFeed: NextPage = () => null
-export default AtomFeed
-
-export const getServerSideProps: GetServerSideProps = async ({ res }: GetServerSidePropsContext) => {
-  const posts: Post[] = await axios
-    .get(`${API_ENDPOINT}/posts?limit=20`, { headers: { 'X-API-KEY': API_KEY } })
-    .then((res) => res.data.contents)
-    .catch((err) => {
-      throw new Error(`FETCH FAILED (atom.xml) : ${err}`)
-    })
-  const xml = await generateFeedXml(posts)
-
-  res.statusCode = 200
-  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
-  res.setHeader('Content-Type', 'text/xml')
-  res.end(xml)
-
-  return {
-    props: {},
-  }
 }
