@@ -20,7 +20,7 @@ It has been checked to work with the following browsers.
 - Microsoft Edge
 - Safari
 
-## DEV environment variables
+## Environment variables
 
 About configuration files that cannot be pushed to GitHub for security reasons.
 
