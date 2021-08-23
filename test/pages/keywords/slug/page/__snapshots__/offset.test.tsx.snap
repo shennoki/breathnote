@@ -69,6 +69,7 @@ exports[`KEYWORD ARTICLE PAGE 4/7 (pages/keywords/[slug]/page/[offset].tsx) snap
           JamstackなNext.jsブログにプレビューモードを実装する
         </a>
       </h2>
+      <hr />
       <ul
         class="keywords"
       >
@@ -79,6 +80,19 @@ exports[`KEYWORD ARTICLE PAGE 4/7 (pages/keywords/[slug]/page/[offset].tsx) snap
           Jamstack
         </li>
       </ul>
+      <div
+        class="loader"
+      >
+        <div
+          class="inner1"
+        />
+        <div
+          class="inner2"
+        />
+        <div
+          class="inner3"
+        />
+      </div>
     </article>
   </section>
   <nav

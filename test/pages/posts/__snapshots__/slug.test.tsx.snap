@@ -80,10 +80,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           />
         </svg>
         <time
-          datetime="2021-04-18T15:01:28.140Z"
+          datetime="2021-08-01T08:17:14.533Z"
           itemprop="dateModified"
         >
-          2021 / 04 / 19
+          2021 / 08 / 01
         </time>
       </div>
     </div>
@@ -145,7 +145,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             class="language-ts"
           >
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               import
             </span>
@@ -184,7 +184,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               from
             </span>
@@ -197,7 +197,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             
 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               import
             </span>
@@ -209,7 +209,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               from
             </span>
@@ -222,7 +222,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             
 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               import
             </span>
@@ -268,7 +268,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               from
             </span>
@@ -282,13 +282,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               export
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               default
             </span>
@@ -395,7 +395,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             
   
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               if
             </span>
@@ -564,7 +564,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               await
             </span>
@@ -820,7 +820,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
               .
             </span>
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               catch
             </span>
@@ -1317,7 +1317,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             class="language-tsx"
           >
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               export
             </span>
@@ -1394,7 +1394,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
   
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               if
             </span>
@@ -1447,7 +1447,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               await
             </span>
@@ -1480,7 +1480,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
             slug 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               as
             </span>
@@ -1505,7 +1505,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             
     
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               if
             </span>
@@ -1528,7 +1528,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               return
             </span>
@@ -1565,13 +1565,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               else
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               if
             </span>
@@ -1619,7 +1619,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               await
             </span>
@@ -1823,7 +1823,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               as
             </span>
@@ -1925,7 +1925,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
   
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               return
             </span>
@@ -1985,7 +1985,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               export
             </span>
@@ -2061,7 +2061,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               await
             </span>
@@ -2085,7 +2085,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
   
             <span
-              class="token keyword"
+              class="token keyword control-flow"
             >
               return
             </span>
@@ -2201,7 +2201,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             class="language-ts"
           >
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               import
             </span>
@@ -2240,7 +2240,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               from
             </span>
@@ -2254,13 +2254,13 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
 
 
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               export
             </span>
              
             <span
-              class="token keyword"
+              class="token keyword module"
             >
               default
             </span>
