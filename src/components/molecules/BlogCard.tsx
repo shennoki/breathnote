@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Post } from 'types/post'
-import { SITE_DOMAIN } from 'utils/env'
 import styles from './BlogCard.module.scss'
 
 type Props = {
@@ -14,12 +13,7 @@ const BlogCard: React.FC<Props> = ({ post }) => {
   return (
     <article className={styles.article}>
       <div className={styles.thumbnail}>
-        <Image
-          width={850}
-          height={445}
-          src={post.thumbnail ? post.thumbnail.url : `${SITE_DOMAIN}/img/og-img.jpg`}
-          alt={post.title}
-        />
+        <Image width={850} height={445} src={post.thumbnail.url} alt={post.title} />
       </div>
       <time dateTime={post.publishedAt} itemProp="datepublished" className={styles.date}>
         {getFormattedDate(post.publishedAt, 'yyyy / MM / dd')}
@@ -29,11 +23,17 @@ const BlogCard: React.FC<Props> = ({ post }) => {
           <a>{post.title}</a>
         </Link>
       </h2>
+      <hr />
       <ul className={styles.keywords}>
         {post.keywords.map((keyword) => (
           <li key={keyword.id}>{keyword.name}</li>
         ))}
       </ul>
+      <div className={styles.loader}>
+        <div className={styles.inner1}></div>
+        <div className={styles.inner2}></div>
+        <div className={styles.inner3}></div>
+      </div>
     </article>
   )
 }
