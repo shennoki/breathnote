@@ -15,16 +15,9 @@ type Props = {
 const Article: React.FC<Props> = ({ post, body }) => {
   return (
     <article className={styles.article}>
-      {post.thumbnail && (
-        <div className={styles.thumbnail}>
-          <Image
-            src={post.thumbnail.url}
-            alt={post.title}
-            width={post.thumbnail.width}
-            height={post.thumbnail.height}
-          />
-        </div>
-      )}
+      <div className={styles.thumbnail}>
+        <Image src={post.thumbnail.url} alt={post.title} width={post.thumbnail.width} height={post.thumbnail.height} />
+      </div>
       <div className={styles.date}>
         <div className={styles.published}>
           <SvgIcon type="published" strokeWidth={2.5} size="1.6em" />
@@ -32,12 +25,14 @@ const Article: React.FC<Props> = ({ post, body }) => {
             {getFormattedDate(post.publishedAt, 'yyyy / MM / dd')}
           </time>
         </div>
-        <div className={styles.modified}>
-          <SvgIcon type="modified" strokeWidth={2} size="1.55em" />
-          <time dateTime={post.revisedAt} itemProp="dateModified">
-            {getFormattedDate(post.revisedAt, 'yyyy / MM / dd')}
-          </time>
-        </div>
+        {getFormattedDate(post.revisedAt, 'yyyyMMdd') > getFormattedDate(post.publishedAt, 'yyyyMMdd') ? (
+          <div className={styles.modified}>
+            <SvgIcon type="modified" strokeWidth={2} size="1.55em" />
+            <time dateTime={post.revisedAt} itemProp="dateModified">
+              {getFormattedDate(post.revisedAt, 'yyyy / MM / dd')}
+            </time>
+          </div>
+        ) : null}
       </div>
       <h1 className={styles.title}>{post.title}</h1>
       <div className={styles.body}>

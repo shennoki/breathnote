@@ -8,7 +8,7 @@
   & h2 {
     font-size: 1.6em;
     font-weight: bold;
-    margin: 2.5em 0 1em;
+    margin: 2.5em 0 0;
     @include mq(md) {
       font-size: 1.7em;
     }
@@ -17,7 +17,7 @@
   & h3 {
     font-size: 1.4em;
     font-weight: bold;
-    margin: 1.8em 0 1em;
+    margin: 1.8em 0 0;
     @include mq(md) {
       font-size: 1.5em;
     }
@@ -26,7 +26,7 @@
   & h4 {
     font-size: 1.2em;
     font-weight: bold;
-    margin: 1.8em 0 1em;
+    margin: 1.8em 0 0;
     @include mq(md) {
       font-size: 1.3em;
     }
@@ -44,26 +44,6 @@
     padding: 0 0.05em;
     margin: 0 0.1em;
     color: var(--c-link);
-    display: inline-block;
-    position: relative;
-    word-break: break-all;
-    &::before {
-      content: '';
-      width: 100%;
-      height: 1px;
-      border-top: 2px dashed var(--c-link);
-      opacity: 0;
-      position: absolute;
-      bottom: 0.18em;
-      left: 0;
-      transition: opacity 0.2s;
-    }
-    &:hover {
-      opacity: 1;
-      &::before {
-        opacity: 0.65;
-      }
-    }
   }
 
   & strong,
@@ -83,11 +63,11 @@
   }
 
   & code {
-    padding: 0.18em 0.45em 0.26em; // フォント調整
+    padding: 0.35em 0.45em 0.25em; // フォント調整
     margin: 0 0.3em;
     font-family: var(--f-mono);
-    font-size: 1em;
-    letter-spacing: normal;
+    font-size: 0.9em;
+    letter-spacing: 0.01em;
     word-break: break-all;
     background-color: var(--c-bg-3);
     border-radius: 2px;
@@ -201,7 +181,7 @@
 
   & pre {
     padding: 1.5em;
-    margin: 2em 0 2em;
+    margin: 1.5em 0;
     background-color: var(--c-bg-3);
     border-radius: 3px;
     box-shadow: var(--s-pre);
