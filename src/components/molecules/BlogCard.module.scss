@@ -18,7 +18,7 @@
     & .inner1 {
       width: 100%;
       height: 100%;
-      border-bottom: 3px solid var(--c-text);
+      border-bottom: 3px solid var(--c-text-thin);
       border-radius: 50%;
       position: absolute;
       top: 0%;
@@ -28,7 +28,7 @@
     & .inner2 {
       width: 100%;
       height: 100%;
-      border-right: 3px solid var(--c-text);
+      border-right: 3px solid var(--c-text-thin);
       border-radius: 50%;
       position: absolute;
       top: 0%;
@@ -38,7 +38,7 @@
     & .inner3 {
       width: 100%;
       height: 100%;
-      border-top: 3px solid var(--c-text);
+      border-top: 3px solid var(--c-text-thin);
       border-radius: 50%;
       position: absolute;
       bottom: 0%;
