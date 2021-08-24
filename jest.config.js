@@ -23,4 +23,5 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', 'src'],
   testPathIgnorePatterns: ['node_modules'],
+  testTimeout: 20000,
 }
