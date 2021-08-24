@@ -20,7 +20,6 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -28,6 +27,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           <noscript />
           <img
             alt="Material-UIとreact-springの併用で「Cannot update a component」"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -90,7 +90,6 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -98,6 +97,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           <noscript />
           <img
             alt="Reactではステートの変更が即時反映されない場合がある"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -157,7 +157,6 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -165,6 +164,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           <noscript />
           <img
             alt="環境変数を含むNext.jsのコードをJestでテストする"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -227,7 +227,6 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -235,6 +234,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           <noscript />
           <img
             alt="ヘッドレスCMSから受け取った記事でnext/imageを利用する"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
@@ -297,7 +297,6 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             <img
               alt=""
               aria-hidden="true"
-              role="presentation"
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
               style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
             />
@@ -305,6 +304,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           <noscript />
           <img
             alt="JamstackなNext.jsブログにプレビューモードを実装する"
+            data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
