@@ -1,7 +1,9 @@
 import GlobalNavigation from 'components/molecules/GlobalNavigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styles from './Header.module.scss'
+import imgSrc from '/public/img/logo-light.svg'
 
 type Props = {
   type: string
@@ -14,7 +16,7 @@ const Header: React.FC<Props> = ({ type }) => {
         <h1 className={`${styles.logo} ${styles.wave}`}>
           <Link href="/">
             <a>
-              <img src="/img/logo-light.svg" alt="BreathNote" />
+              <Image src={imgSrc} alt="BreathNote" />
             </a>
           </Link>
         </h1>
@@ -22,7 +24,7 @@ const Header: React.FC<Props> = ({ type }) => {
         <div className={`${styles.logo} ${styles.wave}`}>
           <Link href="/">
             <a>
-              <img src="/img/logo-light.svg" alt="BreathNote" />
+              <Image src={imgSrc} alt="BreathNote" />
             </a>
           </Link>
         </div>

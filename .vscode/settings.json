@@ -9,7 +9,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "eslint.validate": ["json", "javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

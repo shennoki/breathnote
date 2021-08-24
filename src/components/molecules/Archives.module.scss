@@ -2,30 +2,36 @@
 
 .root {
   max-width: 1350px;
-  margin: -1.3em auto 0;
+  margin: -1.5em auto 0;
   @include mq(sm) {
     padding: 0 0.8em;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   @include mq(md) {
-    margin: -1.5em auto 0;
+    margin: -1.6em auto 0;
+  }
+  @include mq(lg) {
+    margin: -1.8em auto 0;
   }
 
   & > article {
-    padding: 1.1em;
-    margin: 1.3em 0 0;
+    width: 95%;
+    padding: 1em;
+    margin: 1.5em auto 0;
     @include mq(sm) {
-      width: 50%;
+      width: 46%;
     }
     @include mq(md) {
-      margin: 1.5em 0 0;
+      margin: 1.6em 0 0;
     }
     @include mq(lg) {
-      width: 33.3333%;
+      width: 30%;
+      margin: 1.8em 0 0;
     }
     @include mq(xl) {
-      width: 25%;
+      width: 23%;
     }
   }
 }

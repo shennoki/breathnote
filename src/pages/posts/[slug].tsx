@@ -8,13 +8,13 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
+import rehypeKatex from 'rehype-katex'
 import { PageProps } from 'types/pageProps'
 import { Post } from 'types/post'
-import { API_ENDPOINT, API_KEY, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
+import { API_ENDPOINT, API_KEY, REVALIDATE_TIME, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 /* eslint-disable @typescript-eslint/no-var-requires */
 const remarkMath = require('remark-math')
 const rehypePrism = require('@mapbox/rehype-prism')
-const rehypeKatex = require('rehype-katex')
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 type Props = {
@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       pageProps,
       post,
     },
-    revalidate: 60,
+    revalidate: REVALIDATE_TIME,
   }
 }
 

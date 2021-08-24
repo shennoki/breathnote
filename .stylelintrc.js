@@ -4,7 +4,8 @@ module.exports = {
   plugins: ['stylelint-scss'],
   rules: {
     'scss/at-rule-no-unknown': null,
-    'unit-allowed-list': ['px', 'em', 'rem', 'vw', 'vh', 's', 'deg', 'ms', '%'],
+    'unit-allowed-list': ['px', 'em', 'rem', '%', 'vw', 'vh', 'ms', 's', 'deg'],
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
   },
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+  ignoreFiles: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 }

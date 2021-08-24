@@ -8,10 +8,15 @@
 
 .thumbnail {
   margin: 0 0 1.2em;
+  background-color: var(--c-bg-3);
   border-radius: 5px;
+  box-shadow: var(--s-pre);
   overflow: hidden;
   & > * {
     vertical-align: middle;
+  }
+  & img {
+    filter: drop-shadow(var(--s-drop));
   }
 }
 

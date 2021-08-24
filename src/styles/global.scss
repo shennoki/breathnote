@@ -11,8 +11,8 @@ html {
 body {
   width: 100%;
   color: var(--c-text);
-  font: 1.5rem / 1.6 var(--f-sans);
-  letter-spacing: 0.05em;
+  font: 1.4rem / 1.6 var(--f-sans);
+  letter-spacing: 0.02em;
   background: var(--c-bg-2);
   overflow-x: hidden;
   @include mq(md) {
@@ -38,6 +38,10 @@ a {
   &:hover {
     opacity: 0.7;
   }
+}
+
+.link-disable {
+  pointer-events: none;
 }
 
 .kerning {

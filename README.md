@@ -9,7 +9,7 @@
 - Next.js on Vercel
 - Micro CMS
 - CSS Modules
-- TypesScript
+- TypeScript
 
 ## Browser Support
 
@@ -20,7 +20,7 @@ It has been checked to work with the following browsers.
 - Microsoft Edge
 - Safari
 
-## DEV environment variables
+## Environment variables
 
 About configuration files that cannot be pushed to GitHub for security reasons.
 
@@ -34,5 +34,4 @@ DRAFT_TOKEN={ Preview Mode API Token }
 
 ## Copyright and license
 
-This repository is No License.<br>
-Any use, duplication, redistribution, etc. beyond the scope of the GitHub terms of use and copyright law is strictly prohibited.
+This repository is No License. Any use, duplication, redistribution, etc. beyond the scope of the GitHub terms of use and copyright law is strictly prohibited.

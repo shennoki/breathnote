@@ -2,7 +2,7 @@ import axios from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { API_ENDPOINT, API_KEY, DRAFT_TOKEN } from 'utils/env'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const preview = async (req: NextApiRequest, res: NextApiResponse) => {
   const KEY = { headers: { 'X-API-KEY': API_KEY } }
   const token = req.query.secret
 
@@ -22,3 +22,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.writeHead(307, { Location: `/posts/${draft.id}` }).end()
 }
+
+export default preview

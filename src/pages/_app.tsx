@@ -64,15 +64,15 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/img/icons/android-chrome-192x192.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon-180x180.png" />
-        <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#eceff4" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/android-chrome-192x192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon-180x180.png" />
+        <link rel="mask-icon" href="/img/icon/safari-pinned-tab.svg" color="#eceff4" />
         <link rel="alternate" type="application/rss+xml" title="feed" href={`${SITE_DOMAIN}/atom.xml`} />
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         {pageProps.pageProps.noindex && <meta name="robots" content="noindex,nofollow" />}
-        <link rel="preload" href="/fonts/Spica-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Spica-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/font/Spica-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/font/Spica-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </Head>
       <Header type={pageProps.pageProps.type} />
       <main>

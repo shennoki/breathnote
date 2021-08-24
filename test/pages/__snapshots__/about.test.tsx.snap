@@ -5,60 +5,47 @@ exports[`ABOUT PAGE (pages/about.tsx) snapshot 1`] = `
   <article
     class="article"
   >
-    <h1
-      class="title"
-    >
-      Welcome to BreathNote
-    </h1>
     <div
-      class="profile"
+      class="visual"
     >
-      <div
-        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      <h1
+        class="title"
       >
-        <div
-          style="box-sizing: border-box; display: block; max-width: 100%;"
-        >
-          <img
-            alt=""
-            aria-hidden="true"
-            role="presentation"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg=="
-            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-          />
-        </div>
-        <noscript />
-        <img
-          alt="Shinki"
-          decoding="async"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-        />
-      </div>
-      <span>
-        <a
-          href="https://twitter.com/code_shinki"
-          rel="nofollow noopener noreferrer"
-          target="_blank"
-        >
-          Shinki
-        </a>
-      </span>
+        For developers.
+      </h1>
+      <span
+        class="circle1"
+      />
+      <span
+        class="circle2"
+      />
+      <span
+        class="circle3"
+      />
     </div>
     <div
       class="body"
     >
       <p>
-        BreathNoteは、フロントエンドの話題や備忘録をアウトプットしているブログです。
+        Breath Noteへようこそ。
       </p>
       <p>
-        当サイトに掲載されているコンテンツは自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。自己責任でご利用ください。なお、プロフィールアイコンなどの当サイトオリジナル素材は、ダウンロード等を固く禁じています。ご了承ください。
+        このブログではフロントエンドからバックエンドまでフルスタックなWeb技術の話題や備忘録をアウトプットしています。
       </p>
       <p>
-        管理者へのお問い合わせやエントリーの訂正・削除希望などは、Twitter等からご連絡ください。
+        ドキュメントの確認やバグフィックスのお供にどうぞ。
       </p>
       <h2>
-        Google Analyticsについて
+        留意事項
+      </h2>
+      <p>
+        当サイトに掲載されているコンテンツは原則自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。自己責任でご利用ください。なお、当サイトオリジナル素材のダウンロード等は固く禁じています。ご了承ください。
+      </p>
+      <p>
+        管理者へのお問い合わせやエントリーの訂正・削除希望は、Twitter等からご連絡ください。
+      </p>
+      <h2>
+        アクセス情報の収集について
       </h2>
       <p>
         当サイトではGoogle Analyticsを用いて訪問者の情報収集を行っております。Google Analyticsを無効化したい場合は

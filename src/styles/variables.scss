@@ -3,7 +3,8 @@
 /* Variable Setting */
 :root {
   --f-sans: 'Spica', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  --f-mono: Consolas, Monaco, 'Andale Mono', 'Courier New', 'Ubuntu Mono', 'Spica', monospace;
+  --f-mono: 'Spica', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  // --f-mono: Consolas, Monaco, 'Andale Mono', 'Courier New', 'Ubuntu Mono', 'Spica', monospace;
 }
 html.light {
   &:root {
@@ -30,8 +31,9 @@ html.light {
     --c-facebook: #1877f2;
     --c-clipboard: #ef3f56;
 
-    --s-neumo: 5px 5px 4px #e7e8e9, -5px -5px 4px #ffffff;
+    --s-neumo: 4px 4px 4px #e7e8e999, -4px -4px 4px #ffffff;
     --s-neumo-inset: inset 3px 3px 1px #dadbdd;
+    --s-drop: 2px 2px 2px #4c566a66;
     --s-pre: inset 2px 2px 3px #e7e8e9, inset -3px -3px 2px #ffffff;
   }
 }
@@ -60,8 +62,9 @@ html.dark {
     --c-facebook: #8dbfff;
     --c-clipboard: #ff7184;
 
-    --s-neumo: 5px 5px 4px #2b303c, -5px -5px 4px #313844;
+    --s-neumo: 4px 4px 3px #2b303c, -4px -4px 3px #313844;
     --s-neumo-inset: inset 8px 8px 2px #21252d;
+    --s-drop: 2px 2px 2px #292e3977;
     --s-pre: inset 2px 2px 3px #2b303c, inset -3px -3px 2px #313844;
   }
 }
@@ -69,13 +72,13 @@ html.dark {
 /* Font Setting */
 @font-face {
   font-family: 'Spica';
-  src: url('/fonts/Spica-Regular.woff2') format('woff2');
+  src: url('/font/Spica-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Spica';
-  src: url('/fonts/Spica-Bold.woff2') format('woff2');
+  src: url('/font/Spica-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
