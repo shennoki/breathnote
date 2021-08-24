@@ -1,6 +1,5 @@
 const { createSecureHeaders } = require('next-secure-headers')
 const withPWA = require('next-pwa')
-const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
   // X-Powered-Byヘッダを削除
@@ -23,8 +22,9 @@ module.exports = withPWA({
 
   // next-pwa | https://github.com/GoogleChrome/workbox/issues/1790#issuecomment-620894023
   pwa: {
-    disable: prod ? false : true,
+    disable: process.env.NODE_ENV === 'development',
     dest: 'public',
     publicExcludes: ['!img/**/*'],
+    buildExcludes: [/chunks\/images\/.*$/],
   },
 })
