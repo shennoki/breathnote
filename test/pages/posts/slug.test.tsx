@@ -5,6 +5,7 @@ import { fetchAllPosts } from '../../../src/libs/store'
 import Post from '../../../src/pages/posts/[slug]'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const rehypePrism = require('@mapbox/rehype-prism')
+jest.mock('rehype-katex', () => ({}))
 
 describe(`ARTICLE PAGE (pages/posts/[slug].tsx)`, () => {
   afterEach(cleanup)
