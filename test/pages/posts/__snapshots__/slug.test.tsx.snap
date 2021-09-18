@@ -80,10 +80,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           />
         </svg>
         <time
-          datetime="2021-08-01T08:17:14.533Z"
+          datetime="2021-09-05T11:55:23.365Z"
           itemprop="dateModified"
         >
-          2021 / 08 / 01
+          2021 / 09 / 05
         </time>
       </div>
     </div>
@@ -99,10 +99,10 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
         class="post prism-root"
       >
         <p>
-          Vercelへデプロイしている当ブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を追加したので備忘録を残しておきます。
+          このブログにヘッドレスCMS (microCMS) と連携したプレビュー機能を実装したので、備忘録を残しておきます。
         </p>
         <p>
-          基本的に以下の記事を参考にしつつ、個人的に必要な部分を追加しています。
+          基本的に以下の記事を参考にしつつ、個人的に深掘りが必要だった部分を追加しています。
         </p>
         <ul>
           <li>
@@ -1128,14 +1128,14 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </code>
         </pre>
         <p>
-          このAPIでは以下の処理を行っています。
+          このAPIが叩かれると以下の処理を実行します。
         </p>
         <ol>
           <li>
-            受け取ったURLを簡易的にチェック
+            トークンを用いたセキュリティチェック
           </li>
           <li>
-            CMSのAPIから該当する下書き記事を取得
+            CMSのAPIから下書き記事を取得
           </li>
           <li>
             Cookieを付与して記事ページへリダイレクト
@@ -1157,7 +1157,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <code>
             setPreviewData()
           </code>
-          というメソッドで実現しています。これを利用することにより以下の情報が記事ページのgetStaticPropsへ渡されます。
+          というメソッドで実現しています。これを利用することにより以下の情報が記事ページの
+          <code>
+            getStaticProps()
+          </code>
+          へ渡されます。
         </p>
         <pre
           class="language-ts"
@@ -1290,7 +1294,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </code>
         </pre>
         <p>
-          最後は
+          draftKeyには
           <code>
             req.query.draftId
           </code>
@@ -1298,17 +1302,21 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <code>
             post.id
           </code>
-          を使用してリダイレクトしています。これはリダイレクト機能を悪用してユーザーを悪意のあるサイトへ誘導するオープンリダイレクトの脆弱性を回避するために必要な処理です。
+          を使用してリダイレクトしています。これはリダイレクト機能を悪用してユーザーを別サイトへ誘導する
+          <strong>
+            オープン
+          </strong>
+          リダイレクトの脆弱性を回避するために必要な処理です。
         </p>
         <h2>
-          記事ページを更新
+          記事ページにプレビュー処理を追加
         </h2>
         <p>
           次に
           <code>
             preview.ts
           </code>
-          から受け取ったプレビュー情報を用いて記事ページを更新します。このファイルには他にも色々と処理させてますが、今回は必要最低限のコードを抜き出して記載しています。
+          から受け取ったデータを用いて記事ページを更新します。このファイルには他にも色々と処理させてますが、今回は必要最低限のコードを抜き出して記載します。
         </p>
         <pre
           class="language-tsx"
@@ -2149,7 +2157,7 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <code>
             context.preview
           </code>
-          を用いて「公開済み」か「プレビュー」かの判定を行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
+          を用いて公開記事か下書き記事かの判定を行っています。この部分は皆さんの記事取得方法にあわせてよしなに変更してください。
         </p>
         <h2>
           Cookieを削除するAPIルートを作る
@@ -2181,18 +2189,22 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           >
             ブラウザ終了まで維持される仕様
           </a>
-          が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、getStaticPropsで
+          が関係しています。Cookieを保持したまま他の記事ページへアクセスすると、
+          <code>
+            getStaticProps()
+          </code>
+          で
           <code>
             context.preview: true
           </code>
           が再度読み込まれ、プレビュー用の処理が走ってしまうのです。
         </p>
         <p>
-          そこでプレビューAPIと同様の方法で、Cookie削除用のAPIルートを作ります。
+          そこで、プレビュー用に作成したAPIと同様にCookie削除用のAPIを作ります。
           <code>
             pages/api
           </code>
-          フォルダに任意のファイル名で以下のTypeScriptファイルを作成しましょう。
+          フォルダに任意のファイル名で以下のTypeScriptファイルを設置しましょう。
         </p>
         <pre
           class="language-ts"
@@ -2456,34 +2468,38 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           </code>
           でプレビュー用のCookieを削除した後にトップページへリダイレクトしています。少し面倒ですが、プレビューモードを利用した後はこのAPIへアクセスすることでページの動作が元に戻ります。
         </p>
+        <p>
+          この記事を書いてる途中で気づいたんですが、
+          <code>
+            getStaticProps()
+          </code>
+          で記事を取得した後に
+          <code>
+            clearPreviewData()
+          </code>
+          でCookieを削除してしまっても良いかもしれませんね。
+        </p>
         <h2>
           APIへアクセスするためのURLを設定する
         </h2>
         <p>
-          最後にCMSからAPIに送信するURLを設定します。私の場合はmicroCMSの画面プレビュー設定を以下のように変更しました。
+          最後にヘッドレスCMSからAPIを叩くためのURLを設定します。私の場合は以下のようになりました。ちなみに、共通鍵として利用するセキュリティ用のトークンは
+          <code>
+            preview.ts
+          </code>
+          のトークンと一致させておく必要があります。
         </p>
-        <pre
-          class="language-markup"
-        >
-          <code
-            class="language-markup"
-          >
+        <pre>
+          <code>
             https://[Your Domain]/api/preview?secret=[セキュリティ用のトークン]&draftId={CONTENT_ID}&draftKey={DRAFT_KEY}
 
           </code>
         </pre>
         <p>
-          共通鍵として利用するセキュリティ用のトークンは
-          <code>
-            preview.ts
-          </code>
-          のトークンと一致させる必要があります。
-        </p>
-        <p>
-          これでプレビュー機能が完成しました。
+          以上でプレビュー機能が完成しました。
         </p>
         <h2>
-          まとめ
+          所感
         </h2>
         <p>
           実際に上記のURLでプレビュー用APIへアクセスすると、少し読み込みを挟んでプレビュー記事が表示されたかと思います。プレビュー機能はサーバーレス関数を用いてSSRで動いているため、多少時間がかかるようです。
@@ -2497,11 +2513,11 @@ exports[`ARTICLE PAGE (pages/posts/[slug].tsx) snapshot 1`] = `
           <code>
             next start
           </code>
-          で起動した本番環境ではプレビュー機能が使えません。
+          で起動したローカル環境ではプレビュー機能が使えません。
           <code>
             next dev
           </code>
-          で起動する開発環境か、サーバーレス関数をサポートしている各種サービスへデプロイした後で確認してください。
+          で起動するローカル環境か、サーバーレス関数をサポートしている本番環境へデプロイした後で確認してください。
         </p>
       </div>
     </div>
