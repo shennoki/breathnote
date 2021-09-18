@@ -11,7 +11,7 @@ const CustomLink: React.FC<Props> = ({ href, ...otherProps }) => {
   return (
     <>
       {isInternalLink ? (
-        <Link href={href}>
+        <Link href={href} prefetch={false}>
           <a>{otherProps.children}</a>
         </Link>
       ) : (

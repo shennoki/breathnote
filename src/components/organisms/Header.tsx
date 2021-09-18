@@ -14,7 +14,7 @@ const Header: React.FC<Props> = ({ type }) => {
     <header className={styles.header}>
       {type === 'home' ? (
         <h1 className={`${styles.logo} ${styles.wave}`}>
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <a>
               <Image src={imgSrc} alt="BreathNote" />
             </a>
@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({ type }) => {
         </h1>
       ) : (
         <div className={`${styles.logo} ${styles.wave}`}>
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <a>
               <Image src={imgSrc} alt="BreathNote" />
             </a>

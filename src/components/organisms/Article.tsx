@@ -41,7 +41,7 @@ const Article: React.FC<Props> = ({ post, body }) => {
       <ul className={styles.keywords}>
         {post.keywords.map((keyword) => (
           <li key={keyword.id}>
-            <Link href={`/keywords/${keyword.slug}`}>
+            <Link href={`/keywords/${keyword.slug}`} prefetch={false}>
               <a>{keyword.name}</a>
             </Link>
           </li>

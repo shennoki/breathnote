@@ -10,7 +10,7 @@ type Props = {
 const Keywords: React.FC<Props> = ({ keywords }) => {
   const items = keywords.map((keyword) => (
     <li key={keyword.slug}>
-      <Link href={`/keywords/${keyword.slug}`}>
+      <Link href={`/keywords/${keyword.slug}`} prefetch={false}>
         <a>
           <span>{keyword.name}</span>
         </a>
