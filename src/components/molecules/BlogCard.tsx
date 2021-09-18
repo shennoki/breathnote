@@ -19,7 +19,7 @@ const BlogCard: React.FC<Props> = ({ post }) => {
         {getFormattedDate(post.publishedAt, 'yyyy / MM / dd')}
       </time>
       <h2 className={styles.title}>
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/posts/${post.slug}`} prefetch={false}>
           <a>{post.title}</a>
         </Link>
       </h2>

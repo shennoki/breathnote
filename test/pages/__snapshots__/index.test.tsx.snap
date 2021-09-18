@@ -26,7 +26,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           </div>
           <noscript />
           <img
-            alt="Material-UIとreact-springの併用で「Cannot update a component」"
+            alt="Material-UIとreact-springの併用で「Cannot update a component ...」"
             data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -47,7 +47,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/react-spring-modal-state-error"
         >
-          Material-UIとreact-springの併用で「Cannot update a component」
+          Material-UIとreact-springの併用で「Cannot update a component ...」
         </a>
       </h2>
       <hr />
@@ -163,7 +163,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           </div>
           <noscript />
           <img
-            alt="環境変数を含むNext.jsのコードをJestでテストする"
+            alt="Jestを用いたNext.jsのテスト内で環境変数を利用する"
             data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -184,7 +184,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/nextjs-jest-environment-variable"
         >
-          環境変数を含むNext.jsのコードをJestでテストする
+          Jestを用いたNext.jsのテスト内で環境変数を利用する
         </a>
       </h2>
       <hr />
@@ -233,7 +233,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
           </div>
           <noscript />
           <img
-            alt="ヘッドレスCMSから受け取った記事でnext/imageを利用する"
+            alt="ヘッドレスCMSから受け取った記事上でnext/imageを利用する"
             data-nimg="true"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -254,7 +254,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/nextjs-markdown-to-jsx"
         >
-          ヘッドレスCMSから受け取った記事でnext/imageを利用する
+          ヘッドレスCMSから受け取った記事上でnext/imageを利用する
         </a>
       </h2>
       <hr />

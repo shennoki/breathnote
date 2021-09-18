@@ -15,7 +15,7 @@ const GlobalNavigation: React.FC = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <Link href="/about">
+          <Link href="/about" prefetch={false}>
             <a>
               <SvgIcon type="navigation" size="1.3em" strokeWidth={1.5} />
               <span className="kerning">About</span>
@@ -23,7 +23,7 @@ const GlobalNavigation: React.FC = () => {
           </Link>
         </li>
         <li className={styles.item}>
-          <Link href="/atom.xml">
+          <Link href="/atom.xml" prefetch={false}>
             {linkState ? (
               <a onClick={handleChangeLinkState}>
                 <SvgIcon type="rss" size="1.3em" strokeWidth={1.5} />

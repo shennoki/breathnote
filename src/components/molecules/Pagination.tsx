@@ -34,7 +34,7 @@ const Pagination: React.FC<Props> = ({ type, postLength, offset, slug }) => {
             {/* ページネーションボタン : ループが「現ページ or 1ページ目 or 最終ページ or 現在地に隣接する」場合に表示 */}
             {num === offset || num === 1 || num === quantity || num === offset - 1 || num === offset + 1 ? (
               <li key={-num.toString()} className={`${styles.li} ${num === offset && styles['li-current']}`}>
-                <Link href={num === 1 ? `${path}` : `${path}page/${num}`}>
+                <Link href={num === 1 ? `${path}` : `${path}page/${num}`} prefetch={false}>
                   <a className={styles.link}>{num.toString()}</a>
                 </Link>
               </li>
