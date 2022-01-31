@@ -67,7 +67,6 @@
     margin: 0 0.3em;
     font-family: var(--f-mono);
     font-size: 0.9em;
-    letter-spacing: 0.01em;
     word-break: break-all;
     background-color: var(--c-bg-3);
     border-radius: 2px;
@@ -180,17 +179,22 @@
   }
 
   & pre {
-    padding: 1.7em 1.5em 1.5em;
+    padding: 3em 1.5em 1.3em;
     margin: 1.5em 0;
     background-color: var(--c-bg-3);
     border-radius: 3px;
     box-shadow: var(--s-pre);
     overflow-x: scroll;
+    position: relative;
     & code {
       padding: 0;
       margin: 0;
       background-color: transparent;
+      letter-spacing: 0.02em;
       word-break: normal;
+      & > span {
+        padding: 0 0.2em 0 0;
+      }
     }
     &::-webkit-scrollbar {
       @include mq(lg) {
@@ -203,6 +207,19 @@
         background-color: var(--c-bg-4);
         border-radius: 4px;
       }
+    }
+    & > div {
+      padding: 0.2em 1em 0.1em; // フォント調整
+      margin: 0.9em 0 0 0.9em;
+      color: var(--c-text);
+      font-family: var(--f-sans);
+      font-size: 0.9em;
+      background-color: var(--c-bg-2);
+      border-radius: 20px;
+      box-shadow: var(--s-pre-title);
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }
