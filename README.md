@@ -27,9 +27,9 @@ About configuration files that cannot be pushed to GitHub for security reasons.
 - `.env.local` + `.env.test.local`
 
 ```
-API_KEY={ Headless CMS API key }
-API_ENDPOINT={ Headless CMS API endpoint }
-DRAFT_TOKEN={ Preview Mode API Token }
+API_KEY      = { Headless CMS API key }
+API_ENDPOINT = { Headless CMS API endpoint }
+DRAFT_TOKEN  = { Preview Mode API Token }
 ```
 
 ## Copyright and license
