@@ -16,7 +16,7 @@ module.exports = {
   },
   collectCoverage: false,
   collectCoverageFrom: ['src/**/*'],
-  coverageDirectory: './coverage/',
+  coverageDirectory: './test/coverage/',
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(gif|ttf|eot|svg)$': '<rootDir>/test/mocks/fileMock.ts',
