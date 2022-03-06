@@ -11,35 +11,35 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
       <div
         class="thumbnail"
       >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
           >
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27850%27%20height=%27445%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
-          </div>
-          <noscript />
+          </span>
           <img
-            alt="Material-UIとreact-springの併用で「Cannot update a component ...」"
-            data-nimg="true"
+            alt="Material-UIとreact-springの併用で「Cannot update a component」"
+            data-nimg="intrinsic"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Ffb5d600012fa4390bb62fcae2998fcf2%2Fmaterial-ui.png&w=1200&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Ffb5d600012fa4390bb62fcae2998fcf2%2Fmaterial-ui.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Ffb5d600012fa4390bb62fcae2998fcf2%2Fmaterial-ui.png&w=1200&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-        </div>
+        </span>
       </div>
       <time
         class="date"
         datetime="2021-03-19T14:47:17.358Z"
         itemprop="datepublished"
       >
-        2021 / 03 / 19
+        2021年3月19日
       </time>
       <h2
         class="title"
@@ -47,7 +47,7 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
         <a
           href="/posts/react-spring-modal-state-error"
         >
-          Material-UIとreact-springの併用で「Cannot update a component ...」
+          Material-UIとreact-springの併用で「Cannot update a component」
         </a>
       </h2>
       <hr />
@@ -81,35 +81,35 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
       <div
         class="thumbnail"
       >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
           >
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27850%27%20height=%27445%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
-          </div>
-          <noscript />
+          </span>
           <img
             alt="Reactではステートの変更が即時反映されない場合がある"
-            data-nimg="true"
+            data-nimg="intrinsic"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F36945828ef544a2fb37367d845aeaf05%2Freact.png&w=1200&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F36945828ef544a2fb37367d845aeaf05%2Freact.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F36945828ef544a2fb37367d845aeaf05%2Freact.png&w=1200&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-        </div>
+        </span>
       </div>
       <time
         class="date"
         datetime="2021-03-16T16:08:28.810Z"
         itemprop="datepublished"
       >
-        2021 / 03 / 17
+        2021年3月17日
       </time>
       <h2
         class="title"
@@ -148,35 +148,35 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
       <div
         class="thumbnail"
       >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
           >
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27850%27%20height=%27445%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
-          </div>
-          <noscript />
+          </span>
           <img
             alt="Jestを用いたNext.jsのテスト内で環境変数を利用する"
-            data-nimg="true"
+            data-nimg="intrinsic"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fea80ec90e22d488f86164ab667c78201%2Fjest.png&w=1200&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fea80ec90e22d488f86164ab667c78201%2Fjest.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fea80ec90e22d488f86164ab667c78201%2Fjest.png&w=1200&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-        </div>
+        </span>
       </div>
       <time
         class="date"
         datetime="2021-03-05T06:00:02.829Z"
         itemprop="datepublished"
       >
-        2021 / 03 / 05
+        2021年3月5日
       </time>
       <h2
         class="title"
@@ -218,35 +218,35 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
       <div
         class="thumbnail"
       >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
           >
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27850%27%20height=%27445%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
-          </div>
-          <noscript />
+          </span>
           <img
             alt="ヘッドレスCMSから受け取った記事上でnext/imageを利用する"
-            data-nimg="true"
+            data-nimg="intrinsic"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1200&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1200&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-        </div>
+        </span>
       </div>
       <time
         class="date"
         datetime="2021-02-27T06:00:02.752Z"
         itemprop="datepublished"
       >
-        2021 / 02 / 27
+        2021年2月27日
       </time>
       <h2
         class="title"
@@ -288,35 +288,35 @@ exports[`TOP PAGE 4/7 (pages/page/[offset].tsx) snapshot 1`] = `
       <div
         class="thumbnail"
       >
-        <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        <span
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
           >
             <img
               alt=""
               aria-hidden="true"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUwIiBoZWlnaHQ9IjQ0NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27850%27%20height=%27445%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
             />
-          </div>
-          <noscript />
+          </span>
           <img
             alt="JamstackなNext.jsブログにプレビューモードを実装する"
-            data-nimg="true"
+            data-nimg="intrinsic"
             decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1200&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1024&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1200&q=75 2x"
             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
           />
-        </div>
+        </span>
       </div>
       <time
         class="date"
         datetime="2021-02-23T14:16:00.797Z"
         itemprop="datepublished"
       >
-        2021 / 02 / 23
+        2021年2月23日
       </time>
       <h2
         class="title"
