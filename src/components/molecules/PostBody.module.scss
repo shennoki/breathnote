@@ -1,25 +1,29 @@
 @import 'styles/mixins';
 
 .post {
+  @include mq(sm) {
+    font-size: 1.5rem;
+  }
+
   & > :first-child {
     margin-top: 0;
   }
 
   & h2 {
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: bold;
     margin: 2.5em 0 0;
     @include mq(md) {
-      font-size: 1.7em;
+      font-size: 1.6em;
     }
   }
 
   & h3 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: bold;
     margin: 1.8em 0 0;
     @include mq(md) {
-      font-size: 1.5em;
+      font-size: 1.4em;
     }
   }
 
@@ -64,9 +68,9 @@
 
   & code {
     padding: 0.35em 0.45em 0.25em; // フォント調整
-    margin: 0 0.3em;
+    margin: 0 0.2em;
     font-family: var(--f-mono);
-    font-size: 0.9em;
+    font-size: 0.95em;
     letter-spacing: 0.02em;
     word-break: break-all;
     background-color: var(--c-bg-3);
@@ -128,7 +132,7 @@
   & > blockquote {
     padding: 1.5em 3.3em 1.5em 1.6em;
     margin: 2.5em 0 2em;
-    font-size: 0.9em;
+    font-size: 0.95em;
     font-style: italic;
     background-color: var(--c-bg-3);
     border-left: 0.3em solid var(--c-text-thin);
@@ -163,14 +167,14 @@
     }
     & th {
       width: 1%;
-      padding: 1em 0.5em;
+      padding: 0.9em 0.5em;
       text-align: center;
       background-color: var(--c-bg-3);
     }
     td {
       width: 1%;
-      padding: 1em 0.6em;
-      font-size: 0.9em;
+      padding: 0.8em 0.5em;
+      font-size: 0.95em;
       text-align: center;
     }
   }
@@ -181,7 +185,7 @@
   }
 
   & pre {
-    padding: 3em 1.5em 1.3em;
+    padding: 3.5em 1.5em 1.3em;
     margin: 1.5em 0;
     background-color: var(--c-bg-3);
     border-radius: 3px;
@@ -215,7 +219,7 @@
       margin: 0.9em 0 0 0.9em;
       color: var(--c-text);
       font-family: var(--f-sans);
-      font-size: 0.9em;
+      font-size: 0.95em;
       background-color: var(--c-bg-2);
       border-radius: 20px;
       box-shadow: var(--s-pre-title);
