@@ -1,8 +1,6 @@
 import { randomBytes } from 'crypto'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 import React from 'react'
-import { GA_TRACKING_ID } from 'utils/env'
 
 class MyDocument extends Document<{ nonce: string }> {
   static async getInitialProps(ctx: DocumentContext) {
@@ -19,17 +17,16 @@ class MyDocument extends Document<{ nonce: string }> {
       <Html lang="ja" prefix="og: https://ogp.me/ns#" itemScope itemType="https://schema.org/WebPage">
         <Head nonce={nonce}>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+            integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
           <NextScript nonce={nonce} />
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} nonce={nonce} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${GA_TRACKING_ID}",{page_path:window.location.pathname});`,
-            }}
-            nonce={nonce}
-          />
         </body>
       </Html>
     )
