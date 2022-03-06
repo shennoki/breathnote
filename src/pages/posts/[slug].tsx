@@ -1,3 +1,4 @@
+import rehypePrism from '@mapbox/rehype-prism'
 import axios from 'axios'
 import CustomImage from 'components/atoms/CustomImage'
 import CustomLink from 'components/atoms/CustomLink'
@@ -6,16 +7,12 @@ import { fetchAllKeywords, fetchAllPosts } from 'libs/store'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
 import { PageProps } from 'types/pageProps'
 import { Post } from 'types/post'
 import { API_ENDPOINT, API_KEY, REVALIDATE_TIME, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
-/* eslint-disable @typescript-eslint/no-var-requires */
-const remarkMath = require('remark-math')
-const rehypePrism = require('@mapbox/rehype-prism')
-/* eslint-enable @typescript-eslint/no-var-requires */
 
 type Props = {
   post: Post
@@ -28,26 +25,7 @@ const components = {
 }
 
 const Posts: NextPage<Props> = ({ post }) => {
-  const [media, setMedia] = useState('print')
-
-  useEffect(() => {
-    setMedia('all')
-  }, [])
-
-  return (
-    <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-          integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-          crossOrigin="anonymous"
-          media={media}
-        />
-      </Head>
-      <Article post={post} body={<MDXRemote {...post.body} components={components} />} />
-    </>
-  )
+  return <Article post={post} body={<MDXRemote {...post.body} components={components} />} />
 }
 
 export default Posts
