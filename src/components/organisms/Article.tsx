@@ -16,20 +16,26 @@ const Article: React.FC<Props> = ({ post, body }) => {
   return (
     <article className={styles.article}>
       <div className={styles.thumbnail}>
-        <Image src={post.thumbnail.url} alt={post.title} width={post.thumbnail.width} height={post.thumbnail.height} />
+        <Image
+          src={post.thumbnail.url}
+          alt={post.title}
+          width={post.thumbnail.width}
+          height={post.thumbnail.height}
+          priority={true}
+        />
       </div>
       <div className={styles.date}>
         <div className={styles.published}>
           <SvgIcon type="published" strokeWidth={2.5} size="1.6em" />
           <time dateTime={post.publishedAt} itemProp="datePublished">
-            {getFormattedDate(post.publishedAt, 'yyyy / MM / dd')}
+            {getFormattedDate(post.publishedAt, 'yyyy年M月d日')}
           </time>
         </div>
         {getFormattedDate(post.revisedAt, 'yyyyMMdd') > getFormattedDate(post.publishedAt, 'yyyyMMdd') ? (
           <div className={styles.modified}>
             <SvgIcon type="modified" strokeWidth={2} size="1.55em" />
             <time dateTime={post.revisedAt} itemProp="dateModified">
-              {getFormattedDate(post.revisedAt, 'yyyy / MM / dd')}
+              {getFormattedDate(post.revisedAt, 'yyyy年M月d日')}
             </time>
           </div>
         ) : null}

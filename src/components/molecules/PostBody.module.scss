@@ -34,7 +34,7 @@
 
   & p {
     margin: 1.6em 0 0;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
     @include mq(sm) {
       line-height: 1.8;
     }
@@ -67,6 +67,7 @@
     margin: 0 0.3em;
     font-family: var(--f-mono);
     font-size: 0.9em;
+    letter-spacing: 0.02em;
     word-break: break-all;
     background-color: var(--c-bg-3);
     border-radius: 2px;
