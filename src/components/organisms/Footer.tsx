@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </a>
         </li>
         <li>
-          <div className={styles.wip} title="shinki.net (工事中)">
+          <div className={styles.wip} title="shinki.net (準備中)">
             <SvgIcon type="home" size="2.3em" strokeWidth={2.3} />
           </div>
         </li>
