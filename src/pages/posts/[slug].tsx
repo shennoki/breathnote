@@ -9,6 +9,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import React from 'react'
 import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { PageProps } from 'types/pageProps'
 import { Post } from 'types/post'
@@ -56,7 +57,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     ...post,
     body: await serialize(post.body, {
       mdxOptions: {
-        remarkPlugins: [remarkMath],
+        remarkPlugins: [remarkMath, remarkGfm],
         rehypePlugins: [rehypePrism, rehypeKatex],
       },
     }),
