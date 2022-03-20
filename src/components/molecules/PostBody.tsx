@@ -19,7 +19,7 @@ const PostBody: React.FC<Props> = ({ body }) => {
     })
   }, [])
 
-  return <div className={`${styles.post} prism-root`}>{body}</div>
+  return <div className={`${styles.post} prism-root katex-root`}>{body}</div>
 }
 
 export default PostBody
