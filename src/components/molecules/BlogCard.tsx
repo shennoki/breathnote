@@ -13,10 +13,10 @@ const BlogCard: React.FC<Props> = ({ post }) => {
   return (
     <article className={styles.article}>
       <div className={styles.thumbnail}>
-        <Image width={850} height={445} src={post.thumbnail.url} alt={post.title} />
+        <Image src={post.thumbnail.url} alt={post.title} width={850} height={445} priority={true} />
       </div>
       <time dateTime={post.publishedAt} itemProp="datepublished" className={styles.date}>
-        {getFormattedDate(post.publishedAt, 'yyyy / MM / dd')}
+        {getFormattedDate(post.publishedAt, 'yyyy年M月d日')}
       </time>
       <h2 className={styles.title}>
         <Link href={`/posts/${post.slug}`} prefetch={false}>

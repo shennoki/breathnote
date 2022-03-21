@@ -1,25 +1,29 @@
 @import 'styles/mixins';
 
 .post {
+  @include mq(sm) {
+    font-size: 1.5rem;
+  }
+
   & > :first-child {
     margin-top: 0;
   }
 
   & h2 {
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: bold;
     margin: 2.5em 0 0;
     @include mq(md) {
-      font-size: 1.7em;
+      font-size: 1.6em;
     }
   }
 
   & h3 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: bold;
     margin: 1.8em 0 0;
     @include mq(md) {
-      font-size: 1.5em;
+      font-size: 1.4em;
     }
   }
 
@@ -34,7 +38,7 @@
 
   & p {
     margin: 1.6em 0 0;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
     @include mq(sm) {
       line-height: 1.8;
     }
@@ -64,10 +68,10 @@
 
   & code {
     padding: 0.35em 0.45em 0.25em; // フォント調整
-    margin: 0 0.3em;
+    margin: 0 0.2em;
     font-family: var(--f-mono);
-    font-size: 0.9em;
-    letter-spacing: 0.01em;
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
     word-break: break-all;
     background-color: var(--c-bg-3);
     border-radius: 2px;
@@ -128,6 +132,7 @@
   & > blockquote {
     padding: 1.5em 3.3em 1.5em 1.6em;
     margin: 2.5em 0 2em;
+    font-size: 0.95em;
     font-style: italic;
     background-color: var(--c-bg-3);
     border-left: 0.3em solid var(--c-text-thin);
@@ -162,14 +167,14 @@
     }
     & th {
       width: 1%;
-      padding: 1em 0.5em;
+      padding: 0.9em 0.5em;
       text-align: center;
       background-color: var(--c-bg-3);
     }
     td {
       width: 1%;
-      padding: 1em 0.6em;
-      font-size: 0.9em;
+      padding: 0.8em 0.5em;
+      font-size: 0.95em;
       text-align: center;
     }
   }
@@ -180,17 +185,22 @@
   }
 
   & pre {
-    padding: 1.7em 1.5em 1.5em;
+    padding: 3.5em 1.5em 1.3em;
     margin: 1.5em 0;
     background-color: var(--c-bg-3);
     border-radius: 3px;
     box-shadow: var(--s-pre);
     overflow-x: scroll;
+    position: relative;
     & code {
       padding: 0;
       margin: 0;
       background-color: transparent;
+      letter-spacing: 0.02em;
       word-break: normal;
+      & span {
+        padding: 0 0.2em 0 0;
+      }
     }
     &::-webkit-scrollbar {
       @include mq(lg) {
@@ -203,6 +213,19 @@
         background-color: var(--c-bg-4);
         border-radius: 4px;
       }
+    }
+    & > div {
+      padding: 0.2em 1em 0.1em; // フォント調整
+      margin: 0.9em 0 0 0.9em;
+      color: var(--c-text);
+      font-family: var(--f-sans);
+      font-size: 0.95em;
+      background-color: var(--c-bg-2);
+      border-radius: 20px;
+      box-shadow: var(--s-pre-title);
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }

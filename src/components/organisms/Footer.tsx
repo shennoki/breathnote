@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <ul className={styles.exlink}>
         <li>
-          <a href="https://twitter.com/code_shinki" target="_blank" rel="nofollow noopener noreferrer" title="Twitter">
+          <a href="https://twitter.com/_shinnoki" target="_blank" rel="nofollow noopener noreferrer" title="Twitter">
             <SvgIcon type="twitter" size="2.3em" strokeWidth={2.3} />
           </a>
         </li>
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </a>
         </li>
         <li>
-          <div className={styles.wip} title="shinki.net (工事中)">
+          <div className={styles.wip} title="shinki.net (準備中)">
             <SvgIcon type="home" size="2.3em" strokeWidth={2.3} />
           </div>
         </li>

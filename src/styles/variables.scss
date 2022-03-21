@@ -35,6 +35,7 @@ html.light {
     --s-neumo-inset: inset 3px 3px 1px #dadbdd;
     --s-drop: 1px 1px 1px #4c566a66;
     --s-pre: inset 2px 2px 3px #e7e8e9, inset -3px -3px 2px #ffffff;
+    --s-pre-title: 1px 1px 2px #d4d7dc, -2px -2px 1px #ffffff;
   }
 }
 html.dark {
@@ -66,6 +67,7 @@ html.dark {
     --s-neumo-inset: inset 8px 8px 2px #21252d;
     --s-drop: 2px 2px 2px #292e3977;
     --s-pre: inset 2px 2px 3px #2b303c, inset -3px -3px 2px #313844;
+    --s-pre-title: 1px 1px 2px #3c4455, -2px -2px 1px #4a5467;
   }
 }
 

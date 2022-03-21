@@ -4,38 +4,25 @@ import Keywords from 'components/organisms/Keywords'
 import Share from 'components/organisms/Share'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Script from 'next/script'
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import React, { useEffect } from 'react'
 import 'styles/destyle.scss'
 import 'styles/global.scss'
+import 'styles/utils/katex.scss'
 import 'styles/utils/prism.scss'
 import 'styles/variables.scss'
-import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
-import { pageview } from 'utils/gtag'
+import { GA_TRACKING_ID, SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
 nprogress.configure({ showSpinner: false, speed: 200, minimum: 0.25 })
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const router = useRouter()
-
   // ページ遷移時にプログレスバーを表示
-  process.browser && nprogress.start()
+  typeof window !== 'undefined' && nprogress.start()
   useEffect(() => {
     nprogress.done()
   })
-
-  // ページごとにアナリティクスを計測させる
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
 
   !pageProps.pageProps && <Component {...pageProps} />
 
@@ -57,7 +44,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           property="og:image"
           content={pageProps.pageProps.thumbnail ? pageProps.pageProps.thumbnail : `${SITE_DOMAIN}/img/og-img.jpg`}
         />
-        <meta name="twitter:site" content="@code_shinki" />
+        <meta name="twitter:site" content="@_shinnoki" />
         <meta name="twitter:card" content="summary" />
         <meta name="theme-color" content="#4c566a" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,6 +70,21 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Keywords keywords={pageProps.pageProps.keywords} />
       </aside>
       <Footer />
+      {GA_TRACKING_ID && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} strategy="afterInteractive" />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+          `}
+          </Script>
+        </>
+      )}
     </>
   )
 }
