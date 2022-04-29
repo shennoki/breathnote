@@ -25,7 +25,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             />
           </span>
           <img
-            alt="Material-UIとreact-springの併用で「Cannot update a component」"
+            alt="Material-UIとreact-springの併用でエラー（Cannot update a component ForwardRef Modal ...）"
             data-nimg="intrinsic"
             decoding="async"
             src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Ffb5d600012fa4390bb62fcae2998fcf2%2Fmaterial-ui.png&w=1200&q=75"
@@ -47,7 +47,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/react-spring-modal-state-error"
         >
-          Material-UIとreact-springの併用で「Cannot update a component」
+          Material-UIとreact-springの併用でエラー（Cannot update a component ForwardRef Modal ...）
         </a>
       </h2>
       <hr />
@@ -95,7 +95,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             />
           </span>
           <img
-            alt="Reactではステートの変更が即時反映されない場合がある"
+            alt="Reactではstateの更新が即時反映されない場合がある"
             data-nimg="intrinsic"
             decoding="async"
             src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F36945828ef544a2fb37367d845aeaf05%2Freact.png&w=1200&q=75"
@@ -117,7 +117,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/react-state-not-reflected"
         >
-          Reactではステートの変更が即時反映されない場合がある
+          Reactではstateの更新が即時反映されない場合がある
         </a>
       </h2>
       <hr />
@@ -162,7 +162,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             />
           </span>
           <img
-            alt="Jestを用いたNext.jsのテスト内で環境変数を利用する"
+            alt="Jestを用いたNext.jsのテストで環境変数を利用する"
             data-nimg="intrinsic"
             decoding="async"
             src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2Fea80ec90e22d488f86164ab667c78201%2Fjest.png&w=1200&q=75"
@@ -184,7 +184,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/nextjs-jest-environment-variable"
         >
-          Jestを用いたNext.jsのテスト内で環境変数を利用する
+          Jestを用いたNext.jsのテストで環境変数を利用する
         </a>
       </h2>
       <hr />
@@ -232,7 +232,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
             />
           </span>
           <img
-            alt="ヘッドレスCMSから受け取った記事上でnext/imageを利用する"
+            alt="ヘッドレスCMSから受け取ったMDXをNext.jsコンポーネントに変換する"
             data-nimg="intrinsic"
             decoding="async"
             src="/_next/image?url=https%3A%2F%2Fimages.microcms-assets.io%2Fassets%2F3c39a709d91a45e381e9d2d9c424a09b%2F8459896f7b564d7faee484bc9124e62b%2Fnext-js.png&w=1200&q=75"
@@ -254,7 +254,7 @@ exports[`TOP PAGE 1/7 (pages/index.tsx) snapshot 1`] = `
         <a
           href="/posts/nextjs-markdown-to-jsx"
         >
-          ヘッドレスCMSから受け取った記事上でnext/imageを利用する
+          ヘッドレスCMSから受け取ったMDXをNext.jsコンポーネントに変換する
         </a>
       </h2>
       <hr />
