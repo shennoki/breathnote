@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <article className={styles.article}>
       <div className={styles.visual}>
-        <h1 className={styles.title}>For developers.</h1>
+        <h1 className={styles.title}>for Developers.</h1>
         <span className={styles.circle1}></span>
         <span className={styles.circle2}></span>
         <span className={styles.circle3}></span>
