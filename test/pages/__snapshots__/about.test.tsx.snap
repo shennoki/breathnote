@@ -11,7 +11,7 @@ exports[`ABOUT PAGE (pages/about.tsx) snapshot 1`] = `
       <h1
         class="title"
       >
-        For developers.
+        for Developers.
       </h1>
       <span
         class="circle1"
