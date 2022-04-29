@@ -28,7 +28,7 @@ _斜体_
 
 `インラインブロック`
 
-<div className="codeblock-filename">launch.json</div>
+<div className="codeblock-filename">shell</div>
 
 ```html
 <html>
