@@ -1,11 +1,15 @@
 import SvgIcon from 'components/atoms/SvgIcon'
 import ThemeToggler from 'components/molecules/ThemeToggler'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './GlobalNavigation.module.scss'
 
 const GlobalNavigation: React.FC = () => {
   const [linkState, setLinkState] = useState<boolean>(true)
+
+  useEffect(() => {
+    setLinkState(true)
+  }, [])
 
   const handleChangeLinkState = () => {
     setLinkState(false)

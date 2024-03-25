@@ -24,8 +24,6 @@ ps:
 	docker compose -f .devcontainer/docker-compose.yml ps
 logs:
 	docker compose -f .devcontainer/docker-compose.yml logs
-build:
-	docker compose -f .devcontainer/docker-compose.yml exec app yarn run build
 lint:
 	docker compose -f .devcontainer/docker-compose.yml exec app yarn run lint
 test:
