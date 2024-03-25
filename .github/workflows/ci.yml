@@ -13,6 +13,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./app
+
     steps:
       - uses: actions/checkout@v2
 
@@ -20,9 +24,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14.x"
-
-      - name: Move Directory
-        run: cd app
 
       - name: Install
         run: yarn install
