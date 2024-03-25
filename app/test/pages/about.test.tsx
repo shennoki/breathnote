@@ -1,5 +1,4 @@
 import { cleanup, render } from '@testing-library/react'
-import React from 'react'
 import About from '../../src/pages/about'
 
 describe(`ABOUT PAGE (pages/about.tsx)`, () => {

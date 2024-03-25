@@ -1,5 +1,4 @@
 import { cleanup, render } from '@testing-library/react'
-import React from 'react'
 import { getKeywordPosts } from '../../../../../src/libs/requests'
 import { fetchAllKeywords } from '../../../../../src/libs/store'
 import Keywords from '../../../../../src/pages/keywords/[slug]/page/[offset]'

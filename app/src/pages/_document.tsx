@@ -1,6 +1,5 @@
 import { randomBytes } from 'crypto'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
-import React from 'react'
 
 class MyDocument extends Document<{ nonce: string }> {
   static async getInitialProps(ctx: DocumentContext) {

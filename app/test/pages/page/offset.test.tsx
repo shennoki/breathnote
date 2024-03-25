@@ -1,5 +1,4 @@
 import { cleanup, render } from '@testing-library/react'
-import React from 'react'
 import { fetchAllKeywords, fetchAllPosts } from '../../../src/libs/store'
 import Home from '../../../src/pages/page/[offset]'
 import { SITE_DESCRIPTION, SITE_DOMAIN, SITE_SUBTITLE, SITE_TITLE } from '../../../src/utils/env'

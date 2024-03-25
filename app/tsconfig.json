@@ -1,5 +1,4 @@
-/* TypeScirpt Config | https://www.typescriptlang.org/ja/tsconfig */
-{
+/* TypeScirpt Config | https://www.typescriptlang.org/ja/tsconfig */ {
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",

@@ -1,7 +1,6 @@
 import ErrorArticle from 'components/organisms/Error'
 import { fetchAllKeywords } from 'libs/store'
 import { GetStaticProps, NextPage } from 'next'
-import React from 'react'
 import { PageProps } from 'types/pageProps'
 import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
