@@ -37,3 +37,12 @@ yarn-error.log*
 /public/sw.js
 /public/workbox-*.js
 /public/*.js.map
+
+#tmp
+/app/node_modules
+/app/.next
+/app/.env.local
+/app/.env.test.local
+/app/public/sw.js
+/app/public/workbox-*.js
+/app/public/*.js.map
