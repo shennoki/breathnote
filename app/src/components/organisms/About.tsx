@@ -11,7 +11,7 @@ const About: React.FC = () => {
         <span className={styles.circle3}></span>
       </div>
       <div className={styles.body}>
-        <p>Breath Noteへようこそ。</p>
+        <p>Breathnoteへようこそ。</p>
         <p>このサイトでは、フロントエンドからバックエンドまで、フルスタックなWeb技術の備忘録を掲載しています。</p>
         <p>ドキュメントの確認や、バグフィックスのお供にどうぞ。</p>
         <h2>留意事項</h2>

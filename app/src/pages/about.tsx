@@ -1,7 +1,6 @@
 import AboutArticle from 'components/organisms/About'
 import { fetchAllKeywords } from 'libs/store'
 import { GetStaticProps, NextPage } from 'next'
-import React from 'react'
 import { PageProps } from 'types/pageProps'
 import { SITE_DOMAIN, SITE_TITLE } from 'utils/env'
 
@@ -17,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
     type: 'about',
     title: `About - ${SITE_TITLE}`,
     description:
-      'BreathNoteは、フロントエンドの話題や備忘録をアウトプットしているブログです。当サイトに掲載されているコンテンツは自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。',
+      'Breathnoteは、フロントエンドの話題や備忘録をアウトプットしているブログです。当サイトに掲載されているコンテンツは自由にご利用いただけますが、ご利用の際に生じた如何なる不具合も当サイトは一切責任を負いません。',
     keywords: (await fetchAllKeywords()).contents,
   }
 

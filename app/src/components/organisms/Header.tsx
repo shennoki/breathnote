@@ -16,7 +16,7 @@ const Header: React.FC<Props> = ({ type }) => {
         <h1 className={`${styles.logo} ${styles.wave}`}>
           <Link href="/" prefetch={false}>
             <a>
-              <Image src={imgSrc} alt="BreathNote" />
+              <Image src={imgSrc} alt="Breathnote" />
             </a>
           </Link>
         </h1>
@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ type }) => {
         <div className={`${styles.logo} ${styles.wave}`}>
           <Link href="/" prefetch={false}>
             <a>
-              <Image src={imgSrc} alt="BreathNote" />
+              <Image src={imgSrc} alt="Breathnote" />
             </a>
           </Link>
         </div>

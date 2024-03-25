@@ -27,7 +27,7 @@ exports[`ABOUT PAGE (pages/about.tsx) snapshot 1`] = `
       class="body"
     >
       <p>
-        Breath Noteへようこそ。
+        Breathnoteへようこそ。
       </p>
       <p>
         このサイトでは、フロントエンドからバックエンドまで、フルスタックなWeb技術の備忘録を掲載しています。
