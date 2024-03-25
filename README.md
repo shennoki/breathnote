@@ -1,6 +1,6 @@
-<h1 align="center">BreathNote</h1>
+<h1 align="center">Breathnote</h1>
 
-![og-image](public/img/og-img.jpg)
+![og-image](app/public/img/og-img.jpg)
 
 <p align="center">Tech blog.</p>
 
@@ -10,6 +10,7 @@
 - Micro CMS
 - CSS Modules
 - TypeScript
+- Docker
 
 ## Browser Support
 
