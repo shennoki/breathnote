@@ -1,4 +1,4 @@
-FROM node:14.21.3-slim
+FROM node:18.19.0-slim
 WORKDIR /workspaces/container/app
 COPY ../app /app
 RUN yarn install
